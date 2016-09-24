@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dog.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @dog.gender %>
+</p>
+
+<p>
+  <strong>Born on:</strong>
+  <%= @dog.born_on %>
+</p>
+
+<p>
+  <strong>Chip number:</strong>
+  <%= @dog.chip_number %>
+</p>
+
+<p>
+  <strong>License number:</strong>
+  <%= @dog.license_number %>
+</p>
+
+<p>
+  <strong>Is hdb approved:</strong>
+  <%= @dog.is_hdb_approved %>
+</p>
+
+<p>
+  <strong>Color markings:</strong>
+  <%= @dog.color_markings %>
+</p>
+
+<p>
+  <strong>Adoption status:</strong>
+  <%= @dog.adoption_status %>
+</p>
+
+<p>
+  <strong>Background story:</strong>
+  <%= @dog.background_story %>
+</p>
+
+<p>
+  <strong>Is good with other dogs:</strong>
+  <%= @dog.is_good_with_other_dogs %>
+</p>
+
+<p>
+  <strong>Is good with kids:</strong>
+  <%= @dog.is_good_with_kids %>
+</p>
+
+<p>
+  <strong>Energy level:</strong>
+  <%= @dog.energy_level %>
+</p>
+
+<p>
+  <strong>Notes temperament:</strong>
+  <%= @dog.notes_temperament %>
+</p>
+
+<p>
+  <strong>Is vaccinated:</strong>
+  <%= @dog.is_vaccinated %>
+</p>
+
+<p>
+  <strong>Is sterilized:</strong>
+  <%= @dog.is_sterilized %>
+</p>
+
+<p>
+  <strong>Notes health:</strong>
+  <%= @dog.notes_health %>
+</p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @dog.quote %>
+</p>
+
+<%= link_to 'Edit', edit_dog_path(@dog) %> |
+<%= link_to 'Back', dogs_path %>

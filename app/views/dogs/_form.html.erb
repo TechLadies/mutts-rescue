@@ -1,0 +1,102 @@
+<%= form_for(dog) do |f| %>
+  <% if dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+
+      <ul>
+      <% dog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= f.label :born_on %>
+    <%= f.date_select :born_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chip_number %>
+    <%= f.text_field :chip_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :license_number %>
+    <%= f.text_field :license_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_hdb_approved %>
+    <%= f.check_box :is_hdb_approved %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color_markings %>
+    <%= f.text_field :color_markings %>
+  </div>
+
+  <div class="field">
+    <%= f.label :adoption_status %>
+    <%= f.text_field :adoption_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :background_story %>
+    <%= f.text_area :background_story %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_good_with_other_dogs %>
+    <%= f.check_box :is_good_with_other_dogs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_good_with_kids %>
+    <%= f.check_box :is_good_with_kids %>
+  </div>
+
+  <div class="field">
+    <%= f.label :energy_level %>
+    <%= f.text_field :energy_level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes_temperament %>
+    <%= f.text_area :notes_temperament %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_vaccinated %>
+    <%= f.check_box :is_vaccinated %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_sterilized %>
+    <%= f.check_box :is_sterilized %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes_health %>
+    <%= f.text_area :notes_health %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quote %>
+    <%= f.text_area :quote %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

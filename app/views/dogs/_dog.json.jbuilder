@@ -1,0 +1,2 @@
+json.extract! dog, :id, :name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :created_at, :updated_at
+json.url dog_url(dog, format: :json)
