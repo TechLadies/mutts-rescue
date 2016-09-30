@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin: Dog Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<nav id="AdminNavBar" class="navbar navbar-default navbar-fixed-top" role='navigation'>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#AdminNavbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> <img MuttsRescueLogo>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="AdminNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#home"></a>
+        </li>
+        <li><a href="#admin_dog_list">Dogs</a></li>
+        <li><a href="#admin_people_list">People</a></li>
+      </ul>
+    </div>
+
+      </div>
+
+      </nav>
+
+  <header id="top" class="header">
+    <h1>Dog Details <button class="btn" data-toggle="collapse" data-target="">Save</button></h1>
+  </header>
+
+<div class="form-group">
+  <label for="name" class="col-sm-1 control-label">Name</label>
+  <div class="col-sm-3">
+    <input class=form-control type="string" id="name">
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="color_markings" class="col-sm-1" control-label>Colour markings</label>
+  <div class="col-sm-3">
+    <input type="string" class="form-control" id="color_markings">
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="adoption_status" class="col-sm-1" control-label>Status</label>
+  <div class="col-sm-3">
+    <select class="form-control" id="adoption_status" type="string">
+      <option>Looking for adoption</option>
+      <option>Mid-training<option>
+      <option>Adopted</option>
+      </select>
+  </div>
+</div>
+
+<div class="radio">
+  <label for="location" class="col-sm-1" control-label>In MR facility of foster home?</label>
+  <div class="col-sm-3">
+    <label class="radio-inline"> <input type="radio" id="location" name="optradio">MR facility</label>
+    <label class="radio-inline"> <input type="radio" id="location" name="optradio">Foster's home</label>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="mr_facility_id" class="col-sm-1" control-label>Which MR facilitiy?</label>
+  <div class="col-sm-3">
+    <select class="form-control" id="mr_facitiliy_id">
+      <option>1</option>
+      <option>2<option>
+      <option>3</option>
+      </select>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <label for="date" class='col-sm-1' control-label>Date rescued</label>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class='input-group date' id='date'>
+                    <input type='date' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+
+<div class="radio">
+  <label for="is_hdb_approved" class="col-sm-1" control-label>HDB approved</label>
+  <div class="col-sm-3">
+    <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">Yes</label>
+    <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">No</label>
+    <br>
+    <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">Maybe</label>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <h2>Basic Information</h2>
+  <form class="form-horizontal">
+
+    <div class="form-group">
+      <label class="col-sm-1 control-label">Gender</label>
+      <div class="col-sm-3">
+        <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Male</label>
+        <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Female</label>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+          <label for="born_on" class='col-sm-1' control-label>Date of birth (estimated)</label>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class='input-group date' id='born_on'>
+                        <input type='date' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age" class="col-sm-7 control-label">Age</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="age" type="string" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="chip_number" class="col-sm-1 control-label">Chip no.</label>
+      <div class="col-sm-2">
+        <input class="form-control" id="chip_number" type="string" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="license_number" class="col-sm-7 control-label">License no.</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="license_number" type="string" >
+      </div>
+    </div>
+  </form>
+  </div>
+
+<hr>
+
+    <div class="container">
+      <h2>Temperament</h2>
+      <form class="form-horizontal">
+
+        <div class="form-group">
+          <label class="col-sm-1 control-label">Good with other dogs?</label>
+          <div class="col-sm-3">
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">Yes</label>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-7 control-label">Good with kids?</label>
+          <div class="col-sm-9">
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">Yes</label>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-1 control-label">Energy Level</label>
+          <div class="col-sm-3">
+            <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Low</label>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Normal</label>
+            <br>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">High</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes_temperament">Notes on temperament</label>
+          <textarea class="form-control" rows="5" id="notes_temperament"></textarea>
+        </div>
+</form>
+</div>
+
+<hr>
+
+<div class="container">
+  <h2>Health</h2>
+  <form class="form-horizontal">
+
+  <div class="form-group">
+    <label class="col-sm-1 control-label">Vaccinated?</label>
+    <div class="col-sm-3">
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">Yes</label>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">No</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-7 control-label">Sterilized?</label>
+    <div class="col-sm-9">
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">Yes</label>
+            <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">No</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="notes_health">Notes on health (e.g. health history, current health condition</label>
+    <textarea class="form-control" rows="5" id="notes_health"></textarea>
+  </div>
+</form>
+</div>
+
+<hr>
+
+<div class="container">
+  <h2>Background Story</h2>
+  <p>(e.g. how and where it was found, the state when it was found)</p>
+  <form class="form-horizontal">
+<div class="form-group">
+  <textarea class="form-control" rows="5" id="background_story"></textarea>
+</div>
+</form>
+</div>
+
+<hr>
+
+
+</body>
+
+</html>
