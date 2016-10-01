@@ -1,6 +1,5 @@
-class DogsController < ApplicationController
+class Admin::DogsController < AdminController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /dogs
   # GET /dogs.json
@@ -29,7 +28,7 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
+        format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new }
@@ -43,7 +42,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -57,7 +56,7 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
+      format.html { redirect_to admin_dogs_url, notice: 'Dog was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

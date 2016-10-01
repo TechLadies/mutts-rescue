@@ -46,9 +46,9 @@
         <td><%= dog.is_sterilized %></td>
         <td><%= dog.notes_health %></td>
         <td><%= dog.quote %></td>
-        <td><%= link_to 'Show', dog %></td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin, dog] %></td>
+        <td><%= link_to 'Edit', edit_admin_dog_path(dog) %></td>
+        <td><%= link_to 'Destroy', [:admin, dog], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -56,4 +56,4 @@
 
 <br>
 
-<%= link_to 'New Dog', new_dog_path %>
+<%= link_to 'New Dog', new_admin_dog_path %>
