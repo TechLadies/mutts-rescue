@@ -1,6 +1,6 @@
-class Admin::LocationsController < ApplicationController
+class Admin::LocationsController < AdminController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  
 
   # GET /locations
   # GET /locations.json
@@ -43,7 +43,7 @@ class Admin::LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to [:admin, location], notice: 'Location was successfully updated.' }
+        format.html { redirect_to [:admin, @location], notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
