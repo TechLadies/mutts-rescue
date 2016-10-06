@@ -22,6 +22,9 @@ class Admin::DogsController < AdminController
   def edit
   end
 
+  def list
+  end
+
   # POST /dogs
   # POST /dogs.json
   def create

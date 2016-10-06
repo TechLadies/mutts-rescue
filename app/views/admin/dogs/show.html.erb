@@ -30,7 +30,7 @@
         <li class="hidden">
           <a href="home#home"></a>
         </li>
-        <li><a href="admin#detail">Dogs</a></li>
+        <li><a href="admin#dog#list">Dogs</a></li>
         <li><a href="admin#people">People</a></li>
       </ul>
     </div>
@@ -41,14 +41,13 @@
   <br><br>
 
   <div class="container">
+    <header id="top" class="header">
+      <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      </h1>
+    </header>
     <div class="row">
       <div class="col-md-6">
         <form class="form-horizontal">
-          <header id="top" class="header">
-            <h1><span>Dog Details</span> <button class="btn btn-sucess pull-right" type="submit">   Save   </button>
-            </h1>
-          </header>
-
           <div class="form-group">
             <label for="name" class="col-sm-6 control-label">Name</label>
             <div class="col-sm-6">
@@ -119,200 +118,242 @@
       <div class="col-md-6">
         Photo Stuff will go here eventually. =-)
       </div>
-    </div> <!-- Dog Details section -->
+    </div> <!-- End of Dog Details section -->
 
   </div>
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <form>
-      <h2><strong>Basic Information</strong></h2>
-      <div class="form-group">
-        <label class="col-lg-2 control-label">Gender</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Male</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Female</label>
+    <h2><strong>Basic Information</strong></h2>
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Gender</label>
+              <div class="col-sm-6">
+                <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Male</label>
+                <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Female</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+          </div>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="form-group">
-          <label for="born_on" class="col-lg-2 control-label">Date of birth (estimated)</label>
-          <div class="col-lg-4">
-            <div class="input-group date" id="born_on">
-              <input type="text" class="form-control" />
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
+                <div class="col-sm-6">
+                  <div class="input-group date" id="born_on">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <script type="text/javascript"> $(function () {$('#born_on').datetimepicker();});</script>
+
+            <div class="form-group">
+              <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
+                <div class="col-sm-6">
+                  <input class="form-control" id="chip_number" type="string">
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+                <label for="age" class="col-sm-6 control-label">Age</label>
+                  <div class="col-sm-6">
+                    <input class="form-control" id="age" type="text">
+                  </div>
+            </div>
+
+            <%def age(born_on)
+            now = Date.current
+            age-year=now.year - born_on.year
+            age-month=now.month - born_on.month
+            age_year=age-year.to_s
+            age_month=age-month.to_s
+            age="age_year years and age_month months"
+            end%>
+
+            <div class="form-group">
+              <label for="license_number" class="col-sm-6 control-label">License no.</label>
+                <div class="col-sm-6">
+                  <input class="form-control" id="license_number" type="string">
+                </div>
             </div>
           </div>
         </div>
-        <script type="text/javascript">
-$(function () {
-  $('#born_on').datetimepicker();
-});
-        </script>
-      </div>
-
-      <div class="form-group">
-        <label for="age" class="col-lg-2 control-label">Age</label>
-        <div class="col-lg-4">
-          <input class="form-control" id="age" type="text">
-        </div>
-      </div>
-
-      <%def age(born_on)
-      now = Date.current
-      age-year=now.year - born_on.year
-      age-month=now.month - born_on.month
-      age_year=age-year.to_s
-      age_month=age-month.to_s
-      age="age_year years and age_month months"
-      end%>
-
-      <div class="form-group">
-        <label for="chip_number" class="col-lg-2 control-label">Chip no.</label>
-        <div class="col-lg-4">
-          <input class="form-control" id="chip_number" type="string">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="license_number" class="col-lg-2 control-label">License no.</label>
-        <div class="col-lg-4">
-          <input class="form-control" id="license_number" type="string">
-        </div>
-      </div>
-    </form>
+      </form>
   </div>
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <form>
-      <h2><strong>Temperament</strong></h2>
-      <div class="form-group">
-        <label for="is_good_with_other_dogs" class="col-lg-2 control-label">Good with other dogs?</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">Yes</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">No</label>
-        </div>
-      </div>
+    <h2><strong>Temperament</strong></h2>
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
+              <div class="col-lg-4">
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">No</label>
+              </div>
+              <div class="form-group">
+                <label for="energy_level" class="col-sm-6 control-label">Energy Level</label>
+                <div class="col-sm-6">
+                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Low</label>
+                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Normal</label>
+                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">High</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label for="is_good_with_kids"class="col-lg-2 control-label">Good with kids?</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">Yes</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">No</label>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
+              <div class="col-sm-6">
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">No</label>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="energy_level" class="col-lg-2 control-label">Energy Level</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Low</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Normal</label>
-          <br>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">High</label>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
+                <div class="col-sm-12">
+                  <textarea class="form-control" rows="5" id="notes_temperament"></textarea>
+                </div>
+              </div>
+            </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="notes_temperament" class="col-lg-12">Notes on temperament</label>
-        <div class="col-lg-12">
-          <textarea class="form-control" rows="5" id="notes_temperament"></textarea>
-        </div>
-      </div>
-    </form>
-  </div>
+      </form>
+  </div> <!-- End of Basic Information section -->
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <form>
-      <h2><strong>Health</strong></h2>
-      <div class="form-group">
-        <label class="col-lg-2 control-label">Vaccinated?</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">Yes</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">No</label>
+    <h2><strong>Health</strong></h2>
+      <form class="form-horizontal">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Vaccinated?</label>
+                <div class="col-sm-6">
+                  <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">Yes</label>
+                  <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">No</label>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Sterilized?</label>
+              <div class="col-sm-6">
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">No</label>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="col-lg-2 control-label">Sterilized?</label>
-        <div class="col-lg-4">
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">Yes</label>
-          <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">No</label>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
+                <div class="col-sm-12">
+                  <textarea class="form-control" rows="5" id="notes_health"></textarea>
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="notes_health" class="col-lg-12">Notes on health (e.g. health history, current health condition</label>
-        <div class="col-lg-12">
-          <textarea class="form-control" rows="5" id="notes_health"></textarea>
-        </div>
-      </div>
-    </form>
-  </div>
+      </form>
+  </div> <!-- End of Health section -->
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <form>
-      <h2 class="col-lg-12"><strong>Background Story</strong></h2>
-      <p class="col-lg-12">(e.g. how and where it was found, the state when it was found)</p>
-      <div class="form-group">
-        <textarea class="form-control" rows="5" id="background_story"></textarea>
-      </div>
-    </form>
-  </div>
+    <h2><strong>Background Story</strong></h2>
+      <form class=form-horizontal>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
+                <div class="col-sm-12">
+                  <textarea class="form-control" rows="5" id="background_story"></textarea>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div> <!-- End of Background story section -->
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-  <div class=<"container">
+  <div class="container">
     <h2><span><strong>Donation & Sponsorship</strong></span>
-      <button class="btn btn-sucess pull-right" type="submit">   Add donor/sponsor  </button>
-      <button class="btn btn-sucess pull-right" type="submit">   Edit details   </button>
+      <div class="btn-toolbar pull-right" role="toolbar">
+      <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
+      <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+    </div>
     </h2>
 
-    <div class="container">
-      <div class="row">
-        <div class="panel panel-default">
-          <table class="table table-fixed">
-            <thead>
-              <tr>
-                <th class="col-lg-1">Type</th><th class="col-lg-2">Date contributed</th><th class="col-lg-1">Amount (S$)</th><th class="col-lg-3">Name</th><th class="col-lg-2">Phone no.</th><th class="col-lg-1">Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="col-lg-1">Donation</td><td class="col-lg-2">[Latest] 01/01/2016</td><td class="col-lg-1">100</td><td class="col-lg-3">Mohammed Bin Sulaiman</td><td class="col-lg-2">90909090</td><td class="col-lg-1">youremail@gmail.com</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="row">
+      <div class="panel panel-default">
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-lg-1">Type</th><th class="col-lg-2">Date contributed</th><th class="col-lg-1">Amount (S$)</th><th class="col-lg-3">Name</th><th class="col-lg-2">Phone no.</th><th class="col-lg-1">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-lg-1">Donation</td><td class="col-lg-2">[Latest] 01/01/2016</td><td class="col-lg-1">100</td><td class="col-lg-3">Mohammed Bin Sulaiman</td><td class="col-lg-2">90909090</td><td class="col-lg-1">youremail@gmail.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> <!-- End of Donation and Sponsorship section-->
+
+
+  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+  <div class="container">
+    <h2><span><strong>Updates</strong></span>
+      <div class="btn-toolbar pull-right" role="toolbar">
+        <button class="btn btn-success pull-right" type="submit">   Add an update  </button>
+        <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+    </h2>
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-9">
       </div>
     </div>
   </div>
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class=<"container">
-    <h2><span><strong>Updates</strong></span>
-      <button class="btn btn-sucess pull-right" type="submit">   Add an update  </button>
-      <button class="btn btn-sucess pull-right" type="submit">   Edit details   </button>
-    </h2>
-
-  </div>
-
-  <button class="btn btn-success center" type="submit">   Save   </button>
+  <button class="btn btn-success center-block" type="submit">   Save   </button>
 
 </body>
 
-<footer>
+<br>
+
+<footer class="footer text-center">
+   <div class="container">
+     <p class="text-muted">Place footer here</p>
+   </div>
 </footer>
+
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="plugins/moment/moment.min.js"></script>
 <script type="text/javascript" src="plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
