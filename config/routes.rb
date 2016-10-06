@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/' => 'home#home'
   get '/home' => 'home#home'
+  get '/admin' => 'admin#index'
 
   namespace :admin do
     resources :dogs
