@@ -51,7 +51,7 @@
           <div class="form-group">
             <label for="name" class="col-sm-6 control-label">Name</label>
             <div class="col-sm-6">
-              <input class=form-control type="string" id="name">
+              <input class=form-control type="string" id="name" placeholder="<%= dog.name %>">
             </div>
           </div>
 
@@ -312,12 +312,25 @@
         <table class="table table-fixed">
           <thead>
             <tr>
-              <th class="col-lg-1">Type</th><th class="col-lg-2">Date contributed</th><th class="col-lg-1">Amount (S$)</th><th class="col-lg-3">Name</th><th class="col-lg-2">Phone no.</th><th class="col-lg-1">Email</th>
+              <th class="col-lg-1">Type</th>
+              <th class="col-lg-2">Date contributed</th>
+              <th class="col-lg-1">Amount (S$)</th>
+              <th class="col-lg-3">Name</th>
+              <th class="col-lg-2">Phone no.</th>
+              <th class="col-lg-1">Email</th>
             </tr>
           </thead>
           <tbody>
+            <!-->
+            <% @people.each do |people| %>
+            -->
             <tr>
-              <td class="col-lg-1">Donation</td><td class="col-lg-2">[Latest] 01/01/2016</td><td class="col-lg-1">100</td><td class="col-lg-3">Mohammed Bin Sulaiman</td><td class="col-lg-2">90909090</td><td class="col-lg-1">youremail@gmail.com</td>
+              <td class="col-lg-1">Donation</td>
+              <td class="col-lg-2">[Latest] 01/01/2016</td>
+              <td class="col-lg-1">100</td>
+              <td class="col-lg-3">Mohammed Bin Sulaiman</td>
+              <td class="col-lg-2">90909090</td>
+              <td class="col-lg-1">youremail@gmail.com</td>
             </tr>
           </tbody>
         </table>
