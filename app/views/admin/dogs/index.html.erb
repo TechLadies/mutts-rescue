@@ -22,6 +22,7 @@
       <th>Is sterilized</th>
       <th>Notes health</th>
       <th>Quote</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -46,6 +47,8 @@
         <td><%= dog.is_sterilized %></td>
         <td><%= dog.notes_health %></td>
         <td><%= dog.quote %></td>
+        <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %>
+        </td>
         <td><%= link_to 'Show', [:admin, dog] %></td>
         <td><%= link_to 'Edit', edit_admin_dog_path(dog) %></td>
         <td><%= link_to 'Destroy', [:admin, dog], method: :delete, data: { confirm: 'Are you sure?' } %></td>

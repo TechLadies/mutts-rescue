@@ -96,6 +96,11 @@
     <%= f.text_area :quote %>
   </div>
 
+  <div class="field">
+    <%= f.label :image_url, 'Upload Image:' %>
+    <%= f.filepicker_field :image_url, dragdrop: true %>
+  </div>  
+
   <div class="actions">
     <%= f.submit %>
   </div>

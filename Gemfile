@@ -19,6 +19,9 @@ gem 'coffee-rails', '~> 4.2'
 #use gem 'devise'	
 gem 'devise'
 
+#use gem 'filepicker-rails'
+gem 'filepicker-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
