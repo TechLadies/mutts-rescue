@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/' => 'home#home'
   get '/home' => 'home#home'
   get '/admin' => 'admin#index'
-  get '/about_dog/:id', to: 'home#about_dog'
+  get '/about_dog/:id', to: 'home#about_dog', as: 'about_dog'
   resources :dogs
 
   namespace :admin do
