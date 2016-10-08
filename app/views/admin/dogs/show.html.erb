@@ -4,9 +4,12 @@
   <title>View and Edit Dog Details</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href=/bootstrap.min.css>
+<!--  "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <script src=/jquery.min.js></script>
+  <!-- "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <script src=/bootstrap.min.js></script>
+  <!-- "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 </head>
 
@@ -25,7 +28,7 @@
         </a>
       </div>
 
-    <div class="collapse navbar-collapse" id="AdminNavbar">
+    <!-- <div class="collapse navbar-collapse" id="AdminNavbar"> -->
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
           <a href="home#home"></a>
@@ -35,7 +38,6 @@
       </ul>
     </div>
 
-    </div>
   </nav>
 
   <br><br>
@@ -49,23 +51,23 @@
       <div class="col-md-6">
         <form class="form-horizontal">
           <div class="form-group">
-            <label for="name" class="col-sm-6 control-label">Name</label>
+            <label class="col-sm-6 control-label">Name</label>
             <div class="col-sm-6">
-              <input class=form-control type="string" id="name" placeholder="<%= dog.name %>">
+              <input class=form-control type="string" id="name" value="<%= @dog.name %>">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="color_markings" class="col-sm-6 control-label">Colour markings</label>
+            <label class="col-sm-6 control-label">Colour markings</label>
             <div class="col-sm-6">
-              <input type="string" class="form-control" id="color_markings">
+              <input class="form-control" type="string" id="color_markings" value="<%= @dog.color_markings %>">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="adoption_status" class="col-sm-6 control-label">Status</label>
+            <label class="col-sm-6 control-label">Status</label>
             <div class="col-sm-6">
-              <select class="form-control" id="adoption_status" type="string">
+              <select class="form-control" type="string" id="adoption_status" value="<%= @dog.adoption_status %>">
                 <option>Looking for adoption</option>
                 <option>In training/recovery</option>
                 <option>Adopted</option>
@@ -74,17 +76,17 @@
           </div>
 
           <div class="form-group">
-            <label for="dog_location" class="col-sm-6 control-label">In MR facility or foster home?</label>
+            <label class="col-sm-6 control-label">In MR facility or foster home?</label>
             <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" id="dog_location" name="optradio">MR facility</label>
-              <label class="radio-inline"> <input type="radio" id="dog_location" name="optradio">Foster home</label>
+              <label class="radio-inline"> <input type="radio" id="dog_location1" name="dog_location"/>MR facility</label>
+              <label class="radio-inline"> <input type="radio" id="dog_location2" name="dog_location"/>Foster home</label>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="mr_facility_id" class="col-sm-6 control-label">Which MR facilitiy?</label>
+            <label class="col-sm-6 control-label">Which MR facility?</label>
             <div class="col-sm-6">
-              <select class="form-control" id="mr_facility_id">
+              <select class="form-control" id="mr_facility_id" type="string">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -108,9 +110,9 @@
           <div class="form-group">
             <label for="is_hdb_approved" class="col-sm-6 control-label">HDB approved</label>
             <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">Yes</label>
-              <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">No</label>
-              <label class="radio-inline"> <input type="radio" name="optradio" id="is_hdb_approved">Maybe</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes">Yes</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no">No</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe">Maybe</label>
             </div>
           </div>
         </form>
@@ -190,7 +192,7 @@
           </div>
         </div>
       </form>
-  </div>
+  </div> <!-- End of Basic Information section -->
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
@@ -206,7 +208,7 @@
                 <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">No</label>
               </div>
               <div class="form-group">
-                <label for="energy_level" class="col-sm-6 control-label">Energy Level</label>
+                <label class="col-sm-6 control-label">Energy Level</label>
                 <div class="col-sm-6">
                   <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Low</label>
                   <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Normal</label>
@@ -238,7 +240,7 @@
             </div>
         </div>
       </form>
-  </div> <!-- End of Basic Information section -->
+  </div> <!-- End of Temperament section -->
 
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
@@ -321,9 +323,8 @@
             </tr>
           </thead>
           <tbody>
-            <!-->
-            <% @people.each do |people| %>
-            -->
+            <% #@people.each do |people| %>
+
             <tr>
               <td class="col-lg-1">Donation</td>
               <td class="col-lg-2">[Latest] 01/01/2016</td>
@@ -338,7 +339,6 @@
     </div>
   </div> <!-- End of Donation and Sponsorship section-->
 
-
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
@@ -346,26 +346,27 @@
       <div class="btn-toolbar pull-right" role="toolbar">
         <button class="btn btn-success pull-right" type="submit">   Add an update  </button>
         <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+      </div>
     </h2>
-    <div class="row">
-      <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Photo</p>
+        </div>
+        <div class="col-md-9">
+          <p>Update</p>
+        </div>
       </div>
-      <div class="col-md-9">
-      </div>
-    </div>
-  </div>
+  </div> <!-- End of Updates section -->
 
   <button class="btn btn-success center-block" type="submit">   Save   </button>
 
+  <footer class="footer text-center">
+     <div class="container">
+       <p class="text-muted">Place footer here</p>
+     </div>
+  </footer>
+
 </body>
-
-<br>
-
-<footer class="footer text-center">
-   <div class="container">
-     <p class="text-muted">Place footer here</p>
-   </div>
-</footer>
 
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="plugins/moment/moment.min.js"></script>
