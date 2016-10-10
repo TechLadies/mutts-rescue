@@ -1,23 +1,31 @@
 
 <body>
- 
+
+
+
   <%= render 'home'  %>
-  
+
+
+  <div class="col-md-8">
+
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
-    
+
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img class="img-responsive" src= "https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/13528888_529589883908079_4518685806591877288_n.jpg?oh=fc5aad2b3af2d4129389b253d7cd89d0&oe=587ED790" alt="Image">
         <div class="carousel-caption">
-          <h3>Meet Raven </h3>
+        
+          <h3>Meet <%= Dog.featured.name %></h3>
           <h3> Would you be mine? </h3>
+         
           <p>"I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine."</p>
+          
         </div>
       </div>
 
@@ -40,14 +48,15 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
+</div>
   <div class="container-fluid text-center">
     <h1>About Mutts Rescue</h1>
     <h3>Saving one life at a time</h3>
     <h5>Mutts Rescue is an entirely volunteer driven initiative to rescue strays and abandoned dogs. We aim to <b>rescue rehabilitate and rehouse</b> these dogs. Adopt one today!   </h5>
+    <h1> <%=Dog.for_adoption.count%> lovely dogs need food and are looking for a home. Can you help them? </h1>
   </div>
 
-  <%= link_to 'F', home_path(filter: 'Rambo'), :class => "btn" %>
+<!--  <%= link_to 'F', home_path(filter: 'Rambo'), :class => "btn" %> -->
 
   <div class="container text-center">
     <h4>Adopt us to your home sweet home!</h4><br>
@@ -88,8 +97,11 @@
           </div>
 
 
-          <%= render partial: "dogcard", collection: @dogs, as: 'dog' %>
+         <div class="container-fluid text-center">
 
+          <%= render partial: "dogcard", collection: @dogs, as: 'dog' %>
+         
+         </div 
 
           <footer class="container-fluid text-center">
             <p>Saving one life at a time</p>

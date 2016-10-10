@@ -14,6 +14,7 @@ Person.create(name: 'Amanda', phone: '4536 3442', email: 'amanda@gmail.com', ban
 # Create dogs
 Dog.create(name: "Gambit", gender: "male", born_on: 2.years.ago, adoption_status: "looking for adoption")
 Dog.create(name: "Cyclops", gender: "male", born_on: 1.years.ago, adoption_status: "adopted")
-Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_status: "adopted")
-Dog.create(name: "Storm", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption")
-Dog.create(name: "Professor X", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption")
+Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_status: "adopted",is_hdb_approved: true)
+Dog.create(name: "Storm", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption", is_hdb_approved: false)
+Dog.create(name: "Professor X", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption", is_hdb_approved: true)
+Dog.create(name: "Raven", gender: "female", born_on: 6.months.ago, adoption_status: "looking for adoption", is_featured: true, is_hdb_approved: true)
