@@ -13,6 +13,8 @@ helper_method :dogs
   	@dog = Dog.find(params[:id])
 	end
 
+  
+
   def filter
     @dogs = Idea.where(nil)
     filtering_params(params).each do |key, value|

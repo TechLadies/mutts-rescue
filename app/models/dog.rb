@@ -17,7 +17,23 @@ class Dog < ApplicationRecord
   #scope :gender, -> (gender) { where("LOWER(gender) like LOWER(?)", "#{gender}%")}
   
   scope :for_adoption, -> {where(adoption_status: "looking for adoption")}
-  scope :is_hdb_approved, -> { where(is_hdb_approved: true) }  
+  #scope :hdb, -> { where(is_hdb_approved: true) if is_hdb_approved.present? }  
+  #scope :not_hdb -> { where(is_hdb_approved: nil) }  
   scope :female, -> { where(gender: 'female') }
-  scope :male, -> {where(gender: 'male')}
+  scope :male, -> { where(gender: 'male')}
+  scope :featured, -> {find(is_featured: true)}
+  scope :adult, -> { where('born_on < ?', 1.years.ago ).order(:born_on) }
+  scope :puppy, -> { where('born_on > ?', 1.years.ago ).order(:born_on) }
+
+def self.featured
+    @dog = Dog.where(is_featured: true)
+   end 
+
+def self.hdb
+    @dog = Dog.where(is_hdb_approved: true)
+   end 
+
+
+
 end
+
