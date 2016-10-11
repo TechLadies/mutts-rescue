@@ -1,18 +1,17 @@
 <%= render 'home'  %>
 
-<div class="jumbotron">
-</div>
+
  <div class="container-fluid text-center">
   <h1>About Me!</h1>
 
 
-      <img src="dog.jpg" alt="Dog">
-      <p><strong><%= @dog.name %></strong></p>
-      <p>Story: <%= @dog.background_story %> </p>
-      <p>Birthdate: <%= @dog.born_on %></p>
-      <p> Gender:<%= @dog.gender %></p>
+      <img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13254554_513549585512109_1980425808324709293_n.jpg?oh=46cd670a6e1b1c5b7e3d43da4732b246&oe=589D15C7" alt="Dog">
+      <h3><strong>Hi, I'm <%= @dog.name %> !</strong></h3>
+      <p><b>Story:</b><%= @dog.background_story %> </p>
+      <p><b>Birthdate: </b> <%= @dog.born_on %></p>
+      <p><b>Gender: </b><%= @dog.gender %></p>
 
-      <button class=="btn"><%= link_to 'BACK', '/home' %>  </button>
+      <button class="btn btn-default"><%= link_to 'BACK', '/home' %>  </button>
       
 
            
@@ -21,3 +20,6 @@
 </div>
  </div>
  </div>
+ <footer class="container-fluid text-center">
+            <p>Saving one life at a time</p>
+          </footer>

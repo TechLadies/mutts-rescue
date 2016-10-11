@@ -13,7 +13,9 @@ helper_method :dogs
   	@dog = Dog.find(params[:id])
 	end
 
-  
+  def age
+    age = (DateTime.now - born_on) / 365.25
+  end
 
   def filter
     @dogs = Idea.where(nil)
@@ -22,14 +24,14 @@ helper_method :dogs
   end
 
  private
-	def dog_params
-      params.require(:dog).permit(:name, :gender, :is_hdb_approved)
+	
+    def dog_params
+      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
     end
-
     # A list of the param names that can be used for filtering the Product list
     def filtering_params(params)
-      params.slice(:name, :gender, :is_hdb_approved)
-    end	
-
+      params.slice(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
+    end
  end
+
 end

@@ -1,29 +1,21 @@
+<div class="col-md-6">
+    <div class="row text-center">
+        <div class="thumbnail">
+                <img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13177607_512347952298939_5212659507092539555_n.jpg?oh=07e0184ec7280dbccee13e6d0126b08e&oe=586098DF" alt="Dog"> 
+        
 
-          
-            <div class="col-md-6">
-            <div class="row text-center">
-              <div class="thumbnail">
-                <img src="dog.jpg" alt="Dog"> 
-
-                <p><strong><%= dog.name %></strong></p>
+        <div class="text-center">     
+            <h3><strong><%= dog.name %></strong><h3>
                 
-                <p><%= dog.gender %></p>
-                <p><%= dog.born_on %></p>
-                <p><%= dog.quote %></p>
-                <p><%= dog.adoption_status %></p>
-
-                <%= link_to 'About Me', about_dog_path(dog.id), :class => "btn" %>  
-
-             
-                
-                
-                
+            <p><%= dog.gender %> , <%= dog.born_on %></p>
+            <p><<%= dog.adoption_status %></p>
+            <p>HDB Approved?: <%= dog.is_hdb_approved %> </p>
+            <p>"<%= dog.quote %>"</p>
 
 
-                <!-- Used to open the Modal -->
+            <%= link_to 'More About Me', about_dog_path(dog.id), :class => "btn btn-default" %>  
+        </div> 
+        </div>           
+    </div>
+</div>
 
-                <!-- Modal -->
-                
-              </div>
-            </div>
-            </div>
