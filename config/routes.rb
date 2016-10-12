@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :dogs
 
   namespace :admin do
-    resources :dogs
+    resources :dogs do
+      resources :updates  
+    end
     resources :locations
     resources :users
     resources :people
