@@ -10,7 +10,7 @@
 
   <!-- create person button -->
   <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 paddingTopBot15px">    
-    <%= link_to 'Create New Person', admin_person_path(@person), :class =>'btn btn-block btnGreen droidFont fontSizeLarge strong' %>
+    <%= link_to 'Create New Person', new_admin_person_path, :class =>'btn btn-block btnGreen droidFont fontSizeLarge strong' %>
   </div>
     
 </div>
@@ -36,8 +36,6 @@
         <td class="droidFont fontSizeMedium"><%= mail_to person.email, person.email %></td>
         <td class="droidFont fontSizeMedium"><%= person.bank_acct %></td>
         <td class="droidFont fontSizeMedium"><%= person.address %></td>
-
-        <td class="droidFont fontSizeMedium"><%= link_to 'View', admin_person_path(person), :class =>'underline' %> </td>
 
         <td class="droidFont fontSizeMedium"><%= link_to 'Edit', edit_admin_person_path(person), :class =>'underline' %></td>
 
