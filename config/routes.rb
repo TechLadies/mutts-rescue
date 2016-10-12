@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :dogs
     resources :locations
     resources :users
+    resources :people
   end
 
   
