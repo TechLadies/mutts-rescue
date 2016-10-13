@@ -1,377 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>View and Edit Dog Details</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <head>
+    <title>View and Edit Dog Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-<!-- for working offline:
-<link rel="stylesheet" href=/bootstrap.min.css>
-<script src=/jquery.min.js></script>
-<script src=/bootstrap.min.js></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <!-- for working offline:
+    <link rel="stylesheet" href=/bootstrap.min.css>
+    <script src=/jquery.min.js></script>
+    <script src=/bootstrap.min.js></script> -->
+  </head>
 
-</head>
-
-<body>
-
-  <nav id="AdminNavBar" class="navbar navbar-default navbar-fixed-top" role='navigation'>
+  <body>
     <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#AdminNavbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="home#home"> <img src="http://i346.photobucket.com/albums/p431/novi_w811/MR%20Logo%20Horizontal_zpsyhm7zhx0.jpg" height="50px" width="150px">
-        </a>
-      </div>
+      <nav id="AdminNavBar" class="navbar navbar-default navbar-fixed-top" role='navigation'>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#AdminNavbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home#home"> <img src="http://i346.photobucket.com/albums/p431/novi_w811/MR%20Logo%20Horizontal_zpsyhm7zhx0.jpg" height="50px" width="150px"></a>
+        </div>
 
-    <!-- <div class="collapse navbar-collapse" id="AdminNavbar"> -->
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden">
-          <a href="home#home"></a>
-        </li>
-        <li><a href="admin#dogs#list">Dogs</a></li>
-        <li><a href="admin#people">People</a></li>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden"><a href="home#home"></a></li>
+          <li><a href="admin#dogs#list">Dogs</a></li>
+          <li><a href="admin#people">People</a></li>
+        </ul>
+      </nav>
     </div>
 
-  </nav>
+    <div class="container">
+      <header id="top" class="header">
+        <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit">   Save   </button></h1>
+      </header>
 
-  <br><br>
-
-  <div class="container">
-    <header id="top" class="header">
-      <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit">   Save   </button>
-      </h1>
-    </header>
-    <div class="row">
-      <div class="col-md-6">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-6 control-label">Name</label>
-            <div class="col-sm-6">
-              <input class=form-control type="string" id="name" value="<%= @dog.name %>">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-6 control-label">Colour markings</label>
-            <div class="col-sm-6">
-              <input class="form-control" type="string" id="color_markings" value="<%= @dog.color_markings %>">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-6 control-label">Status</label>
-            <div class="col-sm-6">
-              <select class="form-control" type="string" id="adoption_status" value="<%= @dog.adoption_status %>">
-                <option>Looking for adoption</option>
-                <option>Adopted</option>
-              </select>
-            </div>
-          </div>
-
-         <div class="form-group">
-            <label class="col-sm-6 control-label">Dog location</label>
-            <div class="col-sm-6">
-              <div class="form-control">
-                <%= form_for :Location do |f| %>
-                <%= f.select :name, Location.all.collect {|p| [p.name, p.id]} %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="rescued_on" class="col-sm-6 control-label">Date rescued</label>
-            <div class="col-sm-6">
-              <div class="input-group date" id='rescued_on'>
-                <input type="text" class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <script type="text/javascript">
-          $(document).ready(function() {
-            $("#rescued_on").datepicker();
-            $('btn').click(function() {
-              $("#rescued_on").focus();
-            });
-          });
-          </script>
-
-          <div class="form-group">
-            <label for="is_hdb_approved" class="col-sm-6 control-label">HDB approved</label>
-            <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no" value="false">No</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-6">
-        Photo Stuff will go here eventually. =-)
-      </div>
-    </div> <!-- End of Dog Details section -->
-
-  </div>
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Basic Information</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
-    </h2>
-      <form class="form-horizontal">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Gender</label>
-              <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male" />Male</label>
-                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female" />Female</label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
-                <div class="col-sm-6">
-                  <div class="input-group date" id='born_on'>
-                  <input type="text" class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <script type="text/javascript">
-              $(document).ready(function() {
-                $("#born_on").datepicker();
-                $('btn').click(function() {
-                  $("#born_on").focus();
-                });
-              });
-              </script>
-
-            <div class="form-group">
-              <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
-                <div class="col-sm-6">
-                  <input class="form-control" id="chip_number" type="string" value="<%= @dog.chip_number %>">
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="form-group">
-                <label for="age" class="col-sm-6 control-label">Age</label>
-                  <div class="col-sm-6">
-                    <input class="form-control" id="age" type="text" value="<%= friendly_age(@dog.born_on) %>">
-                  </div>
-            </div>
-
-            <div class="form-group">
-              <label for="license_number" class="col-sm-6 control-label">License no.</label>
-                <div class="col-sm-6">
-                  <input class="form-control" id="license_number" type="string" value="<%= @dog.license_number %>">
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-  </div> <!-- End of Basic Information section -->
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Temperament</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
-    </h2>
-      <form class="form-horizontal">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
-              <div class="col-lg-4">
-                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_no">No</label>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-6 control-label">Energy Level</label>
-                <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_low">Low</label>
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_normal">Normal</label>
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_high">High</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
-              <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_no">No</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
-                <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_temperament" value="<%= @dog.notes_temperament %>"></textarea>
-                </div>
-              </div>
-            </div>
-        </div>
-      </form>
-  </div> <!-- End of Temperament section -->
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Health</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
-    </h2>
-      <form class="form-horizontal">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Vaccinated?</label>
-                <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_yes">Yes</label>
-                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_no">No</label>
-                </div>
-              </div>
-            </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Sterilized?</label>
-              <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_no">No</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
-                <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_health" value="<%= @dog.notes_health %>"></textarea>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-  </div> <!-- End of Health section -->
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Background Story</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
-    </h2>
-      <form class=form-horizontal>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
-                <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="background_story" value="<%= @dog.background_story %>"></textarea>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-  </div> <!-- End of Background story section -->
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Donation & Sponsorship</strong></span>
-      <div class="btn-toolbar pull-right" role="toolbar">
-      <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
-      <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
-    </div>
-    </h2>
-
-    <div class="row">
-      <div class="panel panel-default">
-        <table class="table table-fixed">
-          <thead>
-            <tr>
-              <th class="col-lg-1">Type</th>
-              <th class="col-lg-2">Date contributed</th>
-              <th class="col-lg-1">Amount (S$)</th>
-              <th class="col-lg-3">Name</th>
-              <th class="col-lg-2">Phone no.</th>
-              <th class="col-lg-1">Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% #@people.each do |people| %>
-
-            <tr>
-              <td class="col-lg-1">Donation</td>
-              <td class="col-lg-2">[Latest] 01/01/2016</td>
-              <td class="col-lg-1">100</td>
-              <td class="col-lg-3">Mohammed Bin Sulaiman</td>
-              <td class="col-lg-2">90909090</td>
-              <td class="col-lg-1">youremail@gmail.com</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div> <!-- End of Donation and Sponsorship section-->
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Updates</strong></span>
-      <div class="btn-toolbar pull-right" role="toolbar">
-        <button class="btn btn-success pull-right" type="submit">   Add an update  </button>
-        <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
-      </div>
-    </h2>
       <div class="row">
-        <div class="col-md-3">
-          <p>Photo</p>
+        <div class="col-md-6">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Name</label>
+              <div class="col-sm-6">
+                <input class=form-control type="string" id="name" value="<%= @dog.name %>">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Colour markings</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="string" id="color_markings" value="<%= @dog.color_markings %>">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Status</label>
+              <div class="col-sm-6">
+                <select class="form-control" type="string" id="adoption_status" value="<%= @dog.adoption_status %>">
+                  <option>Looking for adoption</option>
+                  <option>Adopted</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Dog location</label>
+              <div class="col-sm-6">
+                <div class="form-control">
+                  <%= form_for :Location do |f| %>
+                    <%= f.select :name, Location.all.collect {|p| [p.name, p.id]} %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="rescued_on" class="col-sm-6 control-label">Date rescued</label>
+              <div class="col-sm-6">
+                <div class="input-group date" id='rescued_on'>
+                  <input type="text" class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              $(document).ready(function() {
+                  $("#rescued_on").datepicker();
+                  $('btn').click(function() {
+                    $("#rescued_on").focus();
+                    });
+                  });
+                </script>
+
+                <div class="form-group">
+                  <label for="is_hdb_approved" class="col-sm-6 control-label">HDB approved</label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
+                    <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no" value="false">No</label>
+                    <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6">
+              Photo Stuff will go here eventually. =-)
+            </div>
+          </div> <!-- End of Dog Details section -->
         </div>
-        <div class="col-md-9">
-          <p>Update</p>
+
+        <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+        <div class="container">
+          <h2><span><strong>Basic Information</strong></span>
+            <button class="btn btn-success pull-right" type="submit">   Save   </button>
+          </h2>
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Gender</label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male" />Male</label>
+                    <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female" />Female</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
+                  <div class="col-sm-6">
+                    <div class="input-group date" id='born_on'>
+                      <input type="text" class="form-control" />
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                      $("#born_on").datepicker();
+                      $('btn').click(function() {
+                        $("#born_on").focus();
+                        });
+                      });
+                    </script>
+
+                    <div class="form-group">
+                      <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="chip_number" type="string" value="<%= @dog.chip_number %>">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="age" class="col-sm-6 control-label">Age</label>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="age" type="text" value="<%= friendly_age(@dog.born_on) %>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="license_number" class="col-sm-6 control-label">License no.</label>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="license_number" type="string" value="<%= @dog.license_number %>">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- End of Basic Information section -->
+
+            <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+            <div class="container">
+              <h2><span><strong>Temperament</strong></span>
+                <button class="btn btn-success pull-right" type="submit">   Save   </button>
+              </h2>
+              <form class="form-horizontal">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
+                      <div class="col-lg-4">
+                        <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_yes">Yes</label>
+                        <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_no">No</label>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-6 control-label">Energy Level</label>
+                        <div class="col-sm-6">
+                          <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_low">Low</label>
+                          <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_normal">Normal</label>
+                          <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_high">High</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
+                      <div class="col-sm-6">
+                        <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_yes">Yes</label>
+                        <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
+                      <div class="col-sm-12">
+                        <textarea class="form-control" rows="5" id="notes_temperament" value="<%= @dog.notes_temperament %>"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- End of Temperament section -->
+
+            <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+            <div class="container">
+              <h2><span><strong>Health</strong></span>
+                <button class="btn btn-success pull-right" type="submit">   Save   </button>
+              </h2>
+              <form class="form-horizontal">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Vaccinated?</label>
+                      <div class="col-sm-6">
+                        <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_yes">Yes</label>
+                        <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Sterilized?</label>
+                      <div class="col-sm-6">
+                        <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_yes">Yes</label>
+                        <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_no">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
+                      <div class="col-sm-12">
+                        <textarea class="form-control" rows="5" id="notes_health" value="<%= @dog.notes_health %>"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- End of Health section -->
+
+            <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+            <div class="container">
+              <h2><span><strong>Background Story</strong></span>
+                <button class="btn btn-success pull-right" type="submit">   Save   </button>
+              </h2>
+              <form class=form-horizontal>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
+                      <div class="col-sm-12">
+                        <textarea class="form-control" rows="5" id="background_story" value="<%= @dog.background_story %>"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- End of Background story section -->
+
+            <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+            <div class="container">
+              <h2><span><strong>Donation & Sponsorship</strong></span>
+                <div class="btn-toolbar pull-right" role="toolbar">
+                  <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
+                  <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+                </div>
+              </h2>
+
+              <div class="row">
+                <div class="panel panel-default">
+                  <table class="table table-fixed">
+                    <thead>
+                      <tr>
+                        <th class="col-lg-1">Type</th>
+                        <th class="col-lg-2">Date contributed</th>
+                        <th class="col-lg-1">Amount (S$)</th>
+                        <th class="col-lg-3">Name</th>
+                        <th class="col-lg-2">Phone no.</th>
+                        <th class="col-lg-1">Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td class="col-lg-1">Donation</td>
+                          <td class="col-lg-2">[Latest] 01/01/2016</td>
+                          <td class="col-lg-1">100</td>
+                          <td class="col-lg-3">Mohammed Bin Sulaiman</td>
+                          <td class="col-lg-2">90909090</td>
+                          <td class="col-lg-1">youremail@gmail.com</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div> <!-- End of Donation and Sponsorship section-->
+
+              <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+              <button class="btn btn-success center-block" type="submit">   Save   </button>
+
+              <div class="container">
+                <div class = "row">
+                  <!-- Title  -->
+                  <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
+                    <h1 class = "droidFont">Updates</h1>
+                  </div>
+
+                  <!-- 'Add New Update' button  -->
+                  <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 paddingTopBot15px">
+                    <%= link_to 'Add New Update', new_update_path, :class => 'btn btnGreen btn-block' %>
+                  </div>
+                </div>
+
+                <!-- Dog updates content  -->
+                <%= render partial: "admin/updates/show", collection: @dog.updates %>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-  </div> <!-- End of Updates section -->
-
-  <button class="btn btn-success center-block" type="submit">   Save   </button>
-
-  <%= render 'admin/updates/show', updates: @updates %>
-
-</body>
-
+    </div>
+  </body>
 </html>

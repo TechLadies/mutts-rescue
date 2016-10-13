@@ -4,32 +4,13 @@ class Admin::UpdatesController < AdminController
 
   def index
 
-    #render :partial=>'index'
-
-    #@updates = Update.find_by_id(params['id'])
-    #@updates = Dog.find_by_id(params[:dog_id]).updates
-
-    #if params[:id]
-    #  @updates = Dog.find(params[:id]).updates
-    #else
-    #  @updates = Update.all
-    #end
-
-    #@updates = Update.all
-    @updates = Update.where(dog_id:params[:dog_id])
-
+    @updates = Update.all
+    #@updates = Update.where(dog_id:params[:dog_id])
 
   end
 
 
   def show
-
-    #render :partial=>'show'
-
-    #@updates = Update.find(params[:id])
-    #@updates = Update.find_by(params[:dog_id]) 
-    #@updates = Update.find(:conditions => {:dog_id => (params[:id])})
-    #@updates = Update.where(dog_id:params[:id])
 
   end
 
