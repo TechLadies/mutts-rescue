@@ -62,13 +62,11 @@ tr:nth-child(even) { background-color: #CCC;}
 
 .strong {font-weight: bold;}
 
-.paddingTopBot15px 
-{
-	padding-top:15px;
-	padding-bottom:15px;
-}
+.paddingTopBot15px { padding-top:15px; padding-bottom:15px;}
 
 .paddingBot10px { padding-bottom:10px;}
+
+.paddingTopBot20px { padding-top:20px; padding-bottom:20px;}
 
 .paddingBot20px { padding-bottom:20px;}
 

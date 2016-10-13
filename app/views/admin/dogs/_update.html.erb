@@ -33,9 +33,9 @@
 
       <div class="paddingTopBot15px">
 
-        <%= link_to 'Read More', update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
+        <%= link_to 'Read More', admin_dog_update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
       
-        <%= link_to 'Edit', edit_update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
+        <%= link_to 'Edit', edit_admin_dog_update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
 
         <%= link_to 'Delete', [:admin, :dog, update], :class => 'btn btnWhite fontSizeSmall', method: :delete, data: { confirm: 'Are you sure?' } %>
 

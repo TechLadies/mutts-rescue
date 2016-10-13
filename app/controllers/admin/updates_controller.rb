@@ -1,17 +1,10 @@
 class Admin::UpdatesController < AdminController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
 
-
-  def index
-
-    @updates = Update.all
-    #@updates = Update.where(dog_id:params[:dog_id])
-
-  end
-
-
   def show
 
+    @update = Update.find(params[:id])
+  
   end
 
   def new
