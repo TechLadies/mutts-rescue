@@ -15,7 +15,9 @@ class Admin::UpdatesController < AdminController
     #  @updates = Update.all
     #end
 
-    @updates = Update.all
+    #@updates = Update.all
+    @updates = Update.where(dog_id:params[:dog_id])
+
 
   end
 
@@ -27,7 +29,7 @@ class Admin::UpdatesController < AdminController
     #@updates = Update.find(params[:id])
     #@updates = Update.find_by(params[:dog_id]) 
     #@updates = Update.find(:conditions => {:dog_id => (params[:id])})
-    @updates = Update.where(dog_id:params[:id])
+    #@updates = Update.where(dog_id:params[:id])
 
   end
 
