@@ -1,0 +1,71 @@
+<%= form_for([:admin, @person]) do |f| %>
+<center>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</center>  
+
+<div class="row">
+
+    <!-- side column -->  
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+    <!-- center content -->
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">  
+
+      <div class= "row panel droidFont fontSizeLarge">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :name %>
+          <%= f.text_field :name, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :email %>
+          <%= f.email_field :email, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :bank_acct, 'Bank Account' %>
+          <%= f.text_field :bank_acct, class:'textField' %>
+        </div>
+          
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :address %>
+          <%= f.text_area :address, class:'textAreaAddress' %>
+        </div>
+
+        <!-- buttons -->
+          
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 actions paddingTopBot15px ">
+          <%= f.submit "Save", class: 'btn btnGreen btn-block fontSizeMedium ' %>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
+
+        <%= link_to 'Cancel', admin_people_path, :class => 'btn btnWhite btn-block fontSizeMedium'  %>
+      </div>  
+
+      </div>  
+
+    </div>  
+
+  <!-- side column -->  
+  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+</div>
+
+<% end %>

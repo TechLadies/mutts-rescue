@@ -13,3 +13,85 @@
  *= require_tree .
  *= require_self
  */
+
+/* Global START ////////////////////////////////////*/
+
+a:hover {color:black;background-color:transparent!important;} 
+a:visited {color:black;background-color:transparent!important;} 
+
+.droidFont { font-family: 'Droid Sans',sans-serif;}
+
+.fontSizeSmall {font-size: 0.9em;}
+.fontSizeMedium {font-size: 1.1em;}
+.fontSizeLarge {font-size: 1.3em;}
+
+.fontWhite {color:white;}
+
+.bgDarkGrey {background-color:#333;}
+
+tr:nth-child(even) { background-color: #CCC;}
+
+.btnWhite
+{
+	color:#555!important;
+	background-color:#FFF;
+	border:solid 1px grey;
+}
+
+.btnWhite:hover
+{
+	color:#555!important;
+	background-color:#FFF!important;
+}
+
+.btnGreen
+{	
+	color:white!important;
+	background-color:#1c8917;
+}
+
+.btnGreen:hover
+{
+	color:white!important;
+	background-color:#086905!important;
+}
+
+.underline {text-decoration:underline;}
+.strong {font-weight: bold;}
+
+.paddingTopBot15px 
+{
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.paddingBot10px { padding-bottom:10px;}
+
+.paddingBot20px { padding-bottom:20px;}
+
+.panel
+{
+	border:solid 1px #AAA;
+	padding:20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */
+
+}
+
+.textField 
+{
+	height:2em;
+	width:100%;
+	padding:10px;
+}
+
+.textAreaAddress
+{
+	height: 4em;
+	width:100%;
+	padding:10px;
+}
+
+/* Global END ////////////////////////////////////*/
