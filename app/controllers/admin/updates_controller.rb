@@ -8,45 +8,46 @@ class Admin::UpdatesController < AdminController
   end
 
   def new
-  #  @dog = Dog.new
+    @update = Update.new
   end
 
   def edit
+     @update = Update.find(params[:id]) 
   end
 
   def create
-  #  @dog = Dog.new(dog_params)
+    @update = Update.new(update_params)
 
-  #  respond_to do |format|
-  #    if @dog.save
-  #      format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully created.' }
-  #      format.json { render :show, status: :created, location: @dog }
-  #    else
-  #      format.html { render :new }
-  #      format.json { render json: @dog.errors, status: :unprocessable_entity }
-  #    end
-  #  end
+    respond_to do |format|
+      if @update.save
+        format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully created.' }
+        format.json { render :show, status: :created, location: @update }
+      else
+        format.html { render :new }
+        format.json { render json: @update.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-  #  respond_to do |format|
-  #    if @dog.update(dog_params)
-  #      format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully updated.' }
-  #      format.json { render :show, status: :ok, location: @dog }
-  #    else
-  #      format.html { render :edit }
-  #      format.json { render json: @dog.errors, status: :unprocessable_entity }
-  #    end
-  #  end
+    respond_to do |format|
+      if @update.update(update_params)
+        format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully updated.' }
+        format.json { render :show, status: :ok, location: @update }
+      else
+        format.html { render :edit }
+        format.json { render json: @update.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
   def destroy
-  #  @dog.destroy
-  #  respond_to do |format|
-  #    format.html { redirect_to admin_dogs_url, notice: 'Dog was successfully destroyed.' }
-  #    format.json { head :no_content }
-  #  end
+    @update.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_dogs_url, notice: 'Update was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private

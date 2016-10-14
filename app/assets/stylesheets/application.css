@@ -99,6 +99,6 @@ tr:nth-child(even) { background-color: #CCC;}
 
 /* Dog Update START //////////////////////////////*/
 
-.updateTextContainer {height: 8em;}
+.updateTextContainer {height: 8em; width:100%;}
 
 /* Dog Update END //////////////////////////////*/

@@ -301,6 +301,7 @@
 
             <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
+
             <div class="container">
               <h2><span><strong>Donation & Sponsorship</strong></span>
                 <div class="btn-toolbar pull-right" role="toolbar">
@@ -339,8 +340,6 @@
 
               <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-              <button class="btn btn-success center-block" type="submit">   Save   </button>
-
               <div class="container">
                 <div class = "row">
                   <!-- Title  -->
@@ -350,12 +349,12 @@
 
                   <!-- 'Add New Update' button  -->
                   <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 paddingTopBot15px">
-                    <%= link_to 'Add New Update', new_update_path, :class => 'btn btnGreen btn-block' %>
+                    <%= link_to 'Add New Update', new_admin_dog_update_path(params[:id]), :class => 'btn btnGreen btn-block' %> 
                   </div>
                 </div>
 
                 <!-- Dog updates content  -->
-                <%= render partial: "admin/updates/show", collection: @dog.updates %>
+                <%= render partial: "update", collection: @dog.updates %>
               </div>
             </div>
           </form>
