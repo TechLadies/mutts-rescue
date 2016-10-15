@@ -33,7 +33,9 @@ def self.hdb
     @dog = Dog.where(is_hdb_approved: true)
    end 
 
-
+def self.not_hdb
+    @dog = Dog.where(is_hdb_approved: false)
+   end 
 
 end
 

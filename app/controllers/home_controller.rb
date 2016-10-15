@@ -1,11 +1,25 @@
 class HomeController < ApplicationController
 
 helper_method :dogs
-
-  def home
-  		@dogs = Dog.for_adoption
-  end
   
+  def home
+      @dogs = Dog.for_adoption
+      @featured_dog = Dog.featured
+
+      if params['gender']
+        @dogs = @dogs.public_send(params['gender'])
+      end
+
+      if params["born_on"]
+        @dogs = @dogs.public_send(params["born_on"])
+      end
+      
+      if params["is_hdb_approved"]
+      @dogs = @dogs.public_send(params["is_hdb_approved"])
+      end
+
+  end
+
   def show
   end
 
@@ -14,24 +28,25 @@ helper_method :dogs
 	end
 
   def age
-    age = (DateTime.now - born_on) / 365.25
+    @dogs = Dog.all
+    age = (DateTime.now - @dogs.born_on) / 365.25
   end
 
   def filter
-    @dogs = Idea.where(nil)
+    @dogs = Dog.where(nil)
     filtering_params(params).each do |key, value|
-      @dogs = @dogs.public_send(key, value) if value.present?
+    @dogs = @dogs.public_send(key, value) if value.present?
   end
 
  private
-	
+	 def filtering_params(params)
+      params.slice(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
+    end
     def dog_params
       params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
     end
     # A list of the param names that can be used for filtering the Product list
-    def filtering_params(params)
-      params.slice(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
-    end
+    
  end
 
 end
