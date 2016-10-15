@@ -4,18 +4,19 @@ class Admin::UpdatesController < AdminController
   def show
 
     @update = Update.find(params[:id])
-  
+    @dog = dog()
   end
 
   def new
-    #@update = Update.new
- 
+  
     @update = dog().updates.build
+    @dog = dog()
 
   end
 
   def edit
      @update = Update.find(params[:id]) 
+     @dog = dog()
   end
 
   def create
@@ -39,7 +40,8 @@ class Admin::UpdatesController < AdminController
   def update
     respond_to do |format|
       if @update.update(update_params)
-        format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully updated.' }
+        format.html { redirect_to admin_dog_path(@update.dog_id), notice: 'Update was successfully updated.' }
+        #format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully updated.' }
         format.json { render :show, status: :ok, location: @update }
       else
         format.html { render :edit }
@@ -52,7 +54,7 @@ class Admin::UpdatesController < AdminController
   def destroy
     @update.destroy
     respond_to do |format|
-      format.html { redirect_to admin_dogs_url, notice: 'Update was successfully deleted.' }
+      format.html { redirect_to admin_dog_path(@update.dog_id), notice: 'Update was successfully deleted.' }
       format.json { head :no_content }
     end
   end
