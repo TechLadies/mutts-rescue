@@ -33,11 +33,11 @@
 
       <div class="paddingTopBot15px">
 
-        <%= link_to 'Read More', admin_dog_update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
+        <%= link_to 'Read More', admin_dog_update_path(update.dog_id, update.id), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
       
-        <%= link_to 'Edit', edit_admin_dog_update_path(update), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
+        <%= link_to 'Edit', edit_admin_dog_update_path(update.dog_id, update.id), :class => 'btn btnWhite fontSizeSmall ' %> &nbsp;
 
-        <%= link_to 'Delete', [:admin, :dog, update], :class => 'btn btnWhite fontSizeSmall', method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', admin_dog_update_path(update.dog_id, update.id), :class => 'btn btnWhite fontSizeSmall', method: :delete, data: { confirm: 'Are you sure?' } %>
 
       </div>
     

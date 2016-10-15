@@ -8,7 +8,10 @@ class Admin::UpdatesController < AdminController
   end
 
   def new
-    @update = Update.new
+    #@update = Update.new
+ 
+    @update = dog().updates.build
+
   end
 
   def edit
@@ -16,11 +19,15 @@ class Admin::UpdatesController < AdminController
   end
 
   def create
-    @update = Update.new(update_params)
+
+    @update = dog().updates.build(update_params)
 
     respond_to do |format|
       if @update.save
-        format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully created.' }
+       
+        format.html { redirect_to admin_dog_path(@update.dog_id), notice: 'Update was successfully created.' }
+
+        #format.html { redirect_to [:admin, :dog, @update], notice: 'Update was successfully created.' }
         format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
@@ -60,5 +67,9 @@ class Admin::UpdatesController < AdminController
     def update_params
       params.require(:update).permit(:id, :dog_id, :date, :text, :image_url)
     end
+
+    def dog
+      Dog.find(params[:dog_id])
+    end  
 
   end
