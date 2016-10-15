@@ -2,10 +2,12 @@ Rails.application.routes.draw do
  
   devise_for :users
 
-  get '/' => 'home#home'
+  root to: 'home#home'
+  
   get '/home' => 'home#home'
   get '/admin' => 'admin#index'
   get '/about_dog/:id', to: 'home#about_dog', as: 'about_dog'
+  get '/filter', to: 'home#filter', as: 'filter'
   resources :dogs
 
   namespace :admin do

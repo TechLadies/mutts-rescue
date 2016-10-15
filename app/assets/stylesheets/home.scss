@@ -52,3 +52,27 @@
   border: black;
   
 }
+
+.homepage > .row  {
+  padding-bottom: 60px; 
+}
+
+.dogcard {
+  margin-top: 20px;
+  height: 900px;
+
+  .dogcard-content {
+    border: 1px solid #eee;
+    padding: 10px;
+  }
+
+  img {
+    height: 200px;
+  }
+
+  .quote-row-content {
+    height: 50px;
+  }
+}
+
+
