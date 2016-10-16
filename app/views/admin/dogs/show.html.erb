@@ -4,12 +4,16 @@
   <title>View and Edit Dog Details</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href=/bootstrap.min.css>
-<!--  "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  <script src=/jquery.min.js></script>
-  <!-- "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-  <script src=/bootstrap.min.js></script>
-  <!-- "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<!-- for working offline:
+<link rel="stylesheet" href=/bootstrap.min.css>
+<script src=/jquery.min.js></script>
+<script src=/bootstrap.min.js></script> -->
 
 </head>
 
@@ -33,7 +37,7 @@
         <li class="hidden">
           <a href="home#home"></a>
         </li>
-        <li><a href="admin#dog#list">Dogs</a></li>
+        <li><a href="admin#dogs#list">Dogs</a></li>
         <li><a href="admin#people">People</a></li>
       </ul>
     </div>
@@ -69,50 +73,49 @@
             <div class="col-sm-6">
               <select class="form-control" type="string" id="adoption_status" value="<%= @dog.adoption_status %>">
                 <option>Looking for adoption</option>
-                <option>In training/recovery</option>
                 <option>Adopted</option>
               </select>
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-sm-6 control-label">In MR facility or foster home?</label>
+         <div class="form-group">
+            <label class="col-sm-6 control-label">Dog location</label>
             <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" id="dog_location1" name="dog_location"/>MR facility</label>
-              <label class="radio-inline"> <input type="radio" id="dog_location2" name="dog_location"/>Foster home</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-6 control-label">Which MR facility?</label>
-            <div class="col-sm-6">
-              <select class="form-control" id="mr_facility_id" type="string">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
+              <div class="form-control">
+                <%= form_for :Location do |f| %>
+                <%= f.select :name, Location.all.collect {|p| [p.name, p.id]} %>
+                <% end %>
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="rescued_on" class="col-sm-6 control-label">Date rescued</label>
             <div class="col-sm-6">
-              <div class='input-group date' id='rescued_on'>
-                <input type='text' class="form-control" />
+              <div class="input-group date" id='rescued_on'>
+                <input type="text" class="form-control" />
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
               </div>
             </div>
           </div>
-          <script type="text/javascript"> $(function () { $('#rescued_on').datetimepicker(); }); </script>
+
+          <script type="text/javascript">
+          $(document).ready(function() {
+            $("#rescued_on").datepicker();
+            $('btn').click(function() {
+              $("#rescued_on").focus();
+            });
+          });
+          </script>
 
           <div class="form-group">
             <label for="is_hdb_approved" class="col-sm-6 control-label">HDB approved</label>
             <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes">Yes</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no">No</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe">Maybe</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no" value="false">No</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label>
             </div>
           </div>
         </form>
@@ -134,8 +137,8 @@
             <div class="form-group">
               <label class="col-sm-6 control-label">Gender</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Male</label>
-                <label class="radio-inline"> <input type="radio" name="optradio" id="gender">Female</label>
+                <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male">Male</label>
+                <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female">Female</label>
               </div>
             </div>
           </div>
@@ -148,20 +151,28 @@
             <div class="form-group">
               <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
                 <div class="col-sm-6">
-                  <div class="input-group date" id="born_on">
-                    <input type="text" class="form-control" />
+                  <div class="input-group date" id='born_on'>
+                  <input type="text" class="form-control" />
                     <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                      <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                   </div>
                 </div>
               </div>
-              <script type="text/javascript"> $(function () {$('#born_on').datetimepicker();});</script>
+
+              <script type="text/javascript">
+              $(document).ready(function() {
+                $("#born_on").datepicker();
+                $('btn').click(function() {
+                  $("#born_on").focus();
+                });
+              });
+              </script>
 
             <div class="form-group">
               <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
                 <div class="col-sm-6">
-                  <input class="form-control" id="chip_number" type="string">
+                  <input class="form-control" id="chip_number" type="string" value="<%= @dog.chip_number %>">
                 </div>
             </div>
           </div>
@@ -170,23 +181,23 @@
             <div class="form-group">
                 <label for="age" class="col-sm-6 control-label">Age</label>
                   <div class="col-sm-6">
-                    <input class="form-control" id="age" type="text">
+                    <input class="form-control" id="age" type="text" value="<%= @age %>">
                   </div>
             </div>
 
-            <%def age(born_on)
-            now = Date.current
-            age-year=now.year - born_on.year
-            age-month=now.month - born_on.month
-            age_year=age-year.to_s
-            age_month=age-month.to_s
-            age="age_year years and age_month months"
-            end%>
+            <% def age(born_on)
+              now = Date.current
+              age-year=now.year - born_on.year
+              age-month=now.month - born_on.month
+              age_year=age-year.to_s
+              age_month=age-month.to_s
+              age="age_year years and age_month months"
+            end %>
 
             <div class="form-group">
               <label for="license_number" class="col-sm-6 control-label">License no.</label>
                 <div class="col-sm-6">
-                  <input class="form-control" id="license_number" type="string">
+                  <input class="form-control" id="license_number" type="string" value="<%= @dog.license_number %>">
                 </div>
             </div>
           </div>
@@ -204,15 +215,15 @@
             <div class="form-group">
               <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
               <div class="col-lg-4">
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_other_dogs">No</label>
+                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_yes">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_no">No</label>
               </div>
               <div class="form-group">
                 <label class="col-sm-6 control-label">Energy Level</label>
                 <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Low</label>
-                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">Normal</label>
-                  <label class="radio-inline"> <input type="radio" name="optradio" id="energy_level">High</label>
+                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_low">Low</label>
+                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_normal">Normal</label>
+                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_high">High</label>
                 </div>
               </div>
             </div>
@@ -222,8 +233,8 @@
             <div class="form-group">
               <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_good_with_kids">No</label>
+                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_yes">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_no">No</label>
               </div>
             </div>
           </div>
@@ -234,7 +245,7 @@
             <div class="form-group">
               <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_temperament"></textarea>
+                  <textarea class="form-control" rows="5" id="notes_temperament" value="<%= @dog.notes_temperament %>"></textarea>
                 </div>
               </div>
             </div>
@@ -252,8 +263,8 @@
             <div class="form-group">
               <label class="col-sm-6 control-label">Vaccinated?</label>
                 <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">Yes</label>
-                  <label class="radio-inline"> <input type="radio" name="optradio" id="is_vaccinated">No</label>
+                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_yes">Yes</label>
+                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_no">No</label>
                 </div>
               </div>
             </div>
@@ -261,8 +272,8 @@
             <div class="form-group">
               <label class="col-sm-6 control-label">Sterilized?</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="optradio" id="is_sterilized">No</label>
+                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_yes">Yes</label>
+                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_no">No</label>
               </div>
             </div>
           </div>
@@ -273,7 +284,7 @@
             <div class="form-group">
               <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_health"></textarea>
+                  <textarea class="form-control" rows="5" id="notes_health" value="<%= @dog.notes_health %>"></textarea>
                 </div>
             </div>
           </div>
@@ -291,7 +302,7 @@
             <div class="form-group">
               <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="background_story"></textarea>
+                  <textarea class="form-control" rows="5" id="background_story" value="<%= @dog.background_story %>"></textarea>
                 </div>
             </div>
           </div>
@@ -367,9 +378,5 @@
   </footer>
 
 </body>
-
-<script src="js/bootstrap.js"></script>
-<script type="text/javascript" src="plugins/moment/moment.min.js"></script>
-<script type="text/javascript" src="plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 </html>
