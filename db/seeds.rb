@@ -12,9 +12,9 @@ Person.create(name: 'Joseph', phone: '9346 8962', email: 'joseph@gmail.com', ban
 Person.create(name: 'Amanda', phone: '4536 3442', email: 'amanda@gmail.com', bank_acct: '934 45349 67', address: 'Blk 342, Ang Mo Kio Ave 1, Singapore 342251')
 
 # Create dogs
-Dog.create(name: "Gambit", gender: "male", born_on: 2.years.ago, adoption_status: "looking for adoption", )
-Dog.create(name: "Cyclops", gender: "male", born_on: 1.years.ago, adoption_status: "adopted")
-Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_status: "adopted",is_hdb_approved: true)
+Dog.create(name: "Gambit", gender: "male", born_on: 2.years.ago, adoption_status: "looking for adoption", quote: "i love to eat" )
+Dog.create(name: "Cyclops", gender: "male", born_on: 1.years.ago, adoption_status: "adopted", quote: "*winks*")
+Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_status: "adopted",is_hdb_approved: true, quote: "you scratch my back and i'll scratch yours")
 Dog.create(name: "Storm", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption", is_hdb_approved: false, quote: "I love cuddles.")
 Dog.create(name: "Professor X", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption", is_hdb_approved: true, quote: "I love basking in the sun and playing with children. I handle life just fine.")
 Dog.create(name: "Raven", gender: "female", born_on: 6.months.ago, adoption_status: "looking for adoption", is_featured: true, is_hdb_approved: true, quote: "I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine.")

@@ -1,8 +1,0 @@
-<body>
-<% render 'home' %>
-
-<% @dogs = Dog.for_adoption.hdb %>
-
-<%= render partial: "dogcard", collections @dogs, as: 'dog' %>
-
-</body>
