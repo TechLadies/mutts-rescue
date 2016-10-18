@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  people_id: 1
+  dog_id: 1
+  date_start: 2016-10-18
+  date_end: 2016-10-18
+  frequency: MyString
+
+two:
+  people_id: 1
+  dog_id: 1
+  date_start: 2016-10-18
+  date_end: 2016-10-18
+  frequency: MyString

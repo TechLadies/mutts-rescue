@@ -18,3 +18,8 @@ Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_st
 Dog.create(name: "Storm", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption", is_hdb_approved: false, quote: "I love cuddles.")
 Dog.create(name: "Professor X", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption", is_hdb_approved: true, quote: "I love basking in the sun and playing with children. I handle life just fine.")
 Dog.create(name: "Raven", gender: "female", born_on: 6.months.ago, adoption_status: "looking for adoption", is_featured: true, is_hdb_approved: true, quote: "I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine.")
+
+# Create sponsorships
+Sponsorship.create(people_id:1,dog_id:1,date_start:Time.now.to_datetime, frequency:"monthly")
+Sponsorship.create(people_id:3,dog_id:2,date_start:Time.now.to_datetime, frequency:"quarterly")
+Sponsorship.create(people_id:2,dog_id:1,date_start:Time.now.to_datetime, frequency:"weekly")
