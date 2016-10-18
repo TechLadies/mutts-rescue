@@ -8,9 +8,10 @@
   <div class="container-fluid homepage">
 
     <div class="row">
-      <div class="col-md-10 col-md-offset-2">
+      <div class="col-md-12">
         <div class="container-fluid text-center">
-          <h1> <%=Dog.for_adoption.count%> lovely dogs need food and are looking for a home. Can you help them? </h1>
+          <h1> <%=Dog.for_adoption.count%> lovely dogs need food and are looking for a home. </h1>
+          <h1>Can you help them? </h1>
         </div>
       </div>
 
@@ -25,8 +26,13 @@
       </div>
     </div> 
   </div>
-
+</div>
 <h4> Dogs for Adoption </h4>
+
+
+<%= render 'filter'  %>
+
+
   <div class="row">
     <%= render partial: "dogcard", collection: @dogs, as: 'dog' %>
   </div>
