@@ -6,7 +6,7 @@
 	
 	<div>
 		<h3><%= dog.name %></h3>
-		<p><%= dog.gender %> , <%= dog.born_on %></p>
+		<p><%= dog.gender %> , <%= friendly_age(dog.born_on) %></p>
 	</div>
 
 	<p class="quote-row-content">"
