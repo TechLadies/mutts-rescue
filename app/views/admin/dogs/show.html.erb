@@ -28,7 +28,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"> <img src="http://i346.photobucket.com/albums/p431/novi_w811/MR%20Logo%20Horizontal_zpsyhm7zhx0.jpg" height="50px" width="150px">
+        <a class="navbar-brand" href="home#home"> <img src="http://i346.photobucket.com/albums/p431/novi_w811/MR%20Logo%20Horizontal_zpsyhm7zhx0.jpg" height="50px" width="150px">
         </a>
       </div>
 
@@ -130,15 +130,17 @@
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <h2><strong>Basic Information</strong></h2>
+    <h2><span><strong>Basic Information</strong></span>
+      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+    </h2>
       <form class="form-horizontal">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label class="col-sm-6 control-label">Gender</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male">Male</label>
-                <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female">Female</label>
+                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male" />Male</label>
+                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female" />Female</label>
               </div>
             </div>
           </div>
@@ -181,18 +183,9 @@
             <div class="form-group">
                 <label for="age" class="col-sm-6 control-label">Age</label>
                   <div class="col-sm-6">
-                    <input class="form-control" id="age" type="text" value="<%= @age %>">
+                    <input class="form-control" id="age" type="text" value="<%= age(@dog.born_on) %>">
                   </div>
             </div>
-
-            <% def age(born_on)
-              now = Date.current
-              age-year=now.year - born_on.year
-              age-month=now.month - born_on.month
-              age_year=age-year.to_s
-              age_month=age-month.to_s
-              age="age_year years and age_month months"
-            end %>
 
             <div class="form-group">
               <label for="license_number" class="col-sm-6 control-label">License no.</label>
@@ -208,7 +201,9 @@
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <h2><strong>Temperament</strong></h2>
+    <h2><span><strong>Temperament</strong></span>
+      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+    </h2>
       <form class="form-horizontal">
         <div class="row">
           <div class="col-md-6">
@@ -256,7 +251,9 @@
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <h2><strong>Health</strong></h2>
+    <h2><span><strong>Health</strong></span>
+      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+    </h2>
       <form class="form-horizontal">
         <div class="row">
           <div class="col-md-6">
@@ -295,7 +292,9 @@
   <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
-    <h2><strong>Background Story</strong></h2>
+    <h2><span><strong>Background Story</strong></span>
+      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+    </h2>
       <form class=form-horizontal>
         <div class="row">
           <div class="col-md-12">
