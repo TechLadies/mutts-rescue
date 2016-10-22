@@ -6,7 +6,7 @@ helper_method :dogs
       @dogs = Dog.for_adoption
       @featured_dog = Dog.featured
 
-      if params['gender'] && params[:gender] != 'any'
+      if params['gender'] && params['gender'] != 'any'
         @dogs = @dogs.public_send(params['gender'])
       end
 

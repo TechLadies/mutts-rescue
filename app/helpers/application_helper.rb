@@ -4,14 +4,14 @@ module ApplicationHelper
 		years_old = Date.today - birthdate 
 		years_and_months = years_old.divmod(365)
 		years = years_and_months[0]
-		months = years_and_months[1] / 30
-		months_i = months.to_i
-		if months_i < 1
+		months = (years_and_months[1] / 30).to_i
+		
+		if months < 1
 	    friendly_age = "#{years} years"
 		elsif years < 1
-		friendly_age = "#{months_i} months"
+		friendly_age = "#{months} months"
 		else
-		friendly_age = "#{years} years #{months_i} months"
+		friendly_age = "#{years} years #{months} months"
 		end
 	end
 
