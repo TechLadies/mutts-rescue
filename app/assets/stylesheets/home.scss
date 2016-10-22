@@ -78,3 +78,54 @@
 .logo {
   height: 51px;
 }
+
+.frame-square {
+  background: #fff;
+  border: 0.5px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  width: 180px;
+  height: 180px;
+  margin-right: .5em;
+  margin-bottom: .3em;
+}
+
+.frame-round {
+  @extend .frame-square;
+  border-radius: 50%;
+  overflow: hidden;
+  
+  .crop {border-radius: 50%;}
+}
+
+.crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+  }
+}
+
+// testing:
+.retina .crop img {
+  transform: scale(.5, .5);
+}
+
+// extra prettification ----
+small {display: block; font-weight: normal; opacity: .8;}
+body {background: PaleGoldenRod ; color: darken(PaleGoldenRod , 70%); font-family: Georgia; font-size: 17px; margin: 0; padding: 1em;}
+h1 {margin: 0;}
+h1 + p {margin-top: 0;}
+hr {background: transparent; border: 0; border-top: 2px solid #000; margin: .8em 0;}
+

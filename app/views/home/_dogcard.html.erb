@@ -1,7 +1,16 @@
 <div class="col-md-6 text-center dogcard">
 	<div class="dogcard-content">
 	<div>
+	<div class="frame-square">
+  	<div class="crop">
 		<img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13177607_512347952298939_5212659507092539555_n.jpg?oh=07e0184ec7280dbccee13e6d0126b08e&oe=586098DF" alt="Dog" /> 
+		<% if dog.is_hdb_approved? == true %>
+		<h1> HDB <h1>
+		<% else %>
+		<% end %>
+		
+	</div>
+	</div>	
 	</div>
 	
 	<div>

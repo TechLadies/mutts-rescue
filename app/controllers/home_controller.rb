@@ -13,7 +13,7 @@ helper_method :dogs
       if params[:born_on] && params[:born_on] != 'any'
         @dogs = @dogs.public_send(params[:born_on])
       end
-      
+
       if params[:is_hdb_approved] && params[:is_hdb_approved] != 'any'
         @dogs = @dogs.public_send(params[:is_hdb_approved])
       end
