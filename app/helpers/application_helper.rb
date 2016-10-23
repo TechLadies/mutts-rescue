@@ -23,4 +23,26 @@ module ApplicationHelper
 	def wordiest(quote)
 		words = Dog.quote.split.count
 	end
+
+def make_list(header, items)
+  html = ""
+  html << "<h1>#{header}</h1>"
+  html << '''
+  <div class ="container-fluid text-center/">
+  '''
+  html << "<ul>"
+
+  items.each do |item|
+    html << "<li>#{item}</li>"
+  end
+
+  html << "</ul>"
+
+  return html
 end
+
+
+
+
+end
+
