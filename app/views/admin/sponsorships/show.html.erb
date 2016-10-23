@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row droidFont">
+
+	<!-- side column -->	
+	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+
+	<!-- center content -->
+	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">	
+
+		<div class= "row panel droidFont fontSizeLarge">
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Name</strong> 
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @sponsorship.people_id %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Phone</strong> 
+			</div>
+			
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @person.phone %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Email</strong> 
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= mail_to @person.email, @person.email %>
+			</div>
+
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Bank Account</strong> 
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @person.bank_acct %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Address</strong> 
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<%= @person.address %>
+			</div>
+
+
+			<!-- buttons -->
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px  ">
+
+				<%= link_to 'Edit', edit_admin_person_path(@person), :class => 'btn btnGreen btn-block fontSizeMedium' %>
+
+
+			</div>	
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
+
+				<%= link_to 'Back', admin_people_path, :class => 'btn btnWhite btn-block fontSizeMedium'  %>
+			</div>	
+
+		</div>	
+
+	</div>
+
+	<!-- side column -->	
+	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+</div>
