@@ -27,6 +27,7 @@ class Dog < ApplicationRecord
 
  
 
+  has_many :sponsorships, dependent: :destroy
   has_many :updates, dependent: :destroy
   has_many :photos, dependent: :destroy
   belongs_to :location, optional: true
