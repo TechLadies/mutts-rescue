@@ -13,7 +13,7 @@
       <h1>"<%= @dog.quote %>"</h1>
     </div>
   </div>
- 
+
   <div class="container-fluid text-left">
     <div class="row">
       <div class="col-md-12">
@@ -94,3 +94,29 @@
 
   <%= render partial: "update", collection: @dog.updates %>
 </div>
+</div>
+
+
+
+<div class="container-fluid text-center">
+  <button class="btn btn-default"><%= link_to 'BACK', '/' %>  </button>
+</div>
+
+<div class="padding">
+  "Saving one life at a time"
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-center">
+        <li>
+        <a class="navbar-brand" href="#">Contact Jamie at 9123 4567 to adopt <b> <%=@dog.name %> </b> </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

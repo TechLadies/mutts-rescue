@@ -53,6 +53,13 @@
   
 }
 
+.padding {
+  padding:20px;
+  
+  
+}
+
+
 .homepage > .row  {
   padding-bottom: 60px; 
 }
@@ -66,9 +73,22 @@
     padding: 10px;
   }
 
-  img {
+  .dogcard-image {
     height: 200px;
+    width: 200px;
   }
+  .img_dog {
+    height: 200px;
+    z-index: -1;
+
+  }
+
+  .hdblogo {
+  height: 20px;
+  vertical-align: center;
+  z-index: +1
+
+}
 
   .quote-row-content {
     height: 50px;
@@ -77,6 +97,10 @@
 
 .logo {
   height: 51px;
+}
+
+.hdblogo {
+  height: 50px;
 }
 
 .frame-square {

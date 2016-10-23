@@ -1,0 +1,34 @@
+<%= render 
+    partial: 'dropdown_filter',
+    locals: { 
+        title: 'Gender', 
+        links: [
+            ['Male', path()], 
+            ['Female', path()]
+        ] 
+    } %>
+
+
+<%= render 
+    partial: 'dropdown_filter',
+    locals: { 
+        title: 'Age', 
+        links: [
+            ['Puppy', path()], 
+            ['Adult', path()]
+        ] 
+    } %>
+
+<%= make_list("Tech Ladies", ["Ashley", "Jeannette", "Novi"]) %>
+
+# _dropdown_filter.html.erb
+<ul class='dropdown'>
+    <h1><%= title %></h1>
+    <% links.each do |name, url| %>
+        <li>
+            link_to name, url
+        </li>
+    <% end %>
+</ul>
+
+<:make_list("Tech Ladies", ["Ashley", "Jeannette", "Novi"])
