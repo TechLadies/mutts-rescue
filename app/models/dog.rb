@@ -14,6 +14,8 @@ class Dog < ApplicationRecord
   validates :adoption_status, presence: true, inclusion: { in: %w(adopted looking\ for\ adoption),
                                                            message: "'%{value}' is not a valid status. Please enter 'adopted' or 'looking for adoption' " }
 
+  has_many :sponsorships                                                         
+
   #scope :gender, -> (gender) { where("LOWER(gender) like LOWER(?)", "#{gender}%")}
   
   scope :for_adoption, -> {where(adoption_status: "looking for adoption")}
