@@ -6,8 +6,9 @@ class Admin::SponsorshipsController < AdminController
   end
 
   def show
-  #  @person = Person.find(params[:id])
+
     @sponsorship = Sponsorship.find(params[:id])
+
   end
 
   def new

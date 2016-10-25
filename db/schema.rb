@@ -86,11 +86,11 @@ ActiveRecord::Schema.define(version: 20161116125634) do
     t.integer  "person_id"
     t.date     "sponsor_until_date"
     t.decimal  "amount",             precision: 8, scale: 2
-    t.string   "type"
     t.integer  "dog_id"
     t.text     "notes"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.integer  "sponsorship_type"
   end
 
   create_table "users", force: :cascade do |t|

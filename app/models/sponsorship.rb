@@ -9,12 +9,15 @@ class Sponsorship < ApplicationRecord
   #validate date
   validates :sponsor_until_date, presence: true
 
-  #validate frequency
-  validates :type, presence: true, inclusion: { in: %w(monthly once),
-                                                           message: "'%{value}' is not a valid status. Please enter 'once' or 'monthly' " }
+  #validate sponsorship type
+  TYPE_OPTIONS = %w(monthly once)
+
+  validates :sponsorship_type, :inclusion => {:in => TYPE_OPTIONS}
 
   belongs_to :dog
   belongs_to :person
+
+   enum sponsorship_type: [ :monthly, :once]
 
 
 end
