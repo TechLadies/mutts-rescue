@@ -9,13 +9,18 @@ Rails.application.routes.draw do
   get '/about_dog/:id', to: 'home#about_dog', as: 'about_dog'
   get '/filter', to: 'home#filter', as: 'filter'
   resources :dogs
+  
 
   namespace :admin do
-    resources :dogs
+    resources :dogs do
+      resources :updates  
+    end
     resources :locations
     resources :users
     resources :people
   end
+
+  resources :updates
 
   
 end

@@ -57,15 +57,16 @@ tr:nth-child(even) { background-color: #CCC;}
 }
 
 .underline {text-decoration:underline;}
+
+.separatorLine {border: solid 1px #CCC;}
+
 .strong {font-weight: bold;}
 
-.paddingTopBot15px 
-{
-	padding-top:15px;
-	padding-bottom:15px;
-}
+.paddingTopBot15px { padding-top:15px; padding-bottom:15px;}
 
 .paddingBot10px { padding-bottom:10px;}
+
+.paddingTopBot20px { padding-top:20px; padding-bottom:20px;}
 
 .paddingBot20px { padding-bottom:20px;}
 
@@ -95,3 +96,9 @@ tr:nth-child(even) { background-color: #CCC;}
 }
 
 /* Global END ////////////////////////////////////*/
+
+/* Dog Update START //////////////////////////////*/
+
+.updateTextContainer {height: 8em; width:100%;}
+
+/* Dog Update END //////////////////////////////*/

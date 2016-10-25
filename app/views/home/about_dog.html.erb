@@ -1,97 +1,96 @@
 <%= render 'home'  %>
- 
- 
+
 <div class="container-fluid text-center">
-<h1><%= @dog.name %></h1>
+  <h1><%= @dog.name %></h1>
 </div>
- 
+
 <div class="container-fluid text-center">
- 
- 
-<div class="row">
-  <div class="col-md-6">             <img src="https://s-media-cache-ak0.pinimg.com/564x/d2/92/e7/d292e7b5b9eeb2e97add052399a308d7.jpg" alt="Dog" style="height: 400px;" > </div>
-  <div class="col-md-6">
-  <h1> " <%= @dog.quote %> I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine." </h1>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://s-media-cache-ak0.pinimg.com/564x/d2/92/e7/d292e7b5b9eeb2e97add052399a308d7.jpg" alt="Dog" style="height: 400px;" >
+    </div>
+    <div class="col-md-6">
+      <h1>"<%= @dog.quote %>"</h1>
+    </div>
   </div>
-</div>
- 
- 
-<div class="container-fluid text-left">
-<div class="row">
-  <div class="col-md-12">
-    <h3> <b>Basic Information </b> </h3>
+
+  <div class="container-fluid text-left">
     <div class="row">
-      <div class="col-md-6">
-        <h5> <b>Gender: </b><%= @dog.gender %> </h5>
-      </div>
-      <div class="col-md-6">
-        <h5> <b>Birthdate: </b> <%= @dog.born_on %> </h5>
-      </div>
       <div class="col-md-12">
-      <h5> <b>HDB approved: </b> <%= @dog.is_hdb_approved %> </h5>
-      <h5> <b>Color markings: </b> <%= @dog.color_markings %> "Pure White breed with brown spot on the underbelly, and a black spot on the nose" </h5>
+        <h3> <b>Basic Information </b> </h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h5> <b>Gender: </b><%= @dog.gender %> </h5>
+          </div>
+          <div class="col-md-6">
+            <h5> <b>Birthdate: </b> <%= @dog.born_on %> </h5>
+          </div>
+          <div class="col-md-12">
+            <h5> <b>HDB approved: </b> <%= @dog.is_hdb_approved %> </h5>
+            <h5> <b>Color markings: </b> <%= @dog.color_markings %> </h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
- 
-<div class="container-fluid text-left">
-<div class="row">
-  <div class="col-md-12">
-    <h3> <b>Background story </b> </h3>
-    <h5> <%=@dog.background_story %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis. </h5>
-  </div>
-</div>
-</div>
- 
- 
- 
-<div class="container-fluid text-left">
-<div class="row">
-  <div class="col-md-12">
-    <h3> <b>Temperament </b> </h3>
+
+  <div class="container-fluid text-left">
     <div class="row">
-      <div class="col-md-6">
-        <h5> <b>Good with other dogs: </b><%= @dog.is_good_with_other_dogs %> </h5>
-      </div>
-      <div class="col-md-6">
-        <h5> <b> Good with kids: </b> <%= @dog.is_good_with_kids %> </h5>
-      </div>
       <div class="col-md-12">
-      <h5> <b>Energy level: </b> <%= @dog.energy_level %> </h5>
-      <h5> <b> Notes on temperament </b></h5>
-      <h5> <%= @dog.notes_temperament %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+        <h3> <b>Background story </b> </h3>
+        <h5> <%= @dog.background_story %> </h5>
       </div>
     </div>
   </div>
-</div>
-</div>
- 
- 
- 
-<div class="container-fluid text-left">
-<div class="row">
-  <div class="col-md-12">
-    <h3> <b>Health </b> </h3>
+
+
+
+  <div class="container-fluid text-left">
     <div class="row">
-      <div class="col-md-6">
-        <h5> <b>Been vaccinated: </b><%= @dog.is_vaccinated %> </h5>
-      </div>
-      <div class="col-md-6">
-        <h5> <b> Been sterilized: </b> <%= @dog.is_sterilized %> </h5>
-      </div>
       <div class="col-md-12">
-      <h5> <b> Notes on health </b> (e.g. health history, current health condition)</h5>
-      <h5> <%= @dog.notes_health %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+        <h3> <b>Temperament </b> </h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h5> <b>Good with other dogs: </b><%= @dog.is_good_with_other_dogs %> </h5>
+          </div>
+          <div class="col-md-6">
+            <h5> <b> Good with kids: </b> <%= @dog.is_good_with_kids %> </h5>
+          </div>
+          <div class="col-md-12">
+            <h5> <b>Energy level: </b> <%= @dog.energy_level %> </h5>
+            <h5> <b> Notes on temperament </b></h5>
+            <h5> <%= @dog.notes_temperament %> </h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
- 
- 
- 
-<div class="container-fluid text-center">
-            <button class="btn btn-default"><%= link_to 'BACK', '/' %>  </button>
+
+
+
+  <div class="container-fluid text-left">
+    <div class="row">
+      <div class="col-md-12">
+        <h3> <b>Health </b> </h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h5> <b>Been vaccinated: </b><%= @dog.is_vaccinated %> </h5>
+          </div>
+          <div class="col-md-6">
+            <h5> <b> Been sterilized: </b> <%= @dog.is_sterilized %> </h5>
+          </div>
+          <div class="col-md-12">
+            <h5> <b> Notes on health </b> (e.g. health history, current health condition)</h5>
+            <h5> <%= @dog.notes_health %> </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center">
+    <button class="btn btn-default"><%= link_to 'BACK', '/' %>  </button>
+  </div>
+
+  <%= render partial: "update", collection: @dog.updates %>
 </div>

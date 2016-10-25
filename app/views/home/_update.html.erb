@@ -1,0 +1,37 @@
+<div class="row droidFont">
+
+    <hr class="separatorLine">
+
+    <!-- dog image ////////////////////////////////////////////// -->
+    
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 paddingTopBot15px">
+      <%= image_tag(update.image_url, class: "img-responsive text-center") if update.image_url.present? %>
+    </div>  
+    
+    <!-- dog update content ///////////////////////////////////// -->
+    
+    <div class="col-lg-9 col-md-6 col-sm-12 col-xs-12">
+
+      <!-- date //////////// -->	
+
+      <div class="paddingTopBot15px">
+
+      	<strong><%= update.date.strftime("%d %B %Y")  %></strong>
+
+      </div>
+
+
+      <!-- text //////////// -->	
+
+      <div class="paddingTopBot15px updateTextContainer">
+
+      	<%= truncate(update.text,length:400) %>
+      	
+      </div>
+    
+    </div> 
+
+  </div>
+
+
+
