@@ -79,14 +79,17 @@
   }
   .img_dog {
     height: 200px;
-    z-index: -1;
+    z-index: 1;
 
   }
 
   .hdblogo {
-  height: 20px;
-  vertical-align: center;
-  z-index: +1
+  height: 35px;
+  vertical-align: top;
+  z-index: 2;
+  position:absolute;
+  top: 15px;
+  left: 215px;
 
 }
 
@@ -98,6 +101,7 @@
 .logo {
   height: 51px;
 }
+
 
 .hdblogo {
   height: 50px;
@@ -141,15 +145,14 @@
   }
 }
 
+
+
+
 // testing:
 .retina .crop img {
   transform: scale(.5, .5);
 }
 
-// extra prettification ----
-small {display: block; font-weight: normal; opacity: .8;}
-body {background: PaleGoldenRod ; color: darken(PaleGoldenRod , 70%); font-family: Georgia; font-size: 17px; margin: 0; padding: 1em;}
-h1 {margin: 0;}
-h1 + p {margin-top: 0;}
-hr {background: transparent; border: 0; border-top: 2px solid #000; margin: .8em 0;}
+
+
 

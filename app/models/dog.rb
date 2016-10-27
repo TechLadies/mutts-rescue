@@ -25,11 +25,11 @@ class Dog < ApplicationRecord
     @dog = Dog.where(is_featured: true)
   end
 
-  def self.hdb
+  def self.hdb_approved
     @dog = Dog.where(is_hdb_approved: true)
   end
 
-  def self.not_hdb
+  def self.not_hdb_approved
     @dog = Dog.where(is_hdb_approved: false)
   end
 
