@@ -1,46 +1,15 @@
 module ApplicationHelper
-	
-	def friendly_age(birthdate)
-		years_old = Date.today - birthdate 
-		years_and_months = years_old.divmod(365)
-		years = years_and_months[0]
-		months = (years_and_months[1] / 30).to_i
-		
-		if months < 1
-	    friendly_age = "#{years} years"
-		elsif years < 1
-		friendly_age = "#{months} months"
-		else
-		friendly_age = "#{years} years #{months} months"
-		end
-	end
 
-	def oldest
-		Dog.order(:born_on).first
-	end
-
-
-	def wordiest(quote)
-		words = Dog.quote.split.count
-	end
-
-def make_list(header, items)
-  html = ""
-  html << "<h1>#{header}</h1>"
-  html << '''
-  <div class ="container-fluid text-center/">
-  '''
-  html << "<ul>"
-
-  items.each do |item|
-    html << "<li>#{item}</li>"
+  def friendly_age(birthdate)
+    years_old = Date.today - birthdate 
+    years_and_months = years_old.divmod(365)
+    years = years_and_months[0]
+    months = (years_and_months[1] / 30).to_i
+    friendly_age = " #{years} years #{months} months"
+    friendly_age.
+      gsub(" 0 years ", "").
+      gsub(" 0 months", "")
   end
-
-  html << "</ul>"
-
-  return html
-end
-
 
 
 

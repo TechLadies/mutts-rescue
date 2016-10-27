@@ -10,6 +10,7 @@ class Admin::DogsController < AdminController
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+    @dogs=Dog.all
   end
 
   # GET /dogs/new
@@ -19,6 +20,9 @@ class Admin::DogsController < AdminController
 
   # GET /dogs/1/edit
   def edit
+  end
+
+  def list
   end
 
   # POST /dogs

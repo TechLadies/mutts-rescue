@@ -14,28 +14,25 @@ class Dog < ApplicationRecord
   validates :adoption_status, presence: true, inclusion: { in: %w(adopted looking\ for\ adoption),
                                                            message: "'%{value}' is not a valid status. Please enter 'adopted' or 'looking for adoption' " }
 
-  #scope :gender, -> (gender) { where("LOWER(gender) like LOWER(?)", "#{gender}%")}
-  
   scope :for_adoption, -> {where(adoption_status: "looking for adoption")}
-  #scope :hdb, -> { where(is_hdb_approved: true) if is_hdb_approved.present? }  
-  #scope :not_hdb -> { where(is_hdb_approved: nil) }  
   scope :female, -> { where(gender: 'female') }
   scope :male, -> { where(gender: 'male')}
   scope :featured, -> {find(is_featured: true)}
   scope :adult, -> { where('born_on < ?', 1.years.ago ).order(:born_on) }
   scope :puppy, -> { where('born_on > ?', 1.years.ago ).order(:born_on) }
 
-def self.featured
+  def self.featured
     @dog = Dog.where(is_featured: true)
-   end 
+  end
 
-def self.hdb
+  def self.hdb_approved
     @dog = Dog.where(is_hdb_approved: true)
-   end 
+  end
 
-def self.not_hdb
+  def self.not_hdb_approved
     @dog = Dog.where(is_hdb_approved: false)
-   end 
+  end
 
+  has_many :updates, dependent: :destroy
 end
 

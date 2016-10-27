@@ -1,21 +1,24 @@
 <div class="col-md-6 text-center dogcard">
 	<div class="dogcard-content">
-	<div>
+	
+	<div id="container" style="position:relative;">
 		<img class="img_dog" src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13177607_512347952298939_5212659507092539555_n.jpg?oh=07e0184ec7280dbccee13e6d0126b08e&oe=586098DF" alt="Dog" /> 
 		
-
+		<% if dog.is_hdb_approved? == true %>
+		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>
+		<% else %>
+		<% end %>
 		
 		
 	</div>
 	
 	<div>
+
 		<h3> 
 		<%= dog.name %>
-		<% if dog.is_hdb_approved? == true %>
-		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>
-		<% else %>
-		<% end %>
+		
 		</h3> 	
+
 		<p><%= dog.gender %> , <%= friendly_age(dog.born_on) %></p>
 	</div>
 

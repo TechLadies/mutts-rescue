@@ -6,16 +6,16 @@ helper_method :dogs
       @dogs = Dog.for_adoption
       @featured_dog = Dog.featured
 
-      if params['gender'] && params['gender'] != 'any'
-        @dogs = @dogs.public_send(params['gender'])
+      if params[:gender] && params[:gender] != 'any'
+        @dogs = @dogs.public_send(params[:gender])
       end
 
-      if params["born_on"] && params[:born_on] != 'any'
-        @dogs = @dogs.public_send(params["born_on"])
+      if params[:born_on] && params[:born_on] != 'any'
+        @dogs = @dogs.public_send(params[:born_on])
       end
       
-      if params["is_hdb_approved"] && params[:is_hdb_approved] != 'any'
-        @dogs = @dogs.public_send(params["is_hdb_approved"])
+      if params[:is_hdb_approved] && params[:is_hdb_approved] != 'any'
+        @dogs = @dogs.public_send(params[:is_hdb_approved])
       end
 
       @search_params = params.permit(:is_hdb_approved, :gender, :born_on)
