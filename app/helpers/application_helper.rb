@@ -9,4 +9,23 @@ module ApplicationHelper
       gsub(" 0 years ", "").
       gsub(" 0 months", "")
   end
+
+def make_list(header, items)
+  html = ""
+  html << "<h1>#{header}</h1>"
+  html << '''
+  <div class ="container-fluid text-center/">
+  '''
+  html << "<ul>"
+
+  items.each do |item|
+    html << "<li>#{item}</li>"
+  end
+
+  html << "</ul>"
+
+  return html
 end
+
+end
+

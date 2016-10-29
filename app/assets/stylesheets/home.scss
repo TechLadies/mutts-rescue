@@ -53,6 +53,13 @@
   
 }
 
+.padding {
+  padding:20px;
+  
+  
+}
+
+
 .homepage > .row  {
   padding-bottom: 60px; 
 }
@@ -66,9 +73,25 @@
     padding: 10px;
   }
 
-  img {
+  .dogcard-image {
     height: 200px;
+    width: 200px;
   }
+  .img_dog {
+    height: 200px;
+    z-index: 1;
+
+  }
+
+  .hdblogo {
+  height: 35px;
+  vertical-align: top;
+  z-index: 2;
+  position:absolute;
+  top: 15px;
+  left: 215px;
+
+}
 
   .quote-row-content {
     height: 50px;
@@ -78,3 +101,58 @@
 .logo {
   height: 51px;
 }
+
+
+.hdblogo {
+  height: 50px;
+}
+
+.frame-square {
+  background: #fff;
+  border: 0.5px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  width: 180px;
+  height: 180px;
+  margin-right: .5em;
+  margin-bottom: .3em;
+}
+
+.frame-round {
+  @extend .frame-square;
+  border-radius: 50%;
+  overflow: hidden;
+  
+  .crop {border-radius: 50%;}
+}
+
+.crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+  }
+}
+
+
+
+
+// testing:
+.retina .crop img {
+  transform: scale(.5, .5);
+}
+
+
+
+

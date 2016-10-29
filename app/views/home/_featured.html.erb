@@ -1,6 +1,11 @@
 
-    <h2><%= dog.name %></h2>
-
+    <h2><%= dog.name %>
+	<% if dog.is_hdb_approved? == true %>
+		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>
+		<% else %>
+		<% end %>
+	</h2>	
+		
     <h5><%= dog.gender %> , <%= friendly_age(dog.born_on) %></h5>
 
     <h3>"<%= dog.quote %>"</h3>
