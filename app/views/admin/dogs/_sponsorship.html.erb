@@ -1,39 +1,8 @@
-<div class="row">
 
-  <!-- title -->
-  <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
-    <h1 class="droidFont">Sponsorships</h1>
-  </div>
-
-  <!-- create person button -->
-  <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 paddingTopBot15px">    
-
-  </div>
-    
-</div>
-<br/>
-
-<table class="table droidFont fontSizeMedium">
-  <thead>
-    <tr class="bgDarkGrey fontWhite">
-      <th>Date</th>
-      <th>Amount</th>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-   
-      <tr>
-        <td class="droidFont fontSizeMedium"><%= sponsorship.person_id %></td>
-        <td class="droidFont fontSizeMedium"><%= sponsorship.amount %></td>
-        <td class="droidFont fontSizeMedium">Name</td>
-        <td class="droidFont fontSizeMedium">Phone</td>
-        <td class="droidFont fontSizeMedium">Email</td>
-      </tr>
-   
-  </tbody>
-</table>
+          <tr>
+            <td class="droidFont fontSizeMedium"><%= sponsorship.created_at %></td>
+            <td class="droidFont fontSizeMedium">$<%= sponsorship.amount %></td>
+            <td class="droidFont fontSizeMedium"><%= sponsorship.person.name %></td>
+            <td class="droidFont fontSizeMedium"><%= sponsorship.person.phone %></td>
+            <td class="droidFont fontSizeMedium"><%= sponsorship.person.email %></td>
+          </tr>
