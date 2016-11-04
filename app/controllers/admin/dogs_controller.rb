@@ -5,6 +5,15 @@ class Admin::DogsController < AdminController
   # GET /dogs.json
   def index
     @dogs = Dog.all
+
+          if params[:adoption_status] && params[:adoption_status] != 'any'
+        @dogs = @dogs.public_send(params[:adoption_status])
+      end
+
+
+
+      @search_params = params.permit(:adoption_status)
+
   end
 
   # GET /dogs/1

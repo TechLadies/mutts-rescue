@@ -1,62 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dogs</h1>
+<h2>Dogs</h2>
 
-<table>
+<%= link_to '+ Add New Dog', new_admin_dog_path, :class => "btn btn-success" %>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+
+
+
+
+
+
+
+<%= render "tab"%>
+
+
+
+<table class="table table-hover table-bordered">
+
   <thead>
-    <tr>
+    <tr class="success">
+<div class="row">
+    <div class= "col-md-6">
+      <th>Photo</th>
       <th>Name</th>
+    </div>  
       <th>Gender</th>
-      <th>Born on</th>
+      <th>Adoption status</th>
+      <th>Birthdate</th>
       <th>Chip number</th>
       <th>License number</th>
-      <th>Is hdb approved</th>
+      <th>HDB approval?</th>
       <th>Color markings</th>
-      <th>Adoption status</th>
       <th>Background story</th>
-      <th>Is good with other dogs</th>
-      <th>Is good with kids</th>
-      <th>Energy level</th>
-      <th>Notes temperament</th>
-      <th>Is vaccinated</th>
-      <th>Is sterilized</th>
-      <th>Notes health</th>
-      <th>Quote</th>
-      <th>Image</th>
+      <th>Vaccinated?</th>
+      <th>Sterilized?</th>
+      
       <th colspan="3"></th>
+</div>
     </tr>
   </thead>
+
 
   <tbody>
     <% @dogs.each do |dog| %>
       <tr>
+        <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %> </td>
         <td><%= dog.name %></td>
         <td><%= dog.gender %></td>
+        <td><%= dog.adoption_status %></td>
         <td><%= dog.born_on %></td>
         <td><%= dog.chip_number %></td>
         <td><%= dog.license_number %></td>
         <td><%= dog.is_hdb_approved %></td>
         <td><%= dog.color_markings %></td>
-        <td><%= dog.adoption_status %></td>
+
         <td><%= dog.background_story %></td>
-        <td><%= dog.is_good_with_other_dogs %></td>
-        <td><%= dog.is_good_with_kids %></td>
-        <td><%= dog.energy_level %></td>
-        <td><%= dog.notes_temperament %></td>
         <td><%= dog.is_vaccinated %></td>
         <td><%= dog.is_sterilized %></td>
-        <td><%= dog.notes_health %></td>
-        <td><%= dog.quote %></td>
-        <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %>
-        </td>
+        
         <td><%= link_to 'Show', [:admin, dog] %></td>
         <td><%= link_to 'Edit', edit_admin_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', [:admin, dog], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Dog', new_admin_dog_path %>
+  </div>
+</div>

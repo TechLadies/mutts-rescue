@@ -1,0 +1,28 @@
+
+<% if params[:adoption_status].nil? %>
+<ul class="nav nav-tabs">
+	<li class="active"><%= link_to 'All Dogs' , admin_dogs_path %>  </li>
+	<li><%= link_to 'Looking for Adoption' , admin_dogs_path(@search_params.merge(adoption_status: "for_adoption"))  %>  </li>
+	<li><%= link_to 'Adopted' , admin_dogs_path(@search_params.merge(adoption_status: "adopted"))  %>  </li>
+</ul>
+<% end %>
+
+
+<% if params[:adoption_status] == "for_adoption" %>
+<ul class="nav nav-tabs">
+	<li><%= link_to 'All Dogs' , admin_dogs_path %>  </li>
+	<li class="active"><%= link_to 'Looking for Adoption' , admin_dogs_path(@search_params.merge(adoption_status: "for_adoption"))  %>  </li>
+	<li class="active"><%= link_to Dog.for_adoption.count , admin_dogs_path(@search_params.merge(adoption_status: "for_adoption"))  %>  </li>
+	<li><%= link_to 'Adopted' , admin_dogs_path(@search_params.merge(adoption_status: "adopted"))  %>  </li>
+</ul>
+<% end %>
+
+
+
+<% if params[:adoption_status] == "adopted" %>
+<ul class="nav nav-tabs">
+	<li><%= link_to 'All Dogs' , admin_dogs_path %>  </li>
+	<li><%= link_to 'Looking for Adoption' , admin_dogs_path(@search_params.merge(adoption_status: "for_adoption"))  %>  </li>
+	<li class="active"><%= link_to 'Adopted' , admin_dogs_path(@search_params.merge(adoption_status: "adopted"))  %>  </li>
+</ul>
+<% end %>
