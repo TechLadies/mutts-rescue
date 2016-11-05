@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
   <nav id="AdminNavBar" class="navbar navbar-default navbar-fixed-top" role='navigation'>
     <div class="container-fluid">
       <div class="navbar-header">
@@ -37,14 +36,16 @@
         <li class="hidden">
           <a href="home#home"></a>
         </li>
-        <li><a href="admin#dogs#list">Dogs</a></li>
-        <li><a href="admin#people">People</a></li>
+        <li><a><%= link_to 'Dogs', admin_dogs_list_path %></a></li>
+        <li><a><%= link_to 'People', admin_people_path %></a></li>
       </ul>
     </div>
 
   </nav>
 
   <br><br>
+
+  <%= form_for [:admin, @dog] do |f| %>
 
   <div class="container">
     <header id="top" class="header">
@@ -55,50 +56,53 @@
       <div class="col-md-6">
         <form class="form-horizontal">
           <div class="form-group">
-            <label class="col-sm-6 control-label">Name</label>
+            <label class="col-sm-6 control-label text-right">Name</label>
             <div class="col-sm-6">
-              <input class=form-control type="string" id="name" value="<%= @dog.name %>">
+              <%= f.text_field :name, class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-sm-6 control-label">Colour markings</label>
+            <label class="col-sm-6 control-label text-right">Colour markings</label>
             <div class="col-sm-6">
-              <input class="form-control" type="string" id="color_markings" value="<%= @dog.color_markings %>">
+              <%= f.text_field :color_markings, class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-sm-6 control-label">Status</label>
-            <div class="col-sm-6">
-              <select class="form-control" type="string" id="adoption_status" value="<%= @dog.adoption_status %>">
-                <option>Looking for adoption</option>
-                <option>Adopted</option>
-              </select>
+            <div class="col-sm-6 text-right">
+              <label class="control-label">Status</label>
             </div>
-          </div>
-
-         <div class="form-group">
-            <label class="col-sm-6 control-label">Dog location</label>
             <div class="col-sm-6">
               <div class="form-control">
-                <%= form_for :Location do |f| %>
-                <%= f.select :name, Location.all.collect {|p| [p.name, p.id]} %>
+                <%= f.select :adoption_status, [['Looking for adoption','looking for adoption'], ['Adopted', 'adopted']], include_blank: true %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-6 text-right">
+              <label class="control-label">Dog location</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-control">
+                <%= form_for :Location do |f1| %>
+                <%= f1.select :name, Location.all.collect {|p| [p.name, p.id]}, include_blank: true %>
                 <% end %>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="rescued_on" class="col-sm-6 control-label">Date rescued</label>
-            <div class="col-sm-6">
-              <div class="input-group date" id='rescued_on'>
-                <input type="text" class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+            <label for="rescued_on" class="col-sm-6 control-label text-right">Date rescued</label>
+              <div class="col-sm-6">
+                <div class="input-group date" id='rescued_on'>
+                  <input type="text" class="form-control" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
               </div>
-            </div>
           </div>
 
           <script type="text/javascript">
@@ -111,11 +115,17 @@
           </script>
 
           <div class="form-group">
-            <label for="is_hdb_approved" class="col-sm-6 control-label">HDB approved</label>
+            <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
             <div class="col-sm-6">
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
+            <%= f.radio_button :is_hdb_approved, 'true' %>
+            <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
+            <%= f.radio_button :is_hdb_approved, 'false' %>
+            <%= f.label :is_hdb_approved, 'No', :value => 'false' %>
+            <%= f.radio_button :is_hdb_approved, 'maybe' %>
+            <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
+            <!--   <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
               <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no" value="false">No</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label>
+              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label> -->
             </div>
           </div>
         </form>
@@ -137,10 +147,12 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="col-sm-6 control-label">Gender</label>
+              <label class="col-sm-6 control-label" >Gender</label>
               <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_male" value="male" />Male</label>
-                  <label class="radio-inline"> <input type="radio" name="gender" id="gender_female" value="female" />Female</label>
+                <%= f.radio_button :gender, 'male' %>
+                <%= f.label :gender, 'Male', :value => 'male' %>
+                <%= f.radio_button :gender, 'female' %>
+                <%= f.label :gender, 'Female', :value => 'female' %>
               </div>
             </div>
           </div>
@@ -209,16 +221,21 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
-              <div class="col-lg-4">
-                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_good_with_other_dogs" id="is_good_with_other_dogs_no">No</label>
+              <div class="col-sm-6">
+                <%= f.radio_button :is_good_with_other_dogs, 'true' %>
+                <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_good_with_other_dogs, 'false' %>
+                <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
               </div>
               <div class="form-group">
                 <label class="col-sm-6 control-label">Energy Level</label>
                 <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_low">Low</label>
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_normal">Normal</label>
-                  <label class="radio-inline"> <input type="radio" name="energy_level" id="energy_level_high">High</label>
+                <%= f.radio_button :energy_level, 'low' %>
+                <%= f.label :energy_level, 'Low', :value => 'low' %>
+                <%= f.radio_button :energy_level, 'normal' %>
+                <%= f.label :energy_level, 'Normal', :value => 'normal' %>
+                <%= f.radio_button :energy_level, 'high' %>
+                <%= f.label :energy_level, 'High', :value => 'high' %>
                 </div>
               </div>
             </div>
@@ -228,8 +245,10 @@
             <div class="form-group">
               <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_good_with_kids" id="is_good_with_kids_no">No</label>
+                <%= f.radio_button :is_good_with_kids, 'true' %>
+                <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_good_with_kids, 'false' %>
+                <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
               </div>
             </div>
           </div>
@@ -240,10 +259,12 @@
             <div class="form-group">
               <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_temperament" value="<%= @dog.notes_temperament %>"></textarea>
+                  <%= f.text_area :notes_temperament, cols:175, rows:5 %> 
                 </div>
-              </div>
             </div>
+
+          </div>
+        </div>
         </div>
       </form>
   </div> <!-- End of Temperament section -->
@@ -260,8 +281,10 @@
             <div class="form-group">
               <label class="col-sm-6 control-label">Vaccinated?</label>
                 <div class="col-sm-6">
-                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_yes">Yes</label>
-                  <label class="radio-inline"> <input type="radio" name="is_vaccinated" id="is_vaccinated_no">No</label>
+                <%= f.radio_button :is_vaccinated, 'true' %>
+                <%= f.label :is_vaccinated, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_vaccinated, 'false' %>
+                <%= f.label :is_vaccinated, 'No', :value => 'false' %>
                 </div>
               </div>
             </div>
@@ -269,8 +292,10 @@
             <div class="form-group">
               <label class="col-sm-6 control-label">Sterilized?</label>
               <div class="col-sm-6">
-                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_yes">Yes</label>
-                <label class="radio-inline"> <input type="radio" name="is_sterilized" id="is_sterilized_no">No</label>
+                <%= f.radio_button :is_sterilized, 'true' %>
+                <%= f.label :is_sterilized, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_sterilized, 'false' %>
+                <%= f.label :is_sterilized, 'No', :value => 'false' %>
               </div>
             </div>
           </div>
@@ -281,7 +306,7 @@
             <div class="form-group">
               <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="notes_health" value="<%= @dog.notes_health %>"></textarea>
+                  <%= f.text_area :notes_health, cols:175, rows:5 %> 
                 </div>
             </div>
           </div>
@@ -301,7 +326,7 @@
             <div class="form-group">
               <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="5" id="background_story" value="<%= @dog.background_story %>"></textarea>
+                  <%= f.text_area :background_story, cols:175, rows:5 %> 
                 </div>
             </div>
           </div>
@@ -369,7 +394,7 @@
   </div> <!-- End of Updates section -->
 
   <button class="btn btn-success center-block" type="submit">   Save   </button>
-
+<% end %> <!-- end form -->
   <footer class="footer text-center">
      <div class="container">
        <p class="text-muted">Place footer here</p>
