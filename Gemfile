@@ -41,7 +41,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'awesome_print'
   gem 'better_errors'
+<<<<<<< HEAD
   gem 'binding_of_caller'
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
 end
 
 group :development do

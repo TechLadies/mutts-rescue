@@ -16,7 +16,10 @@ class Dog < ApplicationRecord
                                                            message: "'%{value}' is not a valid status. Please enter 'adopted' or 'looking for adoption' " }
 
   scope :for_adoption, -> {where(adoption_status: "looking for adoption")}
+<<<<<<< HEAD
   scope :adopted, -> {where(adoption_status: "adopted")}
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
   scope :female, -> { where(gender: 'female') }
   scope :male, -> { where(gender: 'male')}
   scope :featured, -> {find(is_featured: true)}
@@ -36,6 +39,9 @@ class Dog < ApplicationRecord
   end
 
   has_many :updates, dependent: :destroy
+<<<<<<< HEAD
   belongs_to :location
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
 end
 

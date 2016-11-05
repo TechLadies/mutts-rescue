@@ -45,8 +45,11 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+<<<<<<< HEAD
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
@@ -179,7 +182,10 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   better_errors
+<<<<<<< HEAD
   binding_of_caller
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
   byebug
   coffee-rails (~> 4.2)
   devise
@@ -199,4 +205,8 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.13.1
+=======
+   1.13.2
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21

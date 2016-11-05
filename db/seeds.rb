@@ -22,6 +22,7 @@ Dog.create(name: "Raven", gender: "female", born_on: 6.months.ago, adoption_stat
 Dog.create(name: 'Wanda', gender: 'female', born_on: Time.now.to_datetime, adoption_status: 'adopted', image_url: 'https://cdn.filepicker.io/api/file/QzqMJFx0TBuomgCJvTAH')
 Dog.create(name: 'Harvey', gender: 'male', born_on: Time.now.to_datetime, adoption_status: 'looking for adoption', image_url: 'https://cdn.filepicker.io/api/file/1SWAMPW1SjywGRiX6qdu')
 
+<<<<<<< HEAD
 Dog.create(
                        :name => "Buzz",
                      :gender => "male",
@@ -46,6 +47,8 @@ Dog.create(
 }
 
 
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
 
 # Create dog updates for dog wanda
 Update.create(dog_id: 1, date:Time.now.to_datetime, image_url: 'https://cdn.filepicker.io/api/file/4oX4K4Q5IHORmBTbq1QI', text: 'Hey peeps! Remember Wanda, the forgotten pup? This girl may had a tough beginning, but now she has earned herself a family that will truly love her forever. Wanda now knows her name and responds really well to it. She now walks well on the leash and is now outdoor trained! This girl is growing and glowing at the same time! Wanda was extremely well behaved and has a gentle temperament during her home stay and that was why her foster family fell in love with her instantly.')

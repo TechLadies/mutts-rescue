@@ -74,8 +74,11 @@
     padding: 10px;
   }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
   .dogcard-image {
     height: 200px;
     width: 200px;
@@ -96,8 +99,11 @@
 
 }
 
+<<<<<<< HEAD
   
 
+=======
+>>>>>>> 790af910c1ff22a82e380f5f79099eba28183e21
   .quote-row-content {
     height: 50px;
     margin:10px;
@@ -150,6 +156,63 @@
     left: -100%;
   }
 }
+
+.logo {
+  height: 51px;
+}
+
+
+.hdblogo {
+  height: 50px;
+}
+
+.frame-square {
+  background: #fff;
+  border: 0.5px solid #000;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  width: 180px;
+  height: 180px;
+  margin-right: .5em;
+  margin-bottom: .3em;
+}
+
+.frame-round {
+  @extend .frame-square;
+  border-radius: 50%;
+  overflow: hidden;
+  
+  .crop {border-radius: 50%;}
+}
+
+.crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+  }
+}
+
+
+
+
+// testing:
+.retina .crop img {
+  transform: scale(.5, .5);
+}
+
+
 
 
 
