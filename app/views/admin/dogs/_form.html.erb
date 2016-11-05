@@ -22,9 +22,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :born_on %>
+    <%= f.label 'Birthdate' %>
     <%= f.date_select :born_on %>
   </div>
+
+  <!-- <div class="field">
+    <#%= f.label :rescued_on %>
+    <#%= f.date_select :rescued_on %>
+  </div>
+ -->
+<%= form_for :Location do |f1| %>
+  <%= f1.label :location %>
+  <%= f1.select :name, Location.all.collect {|p| [p.name, p.id]} %>
+<% end %>
 
   <div class="field">
     <%= f.label :chip_number %>
@@ -48,7 +58,7 @@
 
   <div class="field">
     <%= f.label :adoption_status %>
-    <%= f.text_field :adoption_status %>
+    <%= f.select :adoption_status, ["Looking for adoption", "Adopted"] %>
   </div>
 
   <div class="field">
@@ -68,7 +78,7 @@
 
   <div class="field">
     <%= f.label :energy_level %>
-    <%= f.text_field :energy_level %>
+    <%= f.select :energy_level, ["Low","Normal","High"] %>
   </div>
 
   <div class="field">
@@ -99,7 +109,7 @@
   <div class="field">
     <%= f.label :image_url, 'Upload Image:' %>
     <%= f.filepicker_field :image_url, dragdrop: true %>
-  </div>  
+  </div>
 
   <div class="actions">
     <%= f.submit %>
