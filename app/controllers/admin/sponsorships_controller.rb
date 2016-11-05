@@ -1,6 +1,6 @@
 class Admin::SponsorshipsController < AdminController   
-	before_action :set_sponsorship, only: [:index, :show, :edit, :update, :destroy]
-
+	#before_action :set_sponsorship, only: [:index, :show, :edit, :update, :destroy]
+ 
   def index
     @sponsorship = Sponsorship.all
   end
@@ -62,9 +62,9 @@ class Admin::SponsorshipsController < AdminController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def sponsorship_params
-      params.require(:sponsorship).permit(:people_id, :dog_id, :date_start, :date_end :frequency)
-    end
+    #def sponsorship_params
+    #  params.require(:sponsorship).permit(:people_id, :dog_id, :date_start, :date_end :frequency)
+    #end
 
 
   end

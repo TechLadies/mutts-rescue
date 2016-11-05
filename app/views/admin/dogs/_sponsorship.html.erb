@@ -5,4 +5,7 @@
             <td class="droidFont fontSizeMedium"><%= sponsorship.person.name %></td>
             <td class="droidFont fontSizeMedium"><%= sponsorship.person.phone %></td>
             <td class="droidFont fontSizeMedium"><%= sponsorship.person.email %></td>
+            <td class="droidFont fontSizeMedium"><%= link_to 'Show', admin_sponsorship_path(sponsorship) %></td>
+            <td class="droidFont fontSizeMedium"><%= link_to 'Edit', edit_admin_sponsorship_path(sponsorship) %></td>
+            <td class="droidFont fontSizeMedium"><%= link_to 'Delete', [:admin, sponsorship], method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

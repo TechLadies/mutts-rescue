@@ -1,0 +1,76 @@
+<%= form_for([:admin, @sponsorship]) do |f| %>
+<center>
+  <% if @sponsorship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sponsorship.errors.count, "error") %> prohibited this sponsorship from being saved:</h2>
+
+      <ul>
+      <% @sponsorship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</center>  
+
+<div class="row">
+
+    <!-- side column -->  
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+    <!-- center content -->
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">  
+
+      <div class= "row panel droidFont fontSizeLarge">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :Person %>
+          <%= f.text_field :person, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :sponsor_until_date %>
+          <%= f.text_field :sponsor_until_date, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :amount %>
+          <%= f.text_field :amount, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :dog %>
+          <%= f.text_field :dog, class:'textField' %>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :sponsorship_type, 'Bank Account' %>
+          <%= f.text_field :sponsorship_type, class:'textField' %>
+        </div>
+          
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
+          <%= f.label :notes %>
+          <%= f.text_area :notes, class:'textAreaAddress' %>
+        </div>
+
+        <!-- buttons -->
+          
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 actions paddingTopBot15px ">
+          <%= f.submit "Save", class: 'btn btnGreen btn-block fontSizeMedium ' %>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
+
+        <%= link_to 'Cancel', admin_people_path, :class => 'btn btnWhite btn-block fontSizeMedium'  %>
+      </div>  
+
+      </div>  
+
+    </div>  
+
+  <!-- side column -->  
+  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+</div>
+
+<% end %>
