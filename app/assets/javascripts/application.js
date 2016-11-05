@@ -13,3 +13,13 @@
 //= require jquery2
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+	// Let me click the whole row to go to a dog on the admin dogs index table
+	$('table.admin-dogs-index tbody tr').click(function(event) {
+		var tr = $(event.currentTarget);
+		var edit_link = tr.find('a.edit-link');
+		var path = edit_link.attr('href');
+		document.location = path;
+	});
+});

@@ -1,5 +1,6 @@
 class Dog < ApplicationRecord
 
+
   #validate name
   validates :name, presence: true, length: { maximum: 255 }
 
@@ -35,5 +36,6 @@ class Dog < ApplicationRecord
   end
 
   has_many :updates, dependent: :destroy
+  belongs_to :location
 end
 

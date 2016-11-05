@@ -19,7 +19,7 @@
 
 
 
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered admin-dogs-index">
 
   <thead>
     <tr class="success">
@@ -30,16 +30,11 @@
     </div>  
       <th>Gender</th>
       <th>Adoption status</th>
-      <th>Birthdate</th>
-      <th>Chip number</th>
-      <th>License number</th>
+      <th>Location</th>
       <th>HDB approval?</th>
-      <th>Color markings</th>
-      <th>Background story</th>
       <th>Vaccinated?</th>
       <th>Sterilized?</th>
-      
-      <th colspan="3"></th>
+ 
 </div>
     </tr>
   </thead>
@@ -49,21 +44,15 @@
     <% @dogs.each do |dog| %>
       <tr>
         <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %> </td>
-        <td><%= dog.name %></td>
+        <td><%= link_to dog.name, edit_admin_dog_path(dog), class: "edit-link"%></td>
         <td><%= dog.gender %></td>
         <td><%= dog.adoption_status %></td>
-        <td><%= dog.born_on %></td>
-        <td><%= dog.chip_number %></td>
-        <td><%= dog.license_number %></td>
+        <td><%= dog.location.try(:name) %></td>
         <td><%= dog.is_hdb_approved %></td>
-        <td><%= dog.color_markings %></td>
-
-        <td><%= dog.background_story %></td>
         <td><%= dog.is_vaccinated %></td>
         <td><%= dog.is_sterilized %></td>
         
-        <td><%= link_to 'Show', [:admin, dog] %></td>
-        <td><%= link_to 'Edit', edit_admin_dog_path(dog) %></td>
+        
       </tr>
     <% end %>
   </tbody>
