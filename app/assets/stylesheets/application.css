@@ -12,9 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
 
 /* Global START ////////////////////////////////////*/
+
+
 
 a:hover {color:black;background-color:transparent!important;} 
 a:visited {color:black;background-color:transparent!important;} 

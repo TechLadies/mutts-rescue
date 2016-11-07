@@ -13,7 +13,7 @@
 //= require jquery2
 //= require jquery_ujs
 //= require_tree .
-
+//= require trix
 $(function() {
 	// Let me click the whole row to go to a dog on the admin dogs index table
 	$('table.admin-dogs-index tbody tr').click(function(event) {
