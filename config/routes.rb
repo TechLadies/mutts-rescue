@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   get '/filter', to: 'home#filter', as: 'filter'
   get '/admin' => 'admin#index'
 
+#Static Pages Routes
   get '/about', :to => redirect('/pages/1')
   get '/contact', :to => redirect('/pages/2')
+  get '/getinvolved', :to => redirect('/pages/3')
+  get '/events', :to => redirect('/pages/4')
+  get '/merchandise', :to => redirect('/pages/5')
+  
 
   resources :dogs
 

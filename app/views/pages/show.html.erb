@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<Title>
+	<%= @page.title %>
+</title>
+
+
+<div class="jumbotron" style="background-color: white;" >
+
+</div>
+
 
 <p>
-  <strong>Title:</strong>
-  <%= @page.title %>
+	<%= @page.content.html_safe %>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @page.content.html_safe %>
-</p>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
