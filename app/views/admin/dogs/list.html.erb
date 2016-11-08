@@ -44,8 +44,8 @@
   </h1>
   <div class="container">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#notadopted_tab">Looking for Adoption (15)</a></li>
-      <li><a href="#adopted_tab">Already Adopted (130)</a></li>
+      <li class="active"><a data-toggle="tab" href="#notadopted_tab">Looking for Adoption (15)</a></li>
+      <li><a data-toggle="tab" href="#adopted_tab">Already Adopted (130)</a></li>
     </ul>
 
     <div class="tab-content">
@@ -63,12 +63,13 @@
           <tbody>
             <% @dogs.each do |dog| %>
             <tr>
-              <td class="col-md-2"><%= dog.photo %></td>
+              <td class="col-md-2"><%= dog.image_url %></td>
               <td class="col-md-2"><%= dog.name %></td>
-              <td class="col-md-2"><%= dog.location %></td>
-              <td class="col-md-3"><%= dog.address %></td>
+              <td class="col-md-2"><%= dog.location.try(:name) %></td>
+              <td class="col-md-3"><%= dog.location.try(:address) %></td>
               <td class="col-md-3">Date last received any contribution</td>
             </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

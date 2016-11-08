@@ -23,6 +23,7 @@ class Admin::DogsController < AdminController
   end
 
   def list
+    @dogs=Dog.all
   end
 
   # POST /dogs
