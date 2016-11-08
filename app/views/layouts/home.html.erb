@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Muttsrescue</title>
+  <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.css">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+<body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -14,7 +28,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/about">ABOUT</a></li>
             <li><a href="/contact">CONTACT</a></li>
-            
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="/getinvolved">GET INVOLVED
                 <span class="caret"></span>
@@ -34,8 +47,8 @@
                 <li><a href="/events">Events</a></li>
                 <li><a href="/merchandise">Merchandise</a></li>
               </ul>
+              <li><a href="https://www.facebook.com/Mutts-Rescue-412260612307674/">FACEBOOK</a></li>
             </li>
-            <li><a href="https://www.facebook.com/Mutts-Rescue-412260612307674/">FACEBOOK</a></li>
 
 
             
@@ -44,3 +57,32 @@
       </div>
     </nav>
 
+
+
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-center">
+          <a class="navbar-brand" href="#">Contact Jamie at 9123 4567 to Adopt. Foster. Sponsor. Volunteer</a>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </div>
+  </nav>
+
+    <%= yield %>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+    <!-- filepicker javascript library for loading photos -->
+    <%= filepicker_js_include_tag %> 
+
+  </body>
+  </html>

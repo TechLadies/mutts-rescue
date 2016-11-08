@@ -22,6 +22,9 @@ gem 'devise'
 #use gem 'filepicker-rails'
 gem 'filepicker-rails'
 
+#use gem 'trix'
+gem 'trix'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -41,6 +44,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'awesome_print'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do

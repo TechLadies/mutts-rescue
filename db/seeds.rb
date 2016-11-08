@@ -33,3 +33,30 @@ Update.create(dog_id: 1, date:Time.now.to_datetime, image_url: 'https://cdn.file
 Update.create(dog_id: 2, date:Time.now.to_datetime, image_url: 'https://cdn.filepicker.io/api/file/FaeHIN7bSyXolYccQBAA', text: 'Harvey may be shy and may try to avoid you when he first meets you, but he will warm up to you eventually. After that, he is a sweet and loving boy. He is the last batch of pups that we had bailed out from AVA. His brothers and friends are all adopted and are currently on home trials, but he is still with us. We could not understand why he does not have any enquiry at all. Give this boy a chance, adopt him if you can cos he is a sweet and protective soul.')
 Update.create(dog_id: 2, date:Time.now.to_datetime, image_url: 'https://cdn.filepicker.io/api/file/AEF9bYyVRp6C76J3JBk2', text: 'Poor Harvey is down with Aspiration (Pneumonia). He had just been seen by vet and is coming home with a course of antibiotics. Hope he will be getting better and stronger soon!')
 Update.create(dog_id: 2, date:Time.now.to_datetime, image_url: 'https://cdn.filepicker.io/api/file/VZWMD3CRSt11LbTYoEMY', text: 'Harvey had his first trip to Bishan dog park and he loves it! He loves running around the park and playing with all his dog buddies. This goofy baby is still looking for a forever home, please open your heart to accept him. Harvey has a few enquiries but all never came closed for trying him out for home trials. Harvey is a male puppy rescued at a forested area in the north side of our sunny island. He is a sweet "lap" dog. Loves humans and enjoys sitting on your lap for affection. He likes to sleep and play and is food motivated. Give him a home!')
+
+
+
+# Create static pages content placeholder
+
+Page.create(
+             :title => "About",
+           :content => "<h1><strong>Mutts Rescue</strong></h1><div><br></div><div>Please adopt these lovely dogs and give them a place to call home.</div><div><br></div>"
+           )
+Page.create(
+             :title => "Contact",
+           :content => "<h1>Pls contact us to adopt</h1>"
+           )
+Page.create(
+             :title => "Get Involved",
+           :content => "<h1><strong>There are several ways to get involved.</strong></h1><ul><li>Adopt</li><li>Donate</li><li>Foster</li><li>Volunteer</li></ul>"
+
+           )
+Page.create(
+             :title => "Events",
+           :content => "<h1><strong>Events</strong></h1><div><br></div><div>Adoption drive</div><div><em>Come meet our HDB approved dogs on the 8th October 2016 (Saturday) from 11-4pm at Leban Park, behind Sembawang Hills Food Centre. Upper Thomson Road behind ESSO! Help us spread the words!</em><br><br></div>"
+           )
+Page.create(
+             :title => "Merchandise",
+           :content => "<h1>Nutripe Canned Food</h1><div>WOOF OUT LOUD has lend many incredible hands to our team and currently they are having a superb deal for Nutripe canned food. 12 cans at $46 and 24 cans for $90! All of our dogs love nutripe! Will you help us feed them before the promotion ends on the 30th September 2016? Please pm Woof Out Loud at <a href=\"https://www.facebook.com/Woofoutloud/\">https://www.facebook.com/Woofoutloud/</a> if you wish to donate a carton(s) to Mutts Rescue dogs!<br><br></div><h1>16gb wristband thumb drives</h1><div>We are selling 30 beautiful 16gb wristband thumb drives to raise funds for our in-house 20+ rescued dogs for their annual vaccinations in October. Each thumb drive is at $30. The sales of all thumb drives will help cover their annual vaccines and 1 month supply of anti fleas and ticks application (Revolution) and some shampoos. Please support us and buy one! We provide free normal postage fee to you! Please pm us for sale! *Important note: Thank you to Karen, Cyrus and Phoebe for supplying such high quality wristband thumb drives to Mutts Rescue for a good cause!<br><br></div>"
+           )
+

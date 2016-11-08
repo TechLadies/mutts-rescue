@@ -1,5 +1,6 @@
 class Dog < ApplicationRecord
 
+
   #validate name
   validates :name, presence: true, length: { maximum: 255 }
 
