@@ -11,6 +11,17 @@ module ApplicationHelper
       gsub(" 0 months", "")
   end
 
+def yesno(input)
+  if input == true
+    return "Yes"
+  elsif 
+    input == false
+    return "No"
+  else
+    return input
+  end
+end
+
 
 
 end

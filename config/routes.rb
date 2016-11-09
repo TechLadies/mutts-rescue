@@ -22,10 +22,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dogs_list' => 'dogs#list'
-    resources :dogs
+    resources :dogs do
+      resources :updates
+    end  
     resources :locations
     resources :users
     resources :people
+
+
   end
 
   resources :updates
