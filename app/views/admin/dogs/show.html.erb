@@ -127,7 +127,18 @@
           </div>
       </div>
       <div class="col-md-6">
-        Photo Stuff will go here eventually. =-)
+      
+
+        <div style="height:150px;">
+<%= image_tag(@dog.image_url, class: "image150" ) if @dog.image_url.present? %>
+</div>
+
+<div class="field">
+         <%= f.label :image_url, 'Upload Image:' %>
+         <%= f.filepicker_field :image_url, dragdrop: true %>
+       </div>
+
+
       </div>
     </div> <!-- End of Dog Details section -->
 
@@ -367,21 +378,18 @@
   <div class="container">
     <h2><span><strong>Updates</strong></span>
       <div class="btn-toolbar pull-right" role="toolbar">
-        <button class="btn btn-success pull-right" type="submit">   Add an update  </button>
-        <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
-      </div>
+        <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
+   
     </h2>
       <div class="row">
-        <div class="col-md-3">
-          <p>Photo</p>
-        </div>
-        <div class="col-md-9">
-          <p>Update</p>
-        </div>
-      </div>
+    
   </div> <!-- End of Updates section -->
 
-  <button class="btn btn-success center-block" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+ <div class="container-fluid text-left">
+      <%= render partial: "update", collection: @dog.updates %>
+    </div>
+
+  <button class="btn btn-success center-block" type="submit" data-confirm="Are you sure you want to make this change?>   Save   </button>
 <% end %> <!-- end form -->
   <footer class="footer text-center">
      <div class="container">

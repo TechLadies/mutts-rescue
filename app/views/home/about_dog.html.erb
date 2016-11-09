@@ -31,7 +31,7 @@
               <h5> <b>Age: </b> <%= friendly_age(@dog.born_on) %> </h5>
             </div>
             <div class="col-md-12">
-              <h5> <b>HDB approved: </b> <%= @dog.is_hdb_approved %> </h5>
+              <h5> <b>HDB approved: </b> <%= yesno(@dog.is_hdb_approved)%> </h5>
               <% unless @dog.color_markings.blank? %>
               <h5> <b>Color markings: </b> <%= @dog.color_markings %> "Pure White breed with brown spot on the underbelly, and a black spot on the nose" </h5>
               <% end %>
@@ -61,13 +61,13 @@
 
             <% unless @dog.is_good_with_other_dogs.blank? %>
             <div class="col-md-6">
-              <h5> <b>Good with other dogs: </b><%= @dog.is_good_with_other_dogs %> </h5>
+              <h5> <b>Good with other dogs: </b><%= yesno(@dog.is_good_with_other_dogs) %> </h5>
             </div>
             <% end %>
 
             <% unless @dog.is_good_with_kids.blank? %>
             <div class="col-md-6">
-              <h5> <b> Good with kids: </b> <%= @dog.is_good_with_kids %> </h5>
+              <h5> <b> Good with kids: </b> <%= yesno(@dog.is_good_with_kids) %> </h5>
             </div>
             <% end %>
 
@@ -95,13 +95,13 @@
 
               <% unless @dog.is_vaccinated.blank? %>
               <div class="col-md-6">
-                <h5> <b>Been vaccinated: </b><%= @dog.is_vaccinated %> </h5>
+                <h5> <b>Been vaccinated: </b><%= yesno(@dog.is_vaccinated) %> </h5>
               </div>
               <% end %>      
 
               <% unless @dog.is_sterilized.blank? %>
               <div class="col-md-6">
-                <h5> <b> Been sterilized: </b> <%= @dog.is_sterilized %> </h5>
+                <h5> <b> Been sterilized: </b> <%= yesno(@dog.is_sterilized) %> </h5>
                 <% end %>        
               </div>
               <% unless @dog.notes_health.blank? %>      

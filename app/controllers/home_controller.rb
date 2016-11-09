@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
 helper_method :dogs
+helper FilepickerRails::Engine.helpers
   
   def home
       @dogs = Dog.for_adoption

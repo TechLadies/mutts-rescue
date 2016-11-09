@@ -42,15 +42,15 @@
 
   <tbody>
     <% @dogs.each do |dog| %>
-      <tr>
+      <tr style="background-color: white">
         <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %> </td>
         <td><%= link_to dog.name, admin_dog_path(dog), class: "edit-link"%></td>
         <td><%= dog.gender %></td>
         <td><%= dog.adoption_status %></td>
         <td><%= dog.location.try(:name) %></td>
-        <td><%= dog.is_hdb_approved %></td>
-        <td><%= dog.is_vaccinated %></td>
-        <td><%= dog.is_sterilized %></td>
+        <td><%= yesno(dog.is_hdb_approved) %></td>
+        <td><%= yesno(dog.is_vaccinated) %></td>
+        <td><%= yesno(dog.is_sterilized) %></td>
       </tr>
     <% end %>
   </tbody>
