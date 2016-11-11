@@ -22,6 +22,10 @@ def yesno(input)
   end
 end
 
+def onephoto(image_urls)
+  spliturl = image_urls.split","
+  return spliturl.first
+end
 
 
 end
