@@ -8,11 +8,13 @@ class Admin::SponsorshipsController < AdminController
   def show
 
     @sponsorship = Sponsorship.find(params[:id])
+    @dog_id = @sponsorship.dog_id
 
   end
 
   def new
     @sponsorship = Sponsorship.new
+
   end
 
   def create
@@ -30,14 +32,15 @@ class Admin::SponsorshipsController < AdminController
   end
 
   def edit 
-	  @sponsorship = Sponsorship.find(params[:id]) 
+	  @sponsorship = Sponsorship.find(params[:id])
+   
   end
 
   def update
 
     respond_to do |format|
       if @sponsorship.update(sponsorship_params)
-        format.html { redirect_to admin_people_path, notice: 'Sponsorship was successfully updated.' }
+        format.html { redirect_to [:admin, @sponsorship], notice: 'Sponsorship was successfully updated.' }
         format.json { render :index, status: :ok, location: @sponsorship }
       else
         format.html { render :edit }
@@ -54,7 +57,6 @@ class Admin::SponsorshipsController < AdminController
     end
   end
  
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sponsorship
@@ -62,9 +64,9 @@ class Admin::SponsorshipsController < AdminController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    #def sponsorship_params
-    #  params.require(:sponsorship).permit(:people_id, :dog_id, :date_start, :date_end :frequency)
-    #end
+    def sponsorship_params
+      params.require(:sponsorship).permit(:people_id, :dog_id, :sponsor_until_date, :amount, :sponsorship_type)
+    end
 
 
   end

@@ -16,21 +16,21 @@
 <div class="row">
 
     <!-- side column -->  
-    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
     <!-- center content -->
-    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">  
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">  
 
       <div class= "row panel droidFont fontSizeLarge">
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :Person %>
-          <%= f.text_field :person, class:'textField' %>
+          <%= f.select :person_id, Person.all.collect { |person| [ person.name, person.id ] }, prompt: true %>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :sponsor_until_date %>
-          <%= f.text_field :sponsor_until_date, class:'textField' %>
+          <%= f.text_field :sponsor_until_date, class:'textField', :data => {:provide => 'datepicker'}%>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
@@ -40,12 +40,12 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :dog %>
-          <%= f.text_field :dog, class:'textField' %>
+          <%= f.select :dog_id, Dog.all.collect { |dog| [ dog.name, dog.id ] }, prompt: true %>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
-          <%= f.label :sponsorship_type, 'Bank Account' %>
-          <%= f.text_field :sponsorship_type, class:'textField' %>
+          <%= f.label :sponsorship_type, 'Sponsorship Type' %>
+          <%= f.select(:sponsorship_type, Sponsorship.sponsorship_types.keys) %>
         </div>
           
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
@@ -61,7 +61,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
 
-        <%= link_to 'Cancel', admin_people_path, :class => 'btn btnWhite btn-block fontSizeMedium'  %>
+        <%= link_to 'Cancel', admin_sponsorships_path(), :class => 'btn btnWhite btn-block fontSizeMedium'  %>
       </div>  
 
       </div>  
@@ -69,7 +69,7 @@
     </div>  
 
   <!-- side column -->  
-  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+  <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
 </div>
 

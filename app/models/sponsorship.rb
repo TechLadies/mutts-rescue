@@ -17,7 +17,7 @@ class Sponsorship < ApplicationRecord
   belongs_to :dog
   belongs_to :person
 
-   enum sponsorship_type: [ :monthly, :once]
+  enum sponsorship_type: [ :monthly, :once]
 
 
 end
