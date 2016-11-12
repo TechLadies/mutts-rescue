@@ -16,18 +16,21 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.imglink %></td>
+        <td><%= image_tag(photo.imglink, class: "imagewidth100") if photo.imglink.present? %></td>
         <td><%= photo.caption %></td>
         <td><%= photo.profile %></td>
         <td><%= photo.dog %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= photo.id %></td>
+        <td><%= link_to 'Show', admin_dog_photo_path(photo.dog, photo) %></td>
+        <td><%= link_to 'Edit', edit_admin_dog_photo_path(photo.dog, photo) %></td>
+        <td><%= link_to 'Destroy', admin_dog_photo_path(photo.dog, photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+
 <br>
 
-<%= link_to 'New Photo', new_photo_path %>
+<%= link_to 'New Photo', new_admin_dog_photo_path %>

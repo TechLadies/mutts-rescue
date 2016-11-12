@@ -7,8 +7,8 @@
   <tbody>
     
       <tr>
-        <td><%= image_tag(photo.imglink,class: "image150") %></td>
-        <td><%= photo.caption %></td>
+        <td><%= image_tag(photo.imglink,class: "image150") if photo.imglink.present? %></td>
+        <td><%= "'#{photo.caption}'" %></td>
         <td><%= photo.profile %></td>
         <td><%= check_box_tag( "profile picture", true , photo.profile) %></td>
 
