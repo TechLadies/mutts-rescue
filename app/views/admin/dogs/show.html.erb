@@ -49,7 +49,7 @@
 
   <div class="container">
     <header id="top" class="header">
-      <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
       </h1>
     </header>
     <div class="row">
@@ -90,7 +90,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+         <!--  <div class="form-group">
             <label for="rescued_on" class="col-sm-6 control-label text-right">Date rescued</label>
               <div class="col-sm-6">
                 <div class="input-group date" id='rescued_on'>
@@ -109,7 +109,7 @@
               $("#rescued_on").focus();
             });
           });
-          </script>
+          </script> -->
 
           <div class="form-group">
             <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
@@ -137,7 +137,7 @@
 
   <div class="container">
     <h2><span><strong>Basic Information</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
     </h2>
         <div class="row">
           <div class="col-md-6">
@@ -161,7 +161,7 @@
               <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
                 <div class="col-sm-6">
                   <div class="input-group date" id='born_on'>
-                  <input type="text" class="form-control" />
+                  <%= f.text_field :born_on, class: 'form-control' %>
                     <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -171,7 +171,7 @@
 
               <script type="text/javascript">
               $(document).ready(function() {
-                $("#born_on").datepicker();
+                $("#born_on").datepicker({format: 'yyyy/mm/dd'});
                 $('btn').click(function() {
                   $("#born_on").focus();
                 });
@@ -181,7 +181,7 @@
             <div class="form-group">
               <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
                 <div class="col-sm-6">
-                  <input class="form-control" id="chip_number" type="string" value="<%= @dog.chip_number %>">
+                  <%= f.text_field :chip_number, class: "form-control" %>
                 </div>
             </div>
           </div>
@@ -190,14 +190,14 @@
             <div class="form-group">
                 <label for="age" class="col-sm-6 control-label">Age</label>
                   <div class="col-sm-6">
-                    <input class="form-control" id="age" type="text" value="<%= friendly_age(@dog.born_on) %>">
+                    <input class="form-control" id="age" type="text" disabled value="<%= friendly_age(@dog.born_on) %>">
                   </div>
             </div>
 
             <div class="form-group">
               <label for="license_number" class="col-sm-6 control-label">License no.</label>
                 <div class="col-sm-6">
-                  <input class="form-control" id="license_number" type="string" value="<%= @dog.license_number %>">
+                  <%= f.text_field :license_number, class: "form-control" %>
                 </div>
             </div>
           </div>
@@ -208,7 +208,7 @@
 
   <div class="container">
     <h2><span><strong>Temperament</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
     </h2>
         <div class="row">
           <div class="col-md-6">
@@ -265,7 +265,7 @@
 
   <div class="container">
     <h2><span><strong>Health</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
     </h2>
         <div class="row">
           <div class="col-md-6">
@@ -308,7 +308,7 @@
 
   <div class="container">
     <h2><span><strong>Background Story</strong></span>
-      <button class="btn btn-success pull-right" type="submit">   Save   </button>
+      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
     </h2>
         <div class="row">
           <div class="col-md-12">
@@ -381,7 +381,7 @@
       </div>
   </div> <!-- End of Updates section -->
 
-  <button class="btn btn-success center-block" type="submit">   Save   </button>
+  <button class="btn btn-success center-block" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
 <% end %> <!-- end form -->
   <footer class="footer text-center">
      <div class="container">

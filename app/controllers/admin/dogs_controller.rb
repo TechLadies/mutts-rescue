@@ -38,6 +38,7 @@ class Admin::DogsController < AdminController
 
     respond_to do |format|
       if @dog.save
+        puts @dog
         format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
@@ -79,6 +80,6 @@ class Admin::DogsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url)
+      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url, :location_id)
     end
 end
