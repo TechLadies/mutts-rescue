@@ -38,7 +38,6 @@ class Admin::DogsController < AdminController
 
     respond_to do |format|
       if @dog.save
-        puts @dog
         format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
