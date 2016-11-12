@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :photos
   resources :pages
   devise_for :users
 
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     get '/dogs_list' => 'dogs#list'
     resources :dogs do
       resources :updates
+      resources :photos
     end  
     resources :locations
     resources :users

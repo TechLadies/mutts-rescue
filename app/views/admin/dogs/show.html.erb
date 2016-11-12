@@ -113,6 +113,8 @@
 <%= image_tag("#{photo}", class: "image150" ) if @dog.image_url.present? %>
 
         <% end %>
+   
+
 </div>
 
 <div class="field">
@@ -123,6 +125,14 @@
 
       </div>
     </div> 
+
+    <div class="container-fluid text-left">
+<h2><span><strong>Photos</strong></span> </h2>
+
+    
+     <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add a photo', new_admin_dog_photo_path(@dog) %>  </button>
+      <%= render partial: "photo", collection: @dog.photos, as: 'photo' %>
+    </div>
 
     <!-- End of Dog Details section -->
 

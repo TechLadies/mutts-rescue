@@ -3,7 +3,7 @@
 	
 	<div id="container" style="position:relative;">
 
-		<%= image_tag(onephoto(dog.image_url), class:"img_dog" ) if dog.image_url.present? %>
+		<%= image_tag(dog.photos.first.imglink, class:"img_dog" ) if dog.photos.first.present? %>
 		
 		<% if dog.is_hdb_approved? == true %>
 		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>

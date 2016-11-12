@@ -19,22 +19,15 @@ class Dog < ApplicationRecord
   scope :adopted, -> {where(adoption_status: "adopted")}
   scope :female, -> { where(gender: 'female') }
   scope :male, -> { where(gender: 'male')}
-  scope :featured, -> {find(is_featured: true)}
+  scope :featured, -> {where(is_featured: true).first}
   scope :adult, -> { where('born_on < ?', 1.years.ago ).order(:born_on) }
   scope :puppy, -> { where('born_on > ?', 1.years.ago ).order(:born_on) }
+  scope :hdb_approved, -> {where(is_hdb_approved: true)}
+  scope :not_hdb_approved, -> {where(is_hdb_approved: false)}
 
-  def self.featured
-    @dog = Dog.where(is_featured: true)
-  end
-
-  def self.hdb_approved
-    @dog = Dog.where(is_hdb_approved: true)
-  end
-
-  def self.not_hdb_approved
-    @dog = Dog.where(is_hdb_approved: false)
-  end
+ 
 
   has_many :updates, dependent: :destroy
+  has_many :photos, dependent: :destroy
   belongs_to :location, optional: true
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imglink: MyString
+  caption: MyString
+  profile: false
+  dog: one
+
+two:
+  imglink: MyString
+  caption: MyString
+  profile: false
+  dog: two

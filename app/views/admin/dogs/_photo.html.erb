@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+
+  <tbody>
+    
+      <tr>
+        <td><%= image_tag(photo.imglink,class: "image150") %></td>
+        <td><%= photo.caption %></td>
+        <td><%= photo.profile %></td>
+        <td><%= check_box_tag( "profile picture", true , photo.profile) %></td>
+
+        <td><%= link_to 'Show', admin_dog_photo_path(photo.dog,photo) %></td>
+        <td><%= link_to 'Edit', edit_admin_dog_photo_path(photo.dog,photo) %></td>
+        <td><%= link_to 'Destroy', admin_dog_photo_path(photo.dog,photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  
+  </tbody>
+</table>
+
+<br>
+
+
+
