@@ -31,8 +31,17 @@ class Admin::PhotosController < ApplicationController
   # POST /photos.json
   def create
 
-    @photo = dog().photos.build(photo_params)
 
+    # @photo = dog().photos.build(photo_params)
+
+  singleurlhash = params[:photo][:imglink].split(',')
+
+  singleurlhash.each do |singleurl|
+    @photo = dog().photos.build(:imglink => "#{singleurl}", :caption => params[:caption], :profile => params[:profile], :dog_id => params[:dog_id])
+    @photo.save
+
+  end
+  
     respond_to do |format|
       if @photo.save
         format.html { redirect_to [:admin, dog ,@photo], notice: 'Photo was successfully created.' }
@@ -42,6 +51,7 @@ class Admin::PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
+  
   end
 
   # PATCH/PUT /photos/1

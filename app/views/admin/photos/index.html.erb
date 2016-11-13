@@ -6,9 +6,8 @@
   <thead>
     <tr>
       <th>Imglink</th>
-      <th>Caption</th>
       <th>Profile</th>
-      <th>Dog</th>
+      <th>Caption</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +16,16 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%= image_tag(photo.imglink, class: "imagewidth100") if photo.imglink.present? %></td>
-        <td><%= photo.caption %></td>
         <td><%= photo.profile %></td>
-        <td><%= photo.dog %></td>
-        <td><%= photo.id %></td>
+        <td> <%= form_for([:admin, photo.dog, photo]) do |f| %>
+        <div class="field">
+       <%= f.text_field :caption %>
+       </div> </td>
+       <td> <div class="actions">
+    <%= f.submit %>
+  </div> </td>
+<%end%>
+
         <td><%= link_to 'Show', admin_dog_photo_path(photo.dog, photo) %></td>
         <td><%= link_to 'Edit', edit_admin_dog_photo_path(photo.dog, photo) %></td>
         <td><%= link_to 'Destroy', admin_dog_photo_path(photo.dog, photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
