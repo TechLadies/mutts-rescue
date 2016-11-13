@@ -20,6 +20,8 @@ class Admin::PhotosController < ApplicationController
     @photo = dog().photos.build
   end
 
+
+
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
