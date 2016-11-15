@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Imglink:</strong>
-  <%= @photo.imglink %>
+<%= image_tag(@photo.imglink, class: "imageheight400") if @photo.imglink.present? %> 
+
 </p>
 
 <p>
@@ -15,10 +13,7 @@
   <%= @photo.profile %>
 </p>
 
-<p>
-  <strong>Dog:</strong>
-  <%= @photo.dog %>
-</p>
+
 
 <%= link_to 'Edit', edit_admin_dog_photo_path(@photo) %> |
-<%= link_to 'Back', admin_dog_path(@dog) %>
+<%= link_to 'Back', admin_dog_photos_path(@photo.dog) %>

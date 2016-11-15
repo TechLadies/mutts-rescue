@@ -1,6 +1,7 @@
+<div class ="padding-navbar">
+</div>
 <h1>Editing Photo</h1>
 
-<%= render 'form', photo: @photo %>
+<%= render 'editdogphoto', photo: @photo %>
 
-<%= link_to 'Show', admin_dog_photo_path(@photo.dog,@photo) %> |
-<%= link_to 'Back', admin_dog_path(@photo.dog)%>
+<%= link_to 'Back', admin_dog_photos_path(@photo.dog)%>

@@ -79,6 +79,7 @@
   .dogcard-image {
     height: 200px;
     width: 200px;
+    object-fit: cover;
   }
   .img_dog {
     height: 200px;
@@ -113,43 +114,6 @@
   height: 50px;
 }
 
-.frame-square {
-  background: #fff;
-  border: 0.5px solid #000;
-  display: inline-block;
-  vertical-align: top;
-  padding: 10px;
-  width: 180px;
-  height: 180px;
-  margin-right: .5em;
-  margin-bottom: .3em;
-}
-
-.frame-round {
-  @extend .frame-square;
-  border-radius: 50%;
-  overflow: hidden;
-  
-  .crop {border-radius: 50%;}
-}
-
-.crop {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  
-  img {
-    display: block;
-    min-width: 100%;
-    min-height: 100%;
-    margin: auto;
-    position: absolute;
-    top: -100%;
-    right: -100%;
-    bottom: -100%;
-    left: -100%;
-  }
-}
 
 
 .img_featureddog {
@@ -157,7 +121,9 @@
 }
 
 .img_aboutdog{
-  height: 400px
+  height: 400px;
+  width: 400px;
+   object-fit:cover; 
 }
 
 
@@ -166,6 +132,7 @@
 .retina .crop img {
   transform: scale(.5, .5);
 }
+
 
 
 

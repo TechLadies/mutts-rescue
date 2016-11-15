@@ -18,8 +18,30 @@ min-height: 60px;
 
 .image150{
 	height:150px;
+  width:150px;
+  object-fit:cover; 
+  
+
+}
+
+.image200{
+  height:200px;
+  width:200px;
+  object-fit:cover; 
+  
+
 }
 
 .imagewidth100{
 	width:100px;
+}
+.imagesquare150{
+  height:150px;
+  width:150px;
+  overflow: hidden;
+}
+
+
+.imageheight400{
+  height:400px;
 }

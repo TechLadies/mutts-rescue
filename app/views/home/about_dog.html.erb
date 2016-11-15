@@ -11,6 +11,7 @@
 
 
   <div class="row">
+    <div class="col-md-12"> 
     <div class="col-md-6">             
 
 
@@ -31,7 +32,9 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <%= image_tag(@dog.photos.profile_photo.imglink, class:"img_aboutdog" ) if @dog.photos.profile_photo.imglink.present? %> 
+        <%= image_tag(@dog.photos.profile_photo.imglink, class: "img_aboutdog" ) if @dog.photos.profile_photo.imglink.present? %>
+        
+
             <div class="carousel-caption">
           <p><%= @dog.photos.profile_photo.caption%></p>
         </div>
@@ -39,7 +42,7 @@
 
      <% @dog.photos.more_photo.each do |photo| %>
       <div class="item">
-      <%= image_tag(photo.imglink, class:"img_aboutdog" ) if photo.imglink.present? %> 
+      <%= image_tag(photo.imglink, class: "img_aboutdog" ) if photo.imglink.present? %> 
             <div class="carousel-caption">
           <p><%= photo.caption%></p>
         </div>
@@ -64,6 +67,7 @@
       </div>
     </div>
 
+</div>
 
 
 

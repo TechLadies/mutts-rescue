@@ -11,12 +11,19 @@
     </div>
   <% end %>
 
+
+<%= image_tag(@photo.imglink, class: "imageheight400") if @photo.imglink.present? %> 
+
+
   <div class="field">
-    <%= f.label :imglink, 'Upload Image:' %>
-         <%= f.filepicker_field :imglink, dragdrop: true, multiple: true %>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
   </div>
 
-
+  <div class="field">
+    <%= f.label :profile %>
+    <%= f.check_box :profile %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

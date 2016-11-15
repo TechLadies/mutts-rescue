@@ -1,5 +1,6 @@
 class Admin::PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:show]
 
   # GET /photos
   # GET /photos.json
@@ -37,7 +38,7 @@ class Admin::PhotosController < ApplicationController
   singleurlhash = params[:photo][:imglink].split(',')
 
   singleurlhash.each do |singleurl|
-    @photo = dog().photos.build(:imglink => "#{singleurl}", :caption => params[:caption], :profile => params[:profile], :dog_id => params[:dog_id])
+    @photo = dog().photos.build(:imglink => "#{singleurl}", :caption => params[:caption], :profile => false, :dog_id => params[:dog_id])
     @photo.save
 
   end
