@@ -11,15 +11,15 @@
       </ul>
     </div>
   <% end %>
-</center>  
+</center>
 
 <div class="row">
 
-    <!-- side column -->  
+    <!-- side column -->
     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
     <!-- center content -->
-    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">  
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 
       <div class= "row panel droidFont fontSizeLarge">
 
@@ -47,14 +47,14 @@
           <%= f.label :sponsorship_type, 'Sponsorship Type' %>
           <%= f.select(:sponsorship_type, Sponsorship.sponsorship_types.keys) %>
         </div>
-          
+
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :notes %>
           <%= f.text_area :notes, class:'textAreaAddress' %>
         </div>
 
         <!-- buttons -->
-          
+
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 actions paddingTopBot15px ">
           <%= f.submit "Save", class: 'btn btnGreen btn-block fontSizeMedium ' %>
         </div>
@@ -62,13 +62,13 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
 
         <%= link_to 'Cancel', admin_sponsorships_path(), :class => 'btn btnWhite btn-block fontSizeMedium'  %>
-      </div>  
+      </div>
 
-      </div>  
+      </div>
 
-    </div>  
+    </div>
 
-  <!-- side column -->  
+  <!-- side column -->
   <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
 </div>

@@ -387,18 +387,18 @@
     <h2>Sponsorship</h2>
 
   </div>
-  
+
   <div class="row paddingTopBot15px">
 
     <div class="col-lg-4 col-md-0 col-sm-0 col-xs-0"></div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div> 
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div>
 
     <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0">
-      
-      <%= link_to 'New Sponsorship', new_admin_sponsorship_path, :class => 'btn btnGreen btn-block fontSizeMedium' %>
 
-    </div> 
+      <%= link_to 'New Sponsorship', new_admin_sponsorship_path(), :class => 'btn btnGreen btn-block fontSizeMedium' %>
+
+    </div>
 
   </div>
 
@@ -419,12 +419,12 @@
         <tbody>
 
           <%= render partial: "sponsorship", collection: @dog.sponsorships %>
-         
+
         </tbody>
       </table>
 
   </div>
-  
+
 </div>
 
 

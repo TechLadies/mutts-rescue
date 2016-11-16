@@ -1,36 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="row paddingTopBot15px ">
 
-<div class="row droidFont">
+    <!-- side column -->
+    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
-	<!-- side column -->	
-	<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+    <!-- center content -->
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+    	<div class= "row panel droidFont fontSizeLarge">
+
+        <%= render 'show', location: @sponsorship %>
 
 
-	<!-- center content -->
-	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">	
+        <!-- buttons -->
 
-		<div class= "row panel droidFont fontSizeLarge">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 actions paddingTopBot15px ">
+          <%= link_to 'Edit', edit_admin_sponsorship_path(@sponsorship), :class => 'btn btnGreen btn-block fontSizeMedium'  %>
+        </div>
 
-			<%= render 'show', location: @sponsorship %>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
 
-			<!-- buttons -->
+          <%= link_to 'Cancel', admin_dog_path(@sponsorship.dog_id), :class => 'btn btnWhite btn-block fontSizeMedium'  %>
 
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px  ">
+        </div>
 
-				<%= link_to 'Edit', edit_admin_sponsorship_path(@sponsorship), :class => 'btn btnGreen btn-block fontSizeMedium' %>
-			</div>	
+      </div>
 
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
+    </div>
 
-				<%= link_to 'Back', admin_dog_path(@dog_id), :class => 'btn btnWhite btn-block fontSizeMedium'  %>
-			</div>	
-
-		</div>	
-
-	</div>
-
-	<!-- side column -->	
-	<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+  <!-- side column -->
+  <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
 </div>
+
+
+
+
+
 

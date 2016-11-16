@@ -1,20 +1,17 @@
-class Admin::SponsorshipsController < AdminController   
-	#before_action :set_sponsorship, only: [:index, :show, :edit, :update, :destroy]
- 
+class Admin::SponsorshipsController < AdminController
+	before_action :set_sponsorship, only: [:index, :show, :edit, :update, :destroy]
+
   def index
     @sponsorship = Sponsorship.all
   end
 
   def show
-
     @sponsorship = Sponsorship.find(params[:id])
     @dog_id = @sponsorship.dog_id
-
   end
 
   def new
     @sponsorship = Sponsorship.new
-
   end
 
   def create
@@ -23,7 +20,7 @@ class Admin::SponsorshipsController < AdminController
     respond_to do |format|
       if @sponsorship.save
         format.html { redirect_to [:admin, @sponsorship], notice: 'Sponsorship was successfully created.' }
-        format.json { render :index, status: :created, location: @sponsorship }      
+        format.json { render :index, status: :created, location: @sponsorship }
       else
         format.html { render :new }
         format.json { render json: @sponsorship.errors, status: :unprocessable_entity }
@@ -31,9 +28,9 @@ class Admin::SponsorshipsController < AdminController
     end
   end
 
-  def edit 
+  def edit
 	  @sponsorship = Sponsorship.find(params[:id])
-   
+
   end
 
   def update
@@ -52,11 +49,11 @@ class Admin::SponsorshipsController < AdminController
   def destroy
     @sponsorship.destroy
     respond_to do |format|
-      format.html { redirect_to admin_people_url, notice: 'Person was successfully deleted.' }
+      format.html { redirect_to admin_dog_path(@sponsorship.dog_id), notice: 'Sponsorship was successfully deleted.' }
       format.json { head :no_content }
     end
   end
- 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sponsorship
