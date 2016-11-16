@@ -38,14 +38,14 @@
               <%= image_tag(@dog.try(:photos).profile_photo.try(:imglink), class: "img_aboutdog" ) %>
 
               <div class="carousel-caption">
-                <p><%= @dog.photos.profile_photo.try(:caption)%></p>
+                <p><%= @dog.try(:photos).profile_photo.try(:caption) if @dog.try(:photos).profile_photo.try(:caption).present?%></p>
               </div>
 
               <% elsif @dog.try(:photos).first.try(:imglink).present?  %>
 
               <%= image_tag(@dog.try(:photos).first.try(:imglink), class: "img_aboutdog" ) %>
               <div class="carousel-caption">
-                <p><%= @dog.photos.try(:photos)first.try(:caption)%></p>
+                <p><%= @dog.photos.try(:photos).first.try(:caption) if @dog.photos.try(:photos).present? %></p>
               </div>
 
               <% else %>
