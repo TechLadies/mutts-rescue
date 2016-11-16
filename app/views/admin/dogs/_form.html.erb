@@ -17,12 +17,12 @@
 
        <div class="field">
        <%= f.label :gender %>
-       <%= f.text_field :gender %>
+       <%= f.select :gender, [["Male","male"], ["Female","female"]] %>
        </div>
 
        <div class="field">
        <%= f.label 'Birthdate' %>
-       <%= f.date_select :born_on %>
+       <%= f.date_select :born_on, start_year: Date.today.year - 20, end_year: Date.today.year %>
        </div>
 
        <!-- <div class="field">
@@ -45,7 +45,7 @@
 
        <div class="field">
          <%= f.label :is_hdb_approved %>
-         <%= f.select :is_hdb_approved, ["Yes", "No", "Maybe"] %>
+         <%= f.select :is_hdb_approved, [["Yes","true"], ["No","false"], ["Maybe","maybe"]] %>
        </div>
 
        <div class="field">
@@ -75,7 +75,7 @@
 
        <div class="field">
          <%= f.label :energy_level %>
-         <%= f.select :energy_level, ["Low","Normal","High"] %>
+         <%= f.select :energy_level, [["Low", "low"],["Normal","normal"],["High","high"]] %>
        </div>
 
        <div class="field">

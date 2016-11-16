@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106142235) do
+ActiveRecord::Schema.define(version: 20161112072736) do
 
   create_table "dogs", force: :cascade do |t|
     t.string   "name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20161106142235) do
     t.date     "born_on"
     t.string   "chip_number"
     t.string   "license_number"
-    t.boolean  "is_hdb_approved"
+    t.string   "is_hdb_approved",         default: "maybe"
     t.string   "color_markings"
     t.string   "adoption_status"
     t.text     "background_story"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20161106142235) do
     t.boolean  "is_sterilized"
     t.text     "notes_health"
     t.text     "quote"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.boolean  "is_featured"
     t.string   "image_url"
     t.integer  "location_id"
