@@ -246,6 +246,19 @@
               </div>
             </div>
           </div>
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
+              <div class="col-sm-6">
+                <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
+                <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
+                <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
+              </div>
+            </div>
+          </div>
+        </div>
 
           <div class="row">
             <div class="col-md-12">
@@ -386,6 +399,6 @@
      </div>
   </footer>
 
-       </body>
+</body>
 
 </html>
