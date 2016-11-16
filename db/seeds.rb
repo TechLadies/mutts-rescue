@@ -12,12 +12,12 @@ Person.create(name: 'Joseph', phone: '9346 8962', email: 'joseph@gmail.com', ban
 Person.create(name: 'Amanda', phone: '4536 3442', email: 'amanda@gmail.com', bank_acct: '934 45349 67', address: 'Blk 342, Ang Mo Kio Ave 1, Singapore 342251')
 
 # Create dogs
-Dog.create(name: "Gambit", gender: "male", born_on: 2.years.ago, adoption_status: "looking for adoption", quote: "i love to eat", image_url: "https://cdn.filepicker.io/api/file/gtT7eZ9T6SxaAhExauQw,https://cdn.filepicker.io/api/file/MS0CStx0TguxMVl5Vo72" )
+Dog.create(name: "Nacho", gender: "male", born_on: 2.years.ago, adoption_status: "looking for adoption", quote: "i love to eat", image_url: "https://cdn.filepicker.io/api/file/gtT7eZ9T6SxaAhExauQw,https://cdn.filepicker.io/api/file/MS0CStx0TguxMVl5Vo72" )
 Dog.create(name: "Cyclops", gender: "male", born_on: 1.years.ago, adoption_status: "adopted", quote: "*winks*", image_url: "https://cdn.filepicker.io/api/file/vWDiG01sTPikDPrQC2Zw")
 Dog.create(name: "Wolverine", gender: "male", born_on: 3.months.ago, adoption_status: "adopted",is_hdb_approved: true, quote: "you scratch my back and i'll scratch yours", image_url: "https://cdn.filepicker.io/api/file/P6XAT9xdR2nlakoAMmge")
-Dog.create(name: "Storm", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption", is_hdb_approved: false, quote: "I love cuddles.", image_url: "https://cdn.filepicker.io/api/file/NPhZC21RU2Ptc6nA0XPw")
-Dog.create(name: "Professor X", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption", is_hdb_approved: true, quote: "I love basking in the sun and playing with children. I handle life just fine.", image_url: "https://cdn.filepicker.io/api/file/J6CTe8taRSqJfH0vz8gx")
-Dog.create(name: "Raven", gender: "female", born_on: 6.months.ago, adoption_status: "looking for adoption", is_featured: true, is_hdb_approved: true, quote: "I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine.",image_url: "https://cdn.filepicker.io/api/file/ZfxnGRPWQnucZv5h023m")
+Dog.create(name: "Jennah", gender: "female", born_on: 2.years.ago, adoption_status: "looking for adoption", is_hdb_approved: false, quote: "I love cuddles.", image_url: "https://cdn.filepicker.io/api/file/NPhZC21RU2Ptc6nA0XPw")
+Dog.create(name: "Josiah", gender: "male", born_on: 20.years.ago, adoption_status: "looking for adoption", is_hdb_approved: true, quote: "I love basking in the sun and playing with children. I handle life just fine.", image_url: "https://cdn.filepicker.io/api/file/J6CTe8taRSqJfH0vz8gx")
+Dog.create(name: "Baby", gender: "female", born_on: 6.months.ago, adoption_status: "looking for adoption", is_featured: true, is_hdb_approved: true, quote: "I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine.",image_url: "https://cdn.filepicker.io/api/file/ZfxnGRPWQnucZv5h023m")
 
 Dog.create(name: 'Wanda', gender: 'female', born_on: Time.now.to_datetime, adoption_status: 'adopted', image_url: 'https://cdn.filepicker.io/api/file/QzqMJFx0TBuomgCJvTAH')
 Dog.create(name: 'Harvey', gender: 'male', born_on: Time.now.to_datetime, adoption_status: 'looking for adoption', image_url: 'https://cdn.filepicker.io/api/file/1SWAMPW1SjywGRiX6qdu')
@@ -59,4 +59,63 @@ Page.create(
              :title => "Merchandise",
            :content => "<h1>Nutripe Canned Food</h1><div>WOOF OUT LOUD has lend many incredible hands to our team and currently they are having a superb deal for Nutripe canned food. 12 cans at $46 and 24 cans for $90! All of our dogs love nutripe! Will you help us feed them before the promotion ends on the 30th September 2016? Please pm Woof Out Loud at <a href=\"https://www.facebook.com/Woofoutloud/\">https://www.facebook.com/Woofoutloud/</a> if you wish to donate a carton(s) to Mutts Rescue dogs!<br><br></div><h1>16gb wristband thumb drives</h1><div>We are selling 30 beautiful 16gb wristband thumb drives to raise funds for our in-house 20+ rescued dogs for their annual vaccinations in October. Each thumb drive is at $30. The sales of all thumb drives will help cover their annual vaccines and 1 month supply of anti fleas and ticks application (Revolution) and some shampoos. Please support us and buy one! We provide free normal postage fee to you! Please pm us for sale! *Important note: Thank you to Karen, Cyrus and Phoebe for supplying such high quality wristband thumb drives to Mutts Rescue for a good cause!<br><br></div>"
            )
+
+# Create photo content placeholder
+
+
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/H1cItfPMQeauHGxOCVTh",
+           :caption => "hello again!",
+           :profile => false,
+            :dog_id => 1,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/YsuwNZU5TBw8anBd8Bo2",
+           :caption => "puppy in the garden",
+           :profile => false,
+            :dog_id => 1,
+             )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/TN5QEV4SpCMWKpfymEbw",
+           :caption => "yummy",
+           :profile => false,
+            :dog_id => 1,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/HBdz3nOuRfWvdAIyi0CE",
+           :caption => "all dressed up!",
+           :profile => false,
+            :dog_id => 1,
+             )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/iZvXDeryQA2pYSGbgfw2",
+           :caption => "",
+           :profile => true,
+            :dog_id => 4,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/kd5KPDQIRCDQmTD8gCRg",
+           :caption => "I'm Nacho!",
+           :profile => true,
+            :dog_id => 1,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/tzT33fQ4QLuwwdcNUFgF",
+           :caption => nil,
+           :profile => false,
+            :dog_id => 5,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/ywZpUaDOQkSEnIdsZ1kP",
+           :caption => nil,
+           :profile => false,
+            :dog_id => 6,
+            )
+ Photo.create(
+           :imglink => "https://cdn.filepicker.io/api/file/EhXXDWyFR5ytyog8bAn9",
+           :caption => nil,
+           :profile => false,
+            :dog_id => 8,
+    )
+
 

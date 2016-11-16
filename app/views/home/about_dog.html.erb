@@ -12,162 +12,182 @@
 
   <div class="row">
     <div class="col-md-12"> 
-    <div class="col-md-6">             
+      <div class="col-md-6">             
 
 
-  <div id="myCarousel" class="carousel slide" >
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <div id="myCarousel" class="carousel slide" >
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 
 
-      <% 1.upto(@dog.photos.more_photo.count) do |number| %>
+            <% 1.upto(@dog.photos.more_photo.count) do |number| %>
 
-      <li data-target="#myCarousel" data-slide-to="#{number}"></li>
-    <% number += 1 %>
-    <% end %>
-    
-    </ol>
+            <li data-target="#myCarousel" data-slide-to="#{number}"></li>
+            <% number += 1 %>
+            <% end %>
+            
+          </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag(@dog.photos.profile_photo.imglink, class: "img_aboutdog" ) if @dog.photos.profile_photo.imglink.present? %>
-        
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
 
-            <div class="carousel-caption">
-          <p><%= @dog.photos.profile_photo.caption%></p>
+              <% if @dog.try(:photos).profile_photo.try(:imglink).present? %>
+
+              <%= image_tag(@dog.try(:photos).profile_photo.try(:imglink), class: "img_aboutdog" ) %>
+
+              <div class="carousel-caption">
+                <p><%= @dog.photos.profile_photo.try(:caption)%></p>
+              </div>
+
+              <% elsif @dog.try(:photos).first.try(:imglink).present?  %>
+
+              <%= image_tag(@dog.try(:photos).first.try(:imglink), class: "img_aboutdog" ) %>
+              <div class="carousel-caption">
+                <p><%= @dog.photos.try(:photos)first.try(:caption)%></p>
+              </div>
+
+              <% else %>
+
+              <p> Photo coming </p>
+              <% end %>
+
+
+              
+
+              
+            </div>
+
+
+            <% @dog.photos.more_photo.each do |photo| %>
+            <div class="item">
+              <%= image_tag(photo.imglink, class: "img_aboutdog" ) if photo.imglink.present? %> 
+              <div class="carousel-caption">
+                <p><%= photo.caption%></p>
+              </div>
+            </div>
+            <% end %>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
       </div>
-
-     <% @dog.photos.more_photo.each do |photo| %>
-      <div class="item">
-      <%= image_tag(photo.imglink, class: "img_aboutdog" ) if photo.imglink.present? %> 
-            <div class="carousel-caption">
-          <p><%= photo.caption%></p>
-        </div>
-      </div>
-    <% end %>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  </div>
-  </div>
 
       <div class="col-md-6">
         <h2> " <%= @dog.quote %> I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine." </h2>
       </div>
     </div>
 
-</div>
+  </div>
 
 
 
 
 
-    <div class="container-fluid text-left">
-      <div class="row">
-        <div class="col-md-12">
-          <h3> <b>Basic Information </b> </h3>
-          <div class="row">
-            <div class="col-md-6">
-              <h5> <b>Gender: </b><%= @dog.gender %> </h5>
-            </div>
-            <div class="col-md-6">
-              <h5> <b>Age: </b> <%= friendly_age(@dog.born_on) %> </h5>
-            </div>
-            <div class="col-md-12">
-              <h5> <b>HDB approved: </b> <%= yesno(@dog.is_hdb_approved)%> </h5>
-              <% unless @dog.color_markings.blank? %>
-              <h5> <b>Color markings: </b> <%= @dog.color_markings %> "Pure White breed with brown spot on the underbelly, and a black spot on the nose" </h5>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <% unless @dog.background_story.blank? %>
-    <div class="container-fluid text-left">
-      <div class="row">
-        <div class="col-md-12">
-          <h3> <b>Background story </b> </h3>
-          <h5> <%=@dog.background_story %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis. </h5>
-        </div>
-      </div>
-    </div>
-    <% end %>
-
-
-    <div class="container-fluid text-left">
-      <div class="row">
-        <div class="col-md-12">
-          <h3> <b>Temperament </b> </h3>
-          <div class="row">
-
-            <% unless @dog.is_good_with_other_dogs.blank? %>
-            <div class="col-md-6">
-              <h5> <b>Good with other dogs: </b><%= yesno(@dog.is_good_with_other_dogs) %> </h5>
-            </div>
-            <% end %>
-
-            <% unless @dog.is_good_with_kids.blank? %>
-            <div class="col-md-6">
-              <h5> <b> Good with kids: </b> <%= yesno(@dog.is_good_with_kids) %> </h5>
-            </div>
-            <% end %>
-
-            <% unless @dog.energy_level.blank? %>
-            <div class="col-md-12">
-              <h5> <b>Energy level: </b> <%= @dog.energy_level %> </h5>
-              <% end %>
-
-              <% unless @dog.notes_temperament.blank? %>
-              <h5> <b> Notes on temperament </b></h5>
-              <h5> <%= @dog.notes_temperament %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
-              <% end %>      
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="container-fluid text-left">
+  <div class="container-fluid text-left">
+    <div class="row">
+      <div class="col-md-12">
+        <h3> <b>Basic Information </b> </h3>
         <div class="row">
+          <div class="col-md-6">
+            <h5> <b>Gender: </b><%= @dog.gender %> </h5>
+          </div>
+          <div class="col-md-6">
+            <h5> <b>Age: </b> <%= friendly_age(@dog.born_on) %> </h5>
+          </div>
           <div class="col-md-12">
-            <h3> <b>Health </b> </h3>
-            <div class="row">
-
-              <% unless @dog.is_vaccinated.blank? %>
-              <div class="col-md-6">
-                <h5> <b>Been vaccinated: </b><%= yesno(@dog.is_vaccinated) %> </h5>
-              </div>
-              <% end %>      
-
-              <% unless @dog.is_sterilized.blank? %>
-              <div class="col-md-6">
-                <h5> <b> Been sterilized: </b> <%= yesno(@dog.is_sterilized) %> </h5>
-                <% end %>        
-              </div>
-              <% unless @dog.notes_health.blank? %>      
-              <div class="col-md-12">
-                <h5> <b> Notes on health </b> (e.g. health history, current health condition)</h5>
-                <h5> <%= @dog.notes_health %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
-              </div>
-              <% end %>
-
-            </div>
+            <h5> <b>HDB approved: </b> <%= yesno(@dog.is_hdb_approved)%> </h5>
+            <% unless @dog.color_markings.blank? %>
+            <h5> <b>Color markings: </b> <%= @dog.color_markings %> "Pure White breed with brown spot on the underbelly, and a black spot on the nose" </h5>
+            <% end %>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  
+  <% unless @dog.background_story.blank? %>
+  <div class="container-fluid text-left">
+    <div class="row">
+      <div class="col-md-12">
+        <h3> <b>Background story </b> </h3>
+        <h5> <%=@dog.background_story %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis. </h5>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+  <div class="container-fluid text-left">
+    <div class="row">
+      <div class="col-md-12">
+        <h3> <b>Temperament </b> </h3>
+        <div class="row">
+
+          <% unless @dog.is_good_with_other_dogs.blank? %>
+          <div class="col-md-6">
+            <h5> <b>Good with other dogs: </b><%= yesno(@dog.is_good_with_other_dogs) %> </h5>
+          </div>
+          <% end %>
+
+          <% unless @dog.is_good_with_kids.blank? %>
+          <div class="col-md-6">
+            <h5> <b> Good with kids: </b> <%= yesno(@dog.is_good_with_kids) %> </h5>
+          </div>
+          <% end %>
+
+          <% unless @dog.energy_level.blank? %>
+          <div class="col-md-12">
+            <h5> <b>Energy level: </b> <%= @dog.energy_level %> </h5>
+            <% end %>
+
+            <% unless @dog.notes_temperament.blank? %>
+            <h5> <b> Notes on temperament </b></h5>
+            <h5> <%= @dog.notes_temperament %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+            <% end %>      
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container-fluid text-left">
+      <div class="row">
+        <div class="col-md-12">
+          <h3> <b>Health </b> </h3>
+          <div class="row">
+
+            <% unless @dog.is_vaccinated.blank? %>
+            <div class="col-md-6">
+              <h5> <b>Been vaccinated: </b><%= yesno(@dog.is_vaccinated) %> </h5>
+            </div>
+            <% end %>      
+
+            <% unless @dog.is_sterilized.blank? %>
+            <div class="col-md-6">
+              <h5> <b> Been sterilized: </b> <%= yesno(@dog.is_sterilized) %> </h5>
+              <% end %>        
+            </div>
+            <% unless @dog.notes_health.blank? %>      
+            <div class="col-md-12">
+              <h5> <b> Notes on health </b> (e.g. health history, current health condition)</h5>
+              <h5> <%= @dog.notes_health %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+            </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
       
 
       <div class="container-fluid text-left">

@@ -3,7 +3,22 @@
 	
 	<div id="container" style="position:relative;">
 
-		<%= image_tag(dog.photos.first.imglink, class: "dogcard-image" ) if dog.photos.first.present? %>
+        <% if dog.photos.profile_photo.try(:imglink).present? %>
+        <%= image_tag(dog.try(:photos).profile_photo.try(:imglink), class: "dogcard-image" )  %>
+
+        <% elsif dog.photos.first.try(:imglink).present?%>
+
+		<%= image_tag(dog.try(:photos).first.try(:imglink), class: "dogcard-image" ) if dog.photos.first.present? %>
+
+		<% else %>
+
+
+
+
+		<div class="dogcard-image">
+		<p> Photo Coming Soon! <p>
+		</div>
+		<% end %>
 		
 		<% if dog.is_hdb_approved? == true %>
 		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>

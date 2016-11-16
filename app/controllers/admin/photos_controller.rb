@@ -6,13 +6,14 @@ class Admin::PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    @dog = Dog.find(params[:dog_id])
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
     @photo = Photo.find(params[:id])
-    @dog = dog()
+    @dog = Dog.find(params[:dog_id])
   end
 
   # GET /photos/new

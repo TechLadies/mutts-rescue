@@ -3,7 +3,7 @@ class Photo < ApplicationRecord
 
  validates :imglink, presence: true
  validates :dog_id, presence: true
-  validates :caption, presence: true, length: { maximum: 144 }
+  validates :caption, length: { maximum: 144 }
 
 
   scope :profile_photo, -> {where(profile: true).first}

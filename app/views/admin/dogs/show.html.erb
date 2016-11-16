@@ -31,41 +31,41 @@
     </header>
     <div class="row">
       <div class="col-md-6">
-          <div class="form-group">
-            <label class="col-sm-6 control-label text-right">Name</label>
-            <div class="col-sm-6">
-              <%= f.text_field :name, class: "form-control" %>
-            </div>
+        <div class="form-group">
+          <label class="col-sm-6 control-label text-right">Name</label>
+          <div class="col-sm-6">
+            <%= f.text_field :name, class: "form-control" %>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label class="col-sm-6 control-label text-right">Colour markings</label>
-            <div class="col-sm-6">
-              <%= f.text_field :color_markings, class: "form-control" %>
-            </div>
+        <div class="form-group">
+          <label class="col-sm-6 control-label text-right">Colour markings</label>
+          <div class="col-sm-6">
+            <%= f.text_field :color_markings, class: "form-control" %>
           </div>
+        </div>
 
-          <div class="form-group">
-            <div class="col-sm-6 text-right">
-              <label class="control-label">Status</label>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-control">
-                <%= f.select :adoption_status, [['Looking for adoption','looking for adoption'], ['Adopted', 'adopted']], include_blank: true %>
-              </div>
+        <div class="form-group">
+          <div class="col-sm-6 text-right">
+            <label class="control-label">Status</label>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-control">
+              <%= f.select :adoption_status, [['Looking for adoption','looking for adoption'], ['Adopted', 'adopted']], include_blank: true %>
             </div>
           </div>
+        </div>
 
-          <div class="form-group">
-            <div class="col-sm-6 text-right">
-              <label class="control-label">Dog location</label>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-control">
-                <%= f.select :location_id, Location.all.collect {|p| [p.name, p.id]}, include_blank: true %>
-              </div>
+        <div class="form-group">
+          <div class="col-sm-6 text-right">
+            <label class="control-label">Dog location</label>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-control">
+              <%= f.select :location_id, Location.all.collect {|p| [p.name, p.id]}, include_blank: true %>
             </div>
           </div>
+        </div>
 
          <!--  <div class="form-group">
             <label for="rescued_on" class="col-sm-6 control-label text-right">Date rescued</label>
@@ -78,6 +78,7 @@
                 </div>
               </div>
           </div>
+        </div>
 
           <script type="text/javascript">
           $(document).ready(function() {
@@ -88,9 +89,9 @@
           });
           </script> -->
 
-          <div class="form-group">
-            <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
-            <div class="col-sm-6">
+        <div class="form-group">
+          <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
+          <div class="col-sm-6">
             <%= f.radio_button :is_hdb_approved, 'true' %>
             <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
             <%= f.radio_button :is_hdb_approved, 'false' %>
@@ -102,69 +103,82 @@
               <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label> -->
             </div>
           </div>
-</div>          
+        </div>          
 
 
+        
+      </div>    
+      <!-- End of Dog Details section -->
+
+
+      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
       
-    
+      <!-- Photo Section -->
       
-    <!-- Photo Section -->
-<div class="col-md-6">
+
+      <div class="container-fluid text-left">
+        <h2><span><strong>Photos</strong></span> </h2>
+        <button class="btn btn-success pull-right" type="submit"> 
+          <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
+        </button>
+
+        <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
 
 
-    <div class="container-fluid text-left">
-
-
-<div>
-
-
-      <div class="col-md-6">
-      <h3><span><strong>Photos</strong></span> </h3>
-
-<button class="btn btn-success" type="submit"> 
-    <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
-</button>
-
-     <button class="btn btn-success" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
-
-     <p style="margin:20px;"> <%= Photo.count %> Photos added. </p>
-
-
-     </div>
-     <div class="col-md-6">
-      <%= render partial: "photo" %>
-      </div>
-    </div>
-</div>
-    <!-- End of Dog Details section -->
-
-
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Basic Information</strong></span>
-      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
-    </h2>
         <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label" >Gender</label>
-              <div class="col-sm-6">
-                <%= f.radio_button :gender, 'male' %>
-                <%= f.label :gender, 'Male', :value => 'male' %>
-                <%= f.radio_button :gender, 'female' %>
-                <%= f.label :gender, 'Female', :value => 'female' %>
-              </div>
-            </div>
+          <div class="col-md-3">
+            <%= render partial: "photo" %>
           </div>
-          <div class="col-md-6">
+
+          <div class="col-md-9">
+
+            <p style="margin:20px;"> 
+
+
+              <% if @dog.photos.present? %> 
+              <p> <%= @dog.photos.count %> Photos added. </p>
+
+              <% else %>
+
+              <p> No Photos added. </p>
+
+              <% end %>
+
+
+            </div>
+
+            
           </div>
         </div>
+        <!-- End of Photos section -->
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
+
+        <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+        <div class="container">
+          <h2><span><strong>Basic Information</strong></span>
+            <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+          </h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-sm-6 control-label" >Gender</label>
+                <div class="col-sm-6">
+                  <%= f.radio_button :gender, 'male' %>
+                  <%= f.label :gender, 'Male', :value => 'male' %>
+                  <%= f.radio_button :gender, 'female' %>
+                  <%= f.label :gender, 'Female', :value => 'female' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
                 <div class="col-sm-6">
                   <div class="input-group date" id='born_on'>
                   <%= f.text_field :born_on, class: 'form-control' %>
@@ -181,36 +195,35 @@
                 $('btn').click(function() {
                   $("#born_on").focus();
                 });
-              });
               </script>
 
-            <div class="form-group">
-              <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
+              <div class="form-group">
+                <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
                 <div class="col-sm-6">
                   <%= f.text_field :chip_number, class: "form-control" %>
                 </div>
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-6">
-            <div class="form-group">
+            <div class="col-md-6">
+              <div class="form-group">
                 <label for="age" class="col-sm-6 control-label">Age</label>
                   <div class="col-sm-6">
                     <input class="form-control" id="age" type="text" disabled value="<%= friendly_age(@dog.born_on) %>">
                   </div>
             </div>
 
-            <div class="form-group">
-              <label for="license_number" class="col-sm-6 control-label">License no.</label>
+              <div class="form-group">
+                <label for="license_number" class="col-sm-6 control-label">License no.</label>
                 <div class="col-sm-6">
                   <%= f.text_field :license_number, class: "form-control" %>
                 </div>
+              </div>
             </div>
           </div>
-        </div>
-  </div> <!-- End of Basic Information section -->
+        </div> <!-- End of Basic Information section -->
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+        <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
     <h2><span><strong>Temperament</strong></span>
@@ -227,47 +240,55 @@
                 <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
               </div>
               <div class="form-group">
-                <label class="col-sm-6 control-label">Energy Level</label>
+                <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
                 <div class="col-sm-6">
-                <%= f.radio_button :energy_level, 'low' %>
-                <%= f.label :energy_level, 'Low', :value => 'low' %>
-                <%= f.radio_button :energy_level, 'normal' %>
-                <%= f.label :energy_level, 'Normal', :value => 'normal' %>
-                <%= f.radio_button :energy_level, 'high' %>
-                <%= f.label :energy_level, 'High', :value => 'high' %>
+                  <%= f.radio_button :is_good_with_other_dogs, 'true' %>
+                  <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
+                  <%= f.radio_button :is_good_with_other_dogs, 'false' %>
+                  <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Energy Level</label>
+                  <div class="col-sm-6">
+                    <%= f.radio_button :energy_level, 'low' %>
+                    <%= f.label :energy_level, 'Low', :value => 'low' %>
+                    <%= f.radio_button :energy_level, 'normal' %>
+                    <%= f.label :energy_level, 'Normal', :value => 'normal' %>
+                    <%= f.radio_button :energy_level, 'high' %>
+                    <%= f.label :energy_level, 'High', :value => 'high' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
+                <div class="col-sm-6">
+                  <%= f.radio_button :is_good_with_kids, 'true' %>
+                  <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
+                  <%= f.radio_button :is_good_with_kids, 'false' %>
+                  <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
-              <div class="col-sm-6">
-                <%= f.radio_button :is_good_with_kids, 'true' %>
-                <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_good_with_kids, 'false' %>
-                <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
                 <div class="col-sm-12">
                   <%= f.text_area :notes_temperament, cols:175, rows:5 %> 
                 </div>
-            </div>
+              </div>
 
+            </div>
           </div>
         </div>
-        </div>
-  </div> <!-- End of Temperament section -->
+      </div> <!-- End of Temperament section -->
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
     <h2><span><strong>Health</strong></span>
@@ -277,14 +298,14 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="col-sm-6 control-label">Vaccinated?</label>
-                <div class="col-sm-6">
+              <div class="col-sm-6">
                 <%= f.radio_button :is_vaccinated, 'true' %>
                 <%= f.label :is_vaccinated, 'Yes', :value => 'true' %>
                 <%= f.radio_button :is_vaccinated, 'false' %>
                 <%= f.label :is_vaccinated, 'No', :value => 'false' %>
-                </div>
               </div>
             </div>
+          </div>
           <div class="col-md-6">
             <div class="form-group">
               <label class="col-sm-6 control-label">Sterilized?</label>
@@ -302,15 +323,15 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
-                <div class="col-sm-12">
-                  <%= f.text_area :notes_health, cols:175, rows:5 %> 
-                </div>
+              <div class="col-sm-12">
+                <%= f.text_area :notes_health, cols:175, rows:5 %> 
+              </div>
             </div>
           </div>
         </div>
-  </div> <!-- End of Health section -->
+      </div> <!-- End of Health section -->
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
   <div class="container">
     <h2><span><strong>Background Story</strong></span>
@@ -320,69 +341,69 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
-                <div class="col-sm-12">
-                  <%= f.text_area :background_story, cols:175, rows:5 %> 
-                </div>
+              <div class="col-sm-12">
+                <%= f.text_area :background_story, cols:175, rows:5 %> 
+              </div>
             </div>
           </div>
         </div>
-  </div> <!-- End of Background story section -->
+      </div> <!-- End of Background story section -->
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-  <div class="container">
-    <h2><span><strong>Donation & Sponsorship</strong></span>
-      <div class="btn-toolbar pull-right" role="toolbar">
-      <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
-      <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
-    </div>
-    </h2>
+      <div class="container">
+        <h2><span><strong>Donation & Sponsorship</strong></span>
+          <div class="btn-toolbar pull-right" role="toolbar">
+            <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
+            <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+          </div>
+        </h2>
 
-    <div class="row">
-      <div class="panel panel-default">
-        <table class="table table-fixed">
-          <thead>
-            <tr>
-              <th class="col-lg-1">Type</th>
-              <th class="col-lg-2">Date contributed</th>
-              <th class="col-lg-1">Amount (S$)</th>
-              <th class="col-lg-3">Name</th>
-              <th class="col-lg-2">Phone no.</th>
-              <th class="col-lg-1">Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% #@people.each do |people| %>
+        <div class="row">
+          <div class="panel panel-default">
+            <table class="table table-fixed">
+              <thead>
+                <tr>
+                  <th class="col-lg-1">Type</th>
+                  <th class="col-lg-2">Date contributed</th>
+                  <th class="col-lg-1">Amount (S$)</th>
+                  <th class="col-lg-3">Name</th>
+                  <th class="col-lg-2">Phone no.</th>
+                  <th class="col-lg-1">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% #@people.each do |people| %>
 
-            <tr>
-              <td class="col-lg-1">Donation</td>
-              <td class="col-lg-2">[Latest] 01/01/2016</td>
-              <td class="col-lg-1">100</td>
-              <td class="col-lg-3">Mohammed Bin Sulaiman</td>
-              <td class="col-lg-2">90909090</td>
-              <td class="col-lg-1">youremail@gmail.com</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div> <!-- End of Donation and Sponsorship section-->
+                <tr>
+                  <td class="col-lg-1">Donation</td>
+                  <td class="col-lg-2">[Latest] 01/01/2016</td>
+                  <td class="col-lg-1">100</td>
+                  <td class="col-lg-3">Mohammed Bin Sulaiman</td>
+                  <td class="col-lg-2">90909090</td>
+                  <td class="col-lg-1">youremail@gmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- End of Donation and Sponsorship section-->
 
-  <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-  <div class="container">
-    <h2><span><strong>Updates</strong></span>
-      <div class="btn-toolbar pull-right" role="toolbar">
-        <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
-   
-    </h2>
-      <div class="row">
-    
-  </div> <!-- End of Updates section -->
+      <div class="container">
+        <h2><span><strong>Updates</strong></span>
+          <div class="btn-toolbar pull-right" role="toolbar">
+            <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
+            
+          </h2>
+          <div class="row">
+            
+          </div> <!-- End of Updates section -->
 
- <div class="container-fluid text-left">
-      <%= render partial: "update", collection: @dog.updates %>
-    </div>
+          <div class="container-fluid text-left">
+            <%= render partial: "update", collection: @dog.updates %>
+          </div>
 
   <button class="btn btn-success center-block" type="submit" data-confirm="Are you sure you want to make this change?>   Save   </button>
 <% end %> <!-- end form -->
@@ -392,6 +413,6 @@
      </div>
   </footer>
 
-</body>
+       </body>
 
 </html>

@@ -14,52 +14,58 @@
 
 <h1>Photos</h1>
 
-  
-    <% @photos.each do |photo| %>
-    <div class="col-md-3 text-center" >
+<% if @dog.photos.count != 0 %>
+
+<% @dog.photos.each do |photo| %>
+<div class="col-md-3 text-center" >
 
 
-      <%= image_tag(photo.imglink, class: "image200") if photo.imglink.present? %> 
-      <% photo.profile %>
+  <%= image_tag(photo.imglink, class: "image200") if photo.imglink.present? %> 
+  <% photo.profile %>
 
 
-      <%= form_for([:admin, photo.dog, photo]) do |f| %>
-<div>
-     <p style="margin:5px"><%= f.radio_button :profile, true %> Profile Pic </p>
-        <% f.label :profile, 'Profile pic', :value => true %></div>
+  <%= form_for([:admin, photo.dog, photo]) do |f| %>
+  <div>
+   <p style="margin:5px"><%= f.radio_button :profile, true %> Profile Pic </p>
+   <% f.label :profile, 'Profile pic', :value => true %></div>
     <!--    # <%= f.radio_button :profile, false %>
         # <%= f.label :profile, 'Not profile pic', :value => false %>
 
 
 
---> <%end%>
+      --> <%end%>
 
-        <p style="margin:5px"><b>Caption:</b></p>
-        <p style="margin:5px"><%= photo.caption %> </p>
-
-
+      <p style="margin:5px"><b>Caption:</b></p>
+      <p style="margin:5px"><%= photo.caption %> </p>
 
 
-<button type="button" class="btn btn-sm">
-            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 
-            <%= link_to 'Show', admin_dog_photo_path(photo.dog, photo) %>
-          </button>
-          
-          <button type="button" class="btn btn-sm btn-warning">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
-            <%= link_to 'Edit', edit_admin_dog_photo_path(photo.dog, photo) %>
-          </button>
-
-          <button type="button" class="btn btn-sm btn-danger">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 
-            <%= link_to 'Delete', admin_dog_photo_path(photo.dog, photo), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </button>
 
 
-        </p>
+      <button type="button" class="btn btn-sm">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 
+        <%= link_to 'Show', admin_dog_photo_path(photo.dog, photo) %>
+      </button>
+      
+      <button type="button" class="btn btn-sm btn-warning">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+        <%= link_to 'Edit', edit_admin_dog_photo_path(photo.dog, photo) %>
+      </button>
+
+      <button type="button" class="btn btn-sm btn-danger">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 
+        <%= link_to 'Delete', admin_dog_photo_path(photo.dog, photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </button>
 
 
-      </div>
-    </div>
-    <% end %>
- 
+    </p>
+
+
+  </div>
+</div>
+<% end %>
+
+<% else %>
+
+<p> No Photos </p>
+
+<% end %>
