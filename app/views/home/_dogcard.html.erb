@@ -2,7 +2,23 @@
 	<div class="dogcard-content">
 	
 	<div id="container" style="position:relative;">
-		<img class="img_dog" src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13177607_512347952298939_5212659507092539555_n.jpg?oh=07e0184ec7280dbccee13e6d0126b08e&oe=586098DF" alt="Dog" /> 
+
+        <% if dog.photos.profile_photo.try(:imglink).present? %>
+        <%= image_tag(dog.try(:photos).profile_photo.try(:imglink), class: "dogcard-image" )  %>
+
+        <% elsif dog.photos.first.try(:imglink).present?%>
+
+		<%= image_tag(dog.try(:photos).first.try(:imglink), class: "dogcard-image" ) if dog.photos.first.present? %>
+
+		<% else %>
+
+
+
+
+		<div class="dogcard-image">
+		<p> Photo Coming Soon! <p>
+		</div>
+		<% end %>
 		
 		<% if dog.is_hdb_approved? == true %>
 		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>
@@ -11,7 +27,8 @@
 		
 		
 	</div>
-	
+
+
 	<div>
 
 		<h3> 

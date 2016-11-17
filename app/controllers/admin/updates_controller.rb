@@ -8,9 +8,9 @@ class Admin::UpdatesController < AdminController
   end
 
   def new
-  
-    @update = dog().updates.build
     @dog = dog()
+    @update = dog().updates.build
+  
 
   end
 

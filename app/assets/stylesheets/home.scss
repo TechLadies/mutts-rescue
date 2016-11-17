@@ -2,163 +2,139 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-    /* Remove the navbar's default margin-bottom and rounded borders */
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-   
-    /* Add a gray background color and some padding to the footer */
-   footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-   
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
- 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none;
-    }
-  }
- 
- 
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+margin-bottom: 0;
+border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+background-color: #f2f2f2;
+padding: 25px;
+}
+
+.carousel-inner img {
+width: 100%; /* Set width to 100% */
+margin: auto;
+min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+.carousel-caption {
+display: none;
+}
+}
+
+
 .image-container {
-  background-image: url('http://i.stack.imgur.com/GA6bB.png');
-  background-size:cover;
-  background-repeat:no-repeat;
-  width:200px;
-  height:200px;
+background-image: url('http://i.stack.imgur.com/GA6bB.png');
+background-size:cover;
+background-repeat:no-repeat;
+width:200px;
+height:200px;
 } 
- 
+
 /* Add a dark gray background color to the modal header and center text */
 .modal-header, h4, .close {
-    background-color: #333;
-    color: #fff !important;
-    text-align: center;
-    font-size: 30px;
+background-color: #333;
+color: #fff !important;
+text-align: center;
+font-size: 30px;
 }
- 
+
 .modal-header, .modal-body {
-    padding: 20px 20px;
+padding: 20px 20px;
 }
 
 .homebtn {
-  border: black;
-  
+border: black;
+
 }
 
 .padding {
-  padding:20px;
-  
-  
+padding:20px;
+
+
 }
 
 
 .homepage > .row  {
-  padding-bottom: 60px; 
+padding-bottom: 60px; 
 }
 
 .dogcard {
-  margin-top: 20px;
-  height: 500px;
+margin-top: 20px;
+height: 500px;
 
 
-  .dogcard-content {
-    border: 1px solid #eee;
-    padding: 10px;
-  }
+.dogcard-content {
+border: 1px solid #eee;
+padding: 10px;
+}
 
 
 
-  .dogcard-image {
-    height: 200px;
-    width: 200px;
-  }
-  .img_dog {
-    height: 200px;
-    z-index: 1;
-
-  }
-
-  .hdblogo {
-  height: 35px;
-  vertical-align: top;
-  z-index: 2;
-  position:absolute;
-  top: 15px;
-  left: 215px;
+.dogcard-image {
+height: 200px;
+width: 200px;
+object-fit: cover;
+}
+.img_dog {
+height: 200px;
+z-index: 1;
 
 }
 
-  
+.hdblogo {
+height: 35px;
+vertical-align: top;
+z-index: 2;
+position:absolute;
+top: 15px;
+left: 215px;
 
-  .quote-row-content {
-    height: 50px;
-    margin:10px;
-  }
+}
+
+
+
+.quote-row-content {
+height: 50px;
+margin:10px;
+}
 }
 
 .logo {
-  height: 51px;
+height: 51px;
 }
 
 
 .hdblogo {
-  height: 50px;
-}
-
-.frame-square {
-  background: #fff;
-  border: 0.5px solid #000;
-  display: inline-block;
-  vertical-align: top;
-  padding: 10px;
-  width: 180px;
-  height: 180px;
-  margin-right: .5em;
-  margin-bottom: .3em;
-}
-
-.frame-round {
-  @extend .frame-square;
-  border-radius: 50%;
-  overflow: hidden;
-  
-  .crop {border-radius: 50%;}
-}
-
-.crop {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  
-  img {
-    display: block;
-    min-width: 100%;
-    min-height: 100%;
-    margin: auto;
-    position: absolute;
-    top: -100%;
-    right: -100%;
-    bottom: -100%;
-    left: -100%;
-  }
+height: 50px;
 }
 
 
+
+.img_featureddog {
+height: 500px;
+width: 100%;
+object-fit:cover; 
+}
+
+.img_aboutdog{
+height: 400px;
+width: 400px;
+object-fit:cover; 
+}
 
 
 
 // testing:
 .retina .crop img {
-  transform: scale(.5, .5);
+transform: scale(.5, .5);
 }
+
 
 
 

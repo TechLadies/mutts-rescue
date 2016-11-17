@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20161112072736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "imglink"
+    t.string   "caption"
+    t.boolean  "profile"
+    t.integer  "dog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_photos_on_dog_id"
+  end
+
   create_table "updates", force: :cascade do |t|
     t.integer  "dog_id"
     t.date     "date"

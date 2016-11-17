@@ -17,12 +17,35 @@
 
       <div class="col-md-8">
 
-      <img class="img-responsive" src= "https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/13528888_529589883908079_4518685806591877288_n.jpg?oh=fc5aad2b3af2d4129389b253d7cd89d0&oe=587ED790" alt="Image">      
-      </div>
+        <% if @featured_dog.photos.profile_photo.try(:imglink).present? %>
 
+        <%= image_tag(@featured_dog.try(:photos).profile_photo.try(:imglink), class: "img_featureddog")  %>
+
+
+        <% elsif @featured_dog.try(:photos).first.try(:imglink).present? %>
+
+        <%= image_tag(@featured_dog.try(:photos).first.try(:imglink), class: "img_featureddog") %>
+
+        <% else %>
+
+        <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
       <div class="col-md-4">
        <div class="container-fluid text-center">
-        <%= render partial: "featured", collection: @dogs.featured, as: 'dog' %>
+        <%= render partial: "featured", locals: {dog: @featured_dog} %>
       </div>
     </div> 
   </div>
@@ -32,15 +55,15 @@
 
 <div class="container-fluid text-center">
 
-<%= render "dropdown_filter", :header => ["HDB Approval?","is_hdb_approved"] , :items => ["hdb_approved","not_hdb_approved"] %>
-<%= render "dropdown_filter", :header => ["Gender","gender"], :items => ["male","female"] %>
-<%= render "dropdown_filter", :header => ["Age","born_on"] , :items => ["puppy","adult"] %>
+  <%= render "dropdown_filter", :header => ["HDB Approval?","is_hdb_approved"] , :items => ["hdb_approved","not_hdb_approved"] %>
+  <%= render "dropdown_filter", :header => ["Gender","gender"], :items => ["male","female"] %>
+  <%= render "dropdown_filter", :header => ["Age","born_on"] , :items => ["puppy","adult"] %>
 
 </div>
 
-  <div class="row">
-    <%= render partial: "dogcard", collection: @dogs.shuffle, as: 'dog' %>
-  </div>
+<div class="row">
+  <%= render partial: "dogcard", collection: @dogs.shuffle, as: 'dog' %>
+</div>
 
 </div>
 
@@ -48,19 +71,19 @@
   <p>Saving one life at a time</p>
 </footer>
 
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-      <div class="navbar-header">
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-header">
 
 
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-center">
-          <a class="navbar-brand" href="#">Contact Jamie at 9123 4567 to Adopt. Foster. Sponsor. Volunteer</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-center">
+        <a class="navbar-brand" href="#">Contact Jamie at 9123 4567 to Adopt. Foster. Sponsor. Volunteer</a>
 
-        </ul>
-      </li>
-    </ul>
-  </div>
-  </div>
-  </nav>
+      </ul>
+    </li>
+  </ul>
+</div>
+</div>
+</nav>

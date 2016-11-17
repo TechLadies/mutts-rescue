@@ -15,46 +15,55 @@
 
 
 
-<%= render "tab"%>
+    <%= render "tab"%>
 
 
 
-<table class="table table-hover table-bordered admin-dogs-index">
+    <table class="table table-hover table-bordered admin-dogs-index">
 
-  <thead>
-    <tr class="success">
-<div class="row">
-    <div class= "col-md-6">
-      <th>Photo</th>
-      <th>Name</th>
-    </div>  
-      <th>Gender</th>
-      <th>Adoption status</th>
-      <th>Location</th>
-      <th>HDB approval?</th>
-      <th>Vaccinated?</th>
-      <th>Sterilized?</th>
- 
-</div>
-    </tr>
-  </thead>
+      <thead>
+        <tr class="success">
+          <div class="row">
+            <div class= "col-md-6">
+              <th>Photo</th>
+              <th>Name</th>
+            </div>  
+            <th>Gender</th>
+            <th>Adoption status</th>
+            <th>Location</th>
+            <th>HDB approval?</th>
+            <th>Vaccinated?</th>
+            <th>Sterilized?</th>
+            
+          </div>
+        </tr>
+      </thead>
 
 
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td width="100px"><%= image_tag(dog.image_url, class: "img-responsive text-center") if dog.image_url.present? %> </td>
-        <td><%= link_to dog.name, admin_dog_path(dog), class: "edit-link"%></td>
-        <td><%= dog.gender %></td>
-        <td><%= dog.adoption_status %></td>
-        <td><%= dog.location.try(:name) %></td>
-        <td><%= dog.is_hdb_approved %></td>
-        <td><%= dog.is_vaccinated %></td>
-        <td><%= dog.is_sterilized %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @dogs.each do |dog| %>
+        <tr style="background-color: white">
+          <% if dog.photos.profile_photo.try(:imglink).present? %> 
+          <td width="100px"><%= image_tag(dog.try(:photos).profile_photo.try(:imglink), class: "imagewidth100") %>  </td> 
+          <% elsif dog.photos.first.try(:imglink).present? %>
+          <td width="100px"><%= image_tag(dog.try(:photos).first.try(:imglink), class: "imagewidth100") %> </td>
+          <% else %>
+          <td> No Photo </td>
+
+          <% end %>
+
+
+          <td><%= link_to dog.name, admin_dog_path(dog), class: "edit-link"%></td>
+          <td><%= dog.gender %></td>
+          <td><%= dog.adoption_status %></td>
+          <td><%= dog.location.try(:name) %></td>
+          <td><%= yesno(dog.is_hdb_approved) %></td>
+          <td><%= yesno(dog.is_vaccinated) %></td>
+          <td><%= yesno(dog.is_sterilized) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
   </div>
 </div>

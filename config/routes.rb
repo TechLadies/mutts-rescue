@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :photos
   resources :pages
   devise_for :users
 
@@ -22,10 +23,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dogs_list' => 'dogs#list'
-    resources :dogs
+    resources :dogs do
+      resources :updates
+      resources :photos
+    end  
     resources :locations
     resources :users
     resources :people
+
+
   end
 
   resources :updates

@@ -1,0 +1,19 @@
+<p>
+<%= image_tag(@photo.imglink, class: "imageheight400") if @photo.imglink.present? %> 
+
+</p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @photo.caption %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @photo.profile %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_admin_dog_photo_path(@photo) %> |
+<%= link_to 'Back', admin_dog_photos_path(@photo.dog) %>

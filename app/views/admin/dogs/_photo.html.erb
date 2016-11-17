@@ -1,0 +1,62 @@
+  <div id="myCarousel" class="carousel slide" >
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+
+
+      <% 1.upto(@dog.photos.more_photo.count) do |number| %>
+
+      <li data-target="#myCarousel" data-slide-to="#{number}"></li>
+      <% number += 1 %>
+      <% end %>
+
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+
+
+        <% if @dog.try(:photos).profile_photo.try(:imglink).present? %>
+        <%= image_tag(@dog.try(:photos).profile_photo.try(:imglink), class: "img150" )  %>
+
+        <div class="carousel-caption">
+          <p><%= @dog.photos.profile_photo.try(:caption)%></p>
+        </div>
+      </div>
+
+      <%elsif @dog.try(:photos).first.try(:imglink).present?%>
+
+      <%= image_tag(@dog.try(:photos).first.try(:imglink), class: "img150" )  %>
+
+      <div class="carousel-caption">
+        <p><%= @dog.photos.first.try(:caption)%></p>
+      </div>
+    </div>
+
+    <% else %>
+
+
+    <% end %>
+
+    <% @dog.photos.more_photo.each do |photo| %>
+    <div class="item">
+      <%= image_tag(photo.imglink, class: "img_aboutdog" ) if photo.imglink.present? %> 
+      <div class="carousel-caption">
+        <p><%= photo.caption%></p>
+      </div>
+    </div>
+    <% end %>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</div>

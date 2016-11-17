@@ -111,3 +111,14 @@ tr:nth-child(even) { background-color: #CCC;}
 table.admin-dogs-index tbody tr:hover {
 	cursor: pointer;
 }
+
+
+
+/* * {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+*/
+.padding-navbar{
+	padding-top: 60px;
+}
+

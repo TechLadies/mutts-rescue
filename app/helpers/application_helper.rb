@@ -11,6 +11,21 @@ module ApplicationHelper
       gsub(" 0 months", "")
   end
 
+def yesno(input)
+  if input == true
+    return "Yes"
+  elsif 
+    input == false
+    return "No"
+  else
+    return input
+  end
+end
+
+def onephoto(image_urls)
+  spliturl = image_urls.split","
+  return spliturl.first
+end
 
 
 end
