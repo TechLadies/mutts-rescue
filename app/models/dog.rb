@@ -22,8 +22,9 @@ class Dog < ApplicationRecord
   scope :featured, -> {where(is_featured: true).first}
   scope :adult, -> { where('born_on < ?', 1.years.ago ).order(:born_on) }
   scope :puppy, -> { where('born_on > ?', 1.years.ago ).order(:born_on) }
-  scope :hdb_approved, -> {where(is_hdb_approved: true)}
-  scope :not_hdb_approved, -> {where(is_hdb_approved: false)}
+  scope :hdb_approved, -> {where(is_hdb_approved: "true")}
+  scope :not_hdb_approved, -> {where(is_hdb_approved: "false")}
+  scope :maybe_hdb_approved, -> {where(is_hdb_approved: "maybe")}
 
  
 

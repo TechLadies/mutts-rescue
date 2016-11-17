@@ -12,10 +12,10 @@ module ApplicationHelper
   end
 
 def yesno(input)
-  if input == true
+  if input == true || input == "true"
     return "Yes"
   elsif 
-    input == false
+    input == false || input == "false"
     return "No"
   else
     return input
