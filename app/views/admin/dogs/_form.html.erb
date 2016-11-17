@@ -74,6 +74,11 @@
        </div>
 
        <div class="field">
+         <%= f.label :is_good_for_elderly_owners %>
+         <%= f.check_box :is_good_for_elderly_owners %>
+       </div>
+
+       <div class="field">
          <%= f.label :energy_level %>
          <%= f.select :energy_level, [["Low", "low"],["Normal","normal"],["High","high"]] %>
        </div>
