@@ -15,10 +15,10 @@ module ApplicationHelper
   end
 
 def yesno(input)
-  if input == true
+  if input.to_s == "true"
     return "Yes"
   elsif 
-    input == false
+    input.to_s == "false"
     return "No"
   else
     return input
