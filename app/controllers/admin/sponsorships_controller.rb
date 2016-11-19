@@ -30,7 +30,6 @@ class Admin::SponsorshipsController < AdminController
 
   def edit
 	  @sponsorship = Sponsorship.find(params[:id])
-
   end
 
   def update
@@ -49,7 +48,7 @@ class Admin::SponsorshipsController < AdminController
   def destroy
     @sponsorship.destroy
     respond_to do |format|
-      format.html { redirect_to admin_dog_path(@sponsorship.dog_id), notice: 'Sponsorship was successfully deleted.' }
+      format.html { redirect_to :back, notice: 'Sponsorship was successfully deleted.' }
       format.json { head :no_content }
     end
   end
