@@ -1,6 +1,9 @@
 module ApplicationHelper
 
   def friendly_age(birthdate)
+    if birthdate.nil?
+      return
+    end
     years_old = Date.today - birthdate 
     years_and_months = years_old.divmod(365)
     years = years_and_months[0]

@@ -100,12 +100,13 @@
 
       <div class="container-fluid text-left">
         <h2><span><strong>Photos</strong></span> </h2>
-        <button class="btn btn-success pull-right" type="submit"> 
-          <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
-        </button>
+        <% if @dog.id %>
+          <button class="btn btn-success pull-right" type="submit"> 
+            <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
+          </button>
 
-        <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
-
+          <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
+        <% end %>
 
         <div class="row">
           <div class="col-md-3">
@@ -219,14 +220,7 @@
                 <%= f.radio_button :is_good_with_other_dogs, 'false' %>
                 <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
               </div>
-              <div class="form-group">
-                <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
-                <div class="col-sm-6">
-                  <%= f.radio_button :is_good_with_other_dogs, 'true' %>
-                  <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
-                  <%= f.radio_button :is_good_with_other_dogs, 'false' %>
-                  <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
-                </div>
+              
                 <div class="form-group">
                   <label class="col-sm-6 control-label">Energy Level</label>
                   <div class="col-sm-6">
@@ -266,19 +260,6 @@
             </div>
           </div>
           
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
-              <div class="col-sm-6">
-                <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
-                <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
-                <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
-              </div>
-            </div>
-          </div>
-        </div>
-
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
@@ -399,7 +380,9 @@
       <div class="container">
         <h2><span><strong>Updates</strong></span>
           <div class="btn-toolbar pull-right" role="toolbar">
+          <% if @dog.id %>
             <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
+          <% end %>
             
           </h2>
           <div class="row">

@@ -25,6 +25,7 @@ class Admin::DogsController < AdminController
   # GET /dogs/new
   def new
     @dog = Dog.new
+    render :show
   end
 
   # GET /dogs/1/edit
