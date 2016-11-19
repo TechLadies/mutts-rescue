@@ -16,7 +16,6 @@ class Person < ApplicationRecord
  validates :address, length: { maximum: 255 }
 
  has_many :sponsorships
- #has_and_belongs_to_many :sponsorships
  has_many :dogs, through: :sponsorships
 
 end
