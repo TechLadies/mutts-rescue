@@ -30,8 +30,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :users
     resources :people
-
-
+    resources :sponsorships
   end
 
   resources :updates

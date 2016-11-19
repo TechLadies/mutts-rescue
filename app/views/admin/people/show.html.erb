@@ -2,17 +2,23 @@
 
 <div class="row dogUpdateFont">
 
-	<!-- side column -->	
-	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+	<!-- side column -->
+	<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
 
 	<!-- center content -->
-	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">	
+	<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
 
 		<div class= "row panel droidFont fontSizeLarge">
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Name</strong> 
+
+		    <h2>Person <%= @person.name %></h2>
+
+		  </div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Name</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
@@ -20,15 +26,15 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Phone</strong> 
+				<strong>Phone</strong>
 			</div>
-			
+
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
 				<%= @person.phone %>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Email</strong> 
+				<strong>Email</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
@@ -37,7 +43,7 @@
 
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Bank Account</strong> 
+				<strong>Bank Account</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
@@ -45,7 +51,7 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Address</strong> 
+				<strong>Address</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
@@ -60,18 +66,65 @@
 				<%= link_to 'Edit', edit_admin_person_path(@person), :class => 'btn btnGreen btn-block fontSizeMedium' %>
 
 
-			</div>	
+			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center paddingTopBot15px ">
 
 				<%= link_to 'Back', admin_people_path, :class => 'btn btnWhite btn-block fontSizeMedium'  %>
-			</div>	
+			</div>
 
-		</div>	
+			<hr>
+
+			<!-- Sponsorship content  -->
+
+		  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+
+		    <h2>Sponsorship</h2>
+
+		  </div>
+
+		  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+
+		    <div class="col-lg-4 col-md-0 col-sm-0 col-xs-0"></div>
+
+		    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div>
+
+		    <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0">
+
+		      <%= link_to 'New Sponsorship', new_admin_sponsorship_path(), :class => 'btn btnGreen btn-block fontSizeMedium' %>
+
+		    </div>
+
+		  </div>
+
+		 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+
+		      <table class="table droidFont fontSizeMedium">
+		        <thead>
+		          <tr class="bgDarkGrey fontWhite">
+		            <th>Date</th>
+		            <th>Amount</th>
+		            <th>Name</th>
+		            <th>Phone</th>
+		            <th>Email</th>
+		            <th colspan="3"></th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+
+		          <%= render partial: "sponsorship", collection: @person.sponsorships %>
+
+		        </tbody>
+		      </table>
+
+		  </div>
+
+		</div>
 
 	</div>
 
-	<!-- side column -->	
-	<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+	<!-- side column -->
+	<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
 
 </div>

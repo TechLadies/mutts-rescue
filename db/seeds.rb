@@ -118,4 +118,11 @@ Page.create(
             :dog_id => 8,
     )
 
-
+# Create sponsorship
+Sponsorship.create(person_id: 1, sponsor_until_date:Time.now.to_datetime, amount:100, sponsorship_type:0, dog_id:2, notes: "Funds for medical fees" )
+Sponsorship.create(person_id: 3, sponsor_until_date:Time.now.to_datetime, amount:520, sponsorship_type:1, dog_id:1, notes: "Funds for dog food" )
+Sponsorship.create(person_id: 4, sponsor_until_date:Time.now.to_datetime, amount:200.50, sponsorship_type:0, dog_id:3 )
+Sponsorship.create(person_id: 5, sponsor_until_date:Time.now.to_datetime, amount:100.20, sponsorship_type:1, dog_id:4 )
+Sponsorship.create(person_id: 2, sponsor_until_date:Time.now.to_datetime, amount:125.20, sponsorship_type:1, dog_id:5 )
+Sponsorship.create(person_id: 1, sponsor_until_date:Time.now.to_datetime, amount:250.20, sponsorship_type:1, dog_id:1 )
+Sponsorship.create(person_id: 4, sponsor_until_date:Time.now.to_datetime, amount:100.50, sponsorship_type:0, dog_id:1 )

@@ -378,14 +378,55 @@
           <div class="container-fluid text-left">
             <%= render partial: "update", collection: @dog.updates %>
           </div>
+<!-- Sponsorship content  -->
 
-  <button class="btn btn-success center-block" type="submit" data-confirm="Are you sure you want to make this change?>   Save   </button>
-<% end %> <!-- end form -->
-  <footer class="footer text-center">
-     <div class="container">
-       <p class="text-muted">Place footer here</p>
-     </div>
-  </footer>
+<div class="container">
+
+  <div class="row paddingTopBot15px">
+
+    <h2>Sponsorship</h2>
+
+  </div>
+
+  <div class="row paddingTopBot15px">
+
+    <div class="col-lg-4 col-md-0 col-sm-0 col-xs-0"></div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div>
+
+    <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0">
+
+      <%= link_to 'New Sponsorship', new_admin_sponsorship_path(), :class => 'btn btnGreen btn-block fontSizeMedium' %>
+
+    </div>
+
+  </div>
+
+  <div class="row paddingTopBot15px">
+
+      <table class="table droidFont fontSizeMedium">
+        <thead>
+          <tr class="bgDarkGrey fontWhite">
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <%= render partial: "sponsorship", collection: @dog.sponsorships %>
+
+        </tbody>
+      </table>
+
+  </div>
+
+</div>
+
 
 </body>
 

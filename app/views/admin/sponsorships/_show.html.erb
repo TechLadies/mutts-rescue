@@ -1,0 +1,48 @@
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Name</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @sponsorship.person.name %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Sponsor Until Date</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @sponsorship.sponsor_until_date%>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Amount</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= number_to_currency(@sponsorship.amount)%>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Dog</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @sponsorship.dog.name %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Sponsorship Type</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<%= @sponsorship.sponsorship_type %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Notes</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<%= @sponsorship.notes %>
+			</div>
