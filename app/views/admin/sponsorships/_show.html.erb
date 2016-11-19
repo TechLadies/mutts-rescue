@@ -1,6 +1,6 @@
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Name</strong> 
+				<strong>Name</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
@@ -8,34 +8,42 @@
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Phone</strong> 
-			</div>
-			
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
-				<%= @sponsorship.person.phone %>
-			</div>
-
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Email</strong> 
+				<strong>Sponsor Until Date</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
-				<%= mail_to @sponsorship.person.email, @sponsorship.person.email %>
+				<%= @sponsorship.sponsor_until_date%>
 			</div>
 
-
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Bank Account</strong> 
+				<strong>Amount</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
-				<%= @sponsorship.person.bank_acct %>
+				<%= @sponsorship.sponsor_until_date%>
+			</div>
+
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Dog</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot20px ">
+				<%= @sponsorship.dog.name %>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<strong>Address</strong> 
+				<strong>Sponsorship Type</strong>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
-				<%= @sponsorship.person.address %>
+				<%= @sponsorship.sponsorship_type %>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<strong>Notes</strong>
+			</div>
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingBot10px ">
+				<%= @sponsorship.notes %>
 			</div>
