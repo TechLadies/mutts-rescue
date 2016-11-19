@@ -15,39 +15,26 @@
         </div>
       </div>
 
-      <div class="col-md-8">
+      <% if @featured_dog %>
+        <div class="col-md-8">
+          <% if @featured_dog.photos.profile_photo.try(:imglink).present? %>
 
-        <% if @featured_dog.photos.profile_photo.try(:imglink).present? %>
-
-        <%= image_tag(@featured_dog.try(:photos).profile_photo.try(:imglink), class: "img_featureddog")  %>
-
-
-        <% elsif @featured_dog.try(:photos).first.try(:imglink).present? %>
-
-        <%= image_tag(@featured_dog.try(:photos).first.try(:imglink), class: "img_featureddog") %>
-
-        <% else %>
-
-        <% end %>
+          <%= image_tag(@featured_dog.try(:photos).profile_photo.try(:imglink), class: "img_featureddog")  %>
 
 
+          <% elsif @featured_dog.try(:photos).first.try(:imglink).present? %>
 
+          <%= image_tag(@featured_dog.try(:photos).first.try(:imglink), class: "img_featureddog") %>
 
-
-
-
-
-
-
-
-
-
+          <% end %>
+        </div>
+        <div class="col-md-4">
+         <div class="container-fluid text-center">
+          <%= render partial: "featured", locals: {dog: @featured_dog} %>
+        </div>
       </div>
-      <div class="col-md-4">
-       <div class="container-fluid text-center">
-        <%= render partial: "featured", locals: {dog: @featured_dog} %>
-      </div>
-    </div> 
+    <% end %>
+
   </div>
 </div>
 <h4> Dogs for Adoption </h4>

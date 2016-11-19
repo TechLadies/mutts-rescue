@@ -5,7 +5,10 @@ helper FilepickerRails::Engine.helpers
   
   def home
       @dogs = Dog.for_adoption
-      @featured_dog = Dog.featured
+
+      if Dog.for_adoption.featured.any?
+        @featured_dog = Dog.for_adoption.featured.first
+      end
 
       if params[:gender] && params[:gender] != 'any'
         @dogs = @dogs.public_send(params[:gender])
