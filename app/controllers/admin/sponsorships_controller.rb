@@ -62,7 +62,7 @@ class Admin::SponsorshipsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sponsorship_params
-      params.require(:sponsorship).permit(:people_id, :dog_id, :sponsor_until_date, :amount, :sponsorship_type, :notes)
+      params.require(:sponsorship).permit(:person_id, :dog_id, :sponsor_until_date, :amount, :sponsorship_type, :notes)
     end
 
 
