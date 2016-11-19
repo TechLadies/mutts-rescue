@@ -214,50 +214,40 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
-              <div class="col-sm-6">
                 <%= f.radio_button :is_good_with_other_dogs, 'true' %>
                 <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
                 <%= f.radio_button :is_good_with_other_dogs, 'false' %>
                 <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
-              </div>
-              
-                <div class="form-group">
-                  <label class="col-sm-6 control-label">Energy Level</label>
-                  <div class="col-sm-6">
-                    <%= f.radio_button :energy_level, 'low' %>
-                    <%= f.label :energy_level, 'Low', :value => 'low' %>
-                    <%= f.radio_button :energy_level, 'normal' %>
-                    <%= f.label :energy_level, 'Normal', :value => 'normal' %>
-                    <%= f.radio_button :energy_level, 'high' %>
-                    <%= f.label :energy_level, 'High', :value => 'high' %>
-                  </div>
-                </div>
-              </div>
             </div>
+          
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Energy Level</label>
+                <%= f.radio_button :energy_level, 'low' %>
+                <%= f.label :energy_level, 'Low', :value => 'low' %>
+                <%= f.radio_button :energy_level, 'normal' %>
+                <%= f.label :energy_level, 'Normal', :value => 'normal' %>
+                <%= f.radio_button :energy_level, 'high' %>
+                <%= f.label :energy_level, 'High', :value => 'high' %>
+            </div>
+          </div>
 
-            <div class="col-md-6">
+          <div class="col-md-6">
               <div class="form-group">
                 <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
-                <div class="col-sm-6">
                   <%= f.radio_button :is_good_with_kids, 'true' %>
                   <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
                   <%= f.radio_button :is_good_with_kids, 'false' %>
                   <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
-                </div>
               </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6">
+
             <div class="form-group">
               <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
-              <div class="col-sm-6">
                 <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
                 <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
                 <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
                 <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
-              </div>
             </div>
+          </div>
           </div>
           
           <div class="row">
@@ -284,23 +274,19 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="col-sm-6 control-label">Vaccinated?</label>
-              <div class="col-sm-6">
                 <%= f.radio_button :is_vaccinated, 'true' %>
                 <%= f.label :is_vaccinated, 'Yes', :value => 'true' %>
                 <%= f.radio_button :is_vaccinated, 'false' %>
                 <%= f.label :is_vaccinated, 'No', :value => 'false' %>
-              </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label class="col-sm-6 control-label">Sterilized?</label>
-              <div class="col-sm-6">
                 <%= f.radio_button :is_sterilized, 'true' %>
                 <%= f.label :is_sterilized, 'Yes', :value => 'true' %>
                 <%= f.radio_button :is_sterilized, 'false' %>
                 <%= f.label :is_sterilized, 'No', :value => 'false' %>
-              </div>
             </div>
           </div>
         </div>
