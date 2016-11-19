@@ -20,6 +20,16 @@
   <br><br>
 
   <%= form_for [:admin, @dog] do |f| %>
+  <% if @dog.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+     <ul>
+       <% @dog.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
 
   <div class="container">
     <header id="top" class="header">
@@ -66,17 +76,14 @@
 
         <div class="form-group">
           <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
-          <div class="col-sm-6">
-            <%= f.radio_button :is_hdb_approved, 'true' %>
-            <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
-            <%= f.radio_button :is_hdb_approved, 'false' %>
-            <%= f.label :is_hdb_approved, 'No', :value => 'false' %>
-            <%= f.radio_button :is_hdb_approved, 'maybe' %>
-            <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
-            <!--   <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_yes" value="true">Yes</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_no" value="false">No</label>
-              <label class="radio-inline"> <input type="radio" name="is_hdb_approved" id="hdb_approved_maybe" value="maybe">Maybe</label> -->
-            </div>
+            <div class="col-sm-6">
+              <%= f.radio_button :is_hdb_approved, 'true' %>
+              <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
+              <%= f.radio_button :is_hdb_approved, 'false' %>
+              <%= f.label :is_hdb_approved, 'No', :value => 'false' %>
+              <%= f.radio_button :is_hdb_approved, 'maybe' %>
+              <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
+             </div>
           </div>
         </div>          
 
@@ -243,6 +250,18 @@
                   <%= f.radio_button :is_good_with_kids, 'false' %>
                   <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
                 </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
+              <div class="col-sm-6">
+                <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
+                <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
+                <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
               </div>
             </div>
           </div>

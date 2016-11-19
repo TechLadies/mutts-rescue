@@ -55,7 +55,7 @@ class Admin::DogsController < AdminController
         format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @dog.errors, status: :unprocessable_entity }
       end
     end
