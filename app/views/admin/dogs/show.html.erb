@@ -85,23 +85,27 @@
               <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
              </div>
           </div>
-        </div>          
+        </div>
 
+        <div class="form-group">
+            <label class="control-label">Is Featured</label>
+            <%= f.check_box :is_featured, {}, true, false %>
 
-        
-      </div>    
+        </div>
+
+      </div>
       <!-- End of Dog Details section -->
 
 
       <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-      
+
       <!-- Photo Section -->
-      
+
 
       <div class="container-fluid text-left">
         <h2><span><strong>Photos</strong></span> </h2>
         <% if @dog.id %>
-          <button class="btn btn-success pull-right" type="submit"> 
+          <button class="btn btn-success pull-right" type="submit">
             <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
           </button>
 
@@ -115,10 +119,10 @@
 
           <div class="col-md-9">
 
-            <p style="margin:20px;"> 
+            <p style="margin:20px;">
 
 
-              <% if @dog.photos.present? %> 
+              <% if @dog.photos.present? %>
               <p> <%= @dog.photos.count %> Photos added. </p>
 
               <% else %>
@@ -130,7 +134,7 @@
 
             </div>
 
-            
+
           </div>
         </div>
         <!-- End of Photos section -->
@@ -219,7 +223,7 @@
                 <%= f.radio_button :is_good_with_other_dogs, 'false' %>
                 <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
             </div>
-          
+
             <div class="form-group">
               <label class="col-sm-6 control-label">Energy Level</label>
                 <%= f.radio_button :energy_level, 'low' %>
@@ -249,13 +253,13 @@
             </div>
           </div>
           </div>
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
                 <div class="col-sm-12">
-                  <%= f.text_area :notes_temperament, cols:175, rows:5 %> 
+                  <%= f.text_area :notes_temperament, cols:175, rows:5 %>
                 </div>
               </div>
 
@@ -296,7 +300,7 @@
             <div class="form-group">
               <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
               <div class="col-sm-12">
-                <%= f.text_area :notes_health, cols:175, rows:5 %> 
+                <%= f.text_area :notes_health, cols:175, rows:5 %>
               </div>
             </div>
           </div>
@@ -314,7 +318,7 @@
             <div class="form-group">
               <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
               <div class="col-sm-12">
-                <%= f.text_area :background_story, cols:175, rows:5 %> 
+                <%= f.text_area :background_story, cols:175, rows:5 %>
               </div>
             </div>
           </div>
@@ -369,10 +373,10 @@
           <% if @dog.id %>
             <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
           <% end %>
-            
+
           </h2>
           <div class="row">
-            
+
           </div> <!-- End of Updates section -->
 
           <div class="container-fluid text-left">
@@ -427,6 +431,7 @@
 
 </div>
 
+<% end %>
 
 </body>
 

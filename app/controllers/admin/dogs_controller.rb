@@ -1,4 +1,7 @@
 class Admin::DogsController < AdminController
+
+  #include DogsHelper
+
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   # GET /dogs
@@ -53,6 +56,7 @@ class Admin::DogsController < AdminController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
+        #check_if_dog_is_featured(@dog)
         format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
@@ -80,6 +84,6 @@ class Admin::DogsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url, :location_id, :is_good_for_elderly_owners)
+      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story,:is_featured, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url, :location_id, :is_good_for_elderly_owners)
     end
 end

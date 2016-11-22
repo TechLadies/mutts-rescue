@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161116125634) do
     t.text     "quote"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.boolean  "is_featured"
+    t.boolean  "is_featured",               default: false
     t.string   "image_url"
     t.integer  "location_id"
     t.boolean  "is_good_for_elderly_owners"
