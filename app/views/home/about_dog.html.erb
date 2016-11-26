@@ -72,7 +72,11 @@
       </div>
 
       <div class="col-md-6">
-        <h2> " <%= @dog.quote %> I love cuddles, basking in the sun and playing with children. I walk with a limp but I handle life just fine." </h2>
+        <h2>
+          <span class='dog-quote-mark'>&ldquo;</span>
+            <%= @dog.quote %>
+          <span class='dog-quote-mark'>&rdquo;</span>
+        </h2>
       </div>
     </div>
 
@@ -192,7 +196,7 @@
 
 
 <div class="container-fluid text-center">
-  <button class="btn btn-default"><%= link_to 'BACK', '/' %>  </button>
+  <%= link_to 'BACK', '/', class: 'btn btn-default' %>
 </div>
 
 <div class="container-fluid text-center padding">

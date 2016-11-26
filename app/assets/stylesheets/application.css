@@ -36,6 +36,11 @@ tr:nth-child(even) { background-color: #CCC;}
 
 h2.dog-name { padding: 40px 0 10px 0 }
 
+.dog-quote-mark { 
+  font-family: arial, sans-serif;
+  font-size: 45px;
+}
+
 .btnWhite
 {
 	color:#555!important;
