@@ -7,8 +7,8 @@ class Location < ApplicationRecord
 	validates :address, presence: true
 
 	#validate location_type
-	validates :location_type, presence: true, inclusion: { in: %w(MR\ Facility Foster\ Home),
-    message: "'%{value}' is not a valid location type. Please enter 'MR Facility' or 'Foster Home'" }
+	validates :location_type, presence: true, inclusion: { in: ['MR Facility', 'Foster Home', 'Permanent Home'],
+    message: "'%{value}' is not a valid location type. Please enter 'MR Facility', 'Foster Home', or 'Permanent Home'" }
 
 
 end
