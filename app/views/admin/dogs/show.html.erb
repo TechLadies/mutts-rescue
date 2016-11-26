@@ -1,140 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>View and Edit Dog Details</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <head>
+    <title>View and Edit Dog Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-  <!-- for working offline:
-  <link rel="stylesheet" href=/bootstrap.min.css>
-  <script src=/jquery.min.js></script>
-  <script src=/bootstrap.min.js></script> -->
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <!-- for working offline:
+    <link rel="stylesheet" href=/bootstrap.min.css>
+    <script src=/jquery.min.js></script>
+    <script src=/bootstrap.min.js></script> -->
+  </head>
 
-<body>
-  <br><br>
+  <body>
+    <br><br>
 
-  <%= form_for [:admin, @dog] do |f| %>
-  <% if @dog.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
-     <ul>
-       <% @dog.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-       <% end %>
-     </ul>
-   </div>
- <% end %>
-
-  <div class="container">
-    <header id="top" class="header">
-      <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
-      </h1>
-    </header>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="col-sm-6 control-label text-right">Name</label>
-          <div class="col-sm-6">
-            <%= f.text_field :name, class: "form-control" %>
-          </div>
+    <%= form_for [:admin, @dog] do |f| %>
+      <% if @dog.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+          <ul>
+            <% @dog.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
+      <% end %>
 
-        <div class="form-group">
-          <label class="col-sm-6 control-label text-right">Colour markings</label>
-          <div class="col-sm-6">
-            <%= f.text_field :color_markings, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-6 text-right">
-            <label class="control-label">Status</label>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-control">
-              <%= f.select :adoption_status, [['Looking for adoption','looking for adoption'], ['Adopted', 'adopted']], include_blank: true %>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-6 text-right">
-            <label class="control-label">Dog location</label>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-control">
-              <%= f.select :location_id, Location.all.collect {|p| [p.name, p.id]}, include_blank: true %>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
-            <div class="col-sm-6">
-              <%= f.radio_button :is_hdb_approved, 'true' %>
-              <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
-              <%= f.radio_button :is_hdb_approved, 'false' %>
-              <%= f.label :is_hdb_approved, 'No', :value => 'false' %>
-              <%= f.radio_button :is_hdb_approved, 'maybe' %>
-              <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
-             </div>
-          </div>
-        </div>          
-
-
-        
-      </div>    
-      <!-- End of Dog Details section -->
-
-
-      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-      
-      <!-- Photo Section -->
-      
-
-      <div class="container-fluid text-left">
-        <h2><span><strong>Photos</strong></span> </h2>
-        <% if @dog.id %>
-          <button class="btn btn-success pull-right" type="submit"> 
-            <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
-          </button>
-
-          <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
-        <% end %>
-
+      <div class="container">
+        <header id="top" class="header">
+        <h1><span>Dog Details</span> <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+        </h1>
+        </header>
         <div class="row">
-          <div class="col-md-3">
-            <%= render partial: "photo" %>
-          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-6 control-label text-right">Name</label>
+              <div class="col-sm-6">
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+            </div>
 
-          <div class="col-md-9">
+            <div class="form-group">
+              <label class="col-sm-6 control-label text-right">Colour markings</label>
+              <div class="col-sm-6">
+                <%= f.text_field :color_markings, class: "form-control" %>
+              </div>
+            </div>
 
-            <p style="margin:20px;"> 
+            <div class="form-group">
+              <div class="col-sm-6 text-right">
+                <label class="control-label">Status</label>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-control">
+                  <%= f.select :adoption_status, [['Looking for adoption','looking for adoption'], ['Adopted', 'adopted']], include_blank: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-6 text-right">
+                <label class="control-label">Dog location</label>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-control">
+                  <%= f.select :location_id, Location.all.collect {|p| [p.name, p.id]}, include_blank: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="is_hdb_approved" class="col-sm-6 control-label text-right">HDB approved</label>
+              <div class="col-sm-6">
+                <%= f.radio_button :is_hdb_approved, 'true' %>
+                <%= f.label :is_hdb_approved, 'Yes', :value => 'true' %>
+                <%= f.radio_button :is_hdb_approved, 'false' %>
+                <%= f.label :is_hdb_approved, 'No', :value => 'false' %>
+                <%= f.radio_button :is_hdb_approved, 'maybe' %>
+                <%= f.label :is_hdb_approved, 'Maybe', :value => 'maybe' %>
+              </div>
+            </div>
+          </div>          
+        </div>    
+        <!-- End of Dog Details section -->
+
+        <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+        <!-- Photo Section -->
+        <div class="container-fluid text-left">
+          <h2><span><strong>Photos</strong></span> </h2>
+          <% if @dog.id %>
+            <button class="btn btn-success pull-right" type="submit"> 
+              <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
+            </button>
+
+            <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
+          <% end %>
+
+          <div class="row">
+            <div class="col-md-3">
+              <%= render partial: "photo" %>
+            </div>
+
+            <div class="col-md-9">
+
+              <p style="margin:20px;"> 
 
 
               <% if @dog.photos.present? %> 
-              <p> <%= @dog.photos.count %> Photos added. </p>
+                <p> <%= @dog.photos.count %> Photos added. </p>
 
               <% else %>
 
-              <p> No Photos added. </p>
+                <p> No Photos added. </p>
 
               <% end %>
 
 
             </div>
 
-            
+
           </div>
         </div>
         <!-- End of Photos section -->
-
 
         <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
@@ -164,7 +157,7 @@
                 <label for="born_on" class="col-sm-6 control-label">Date of birth (estimated)</label>
                 <div class="col-sm-6">
                   <div class="input-group date" id='born_on'>
-                  <%= f.text_field :born_on, class: 'form-control' %>
+                    <%= f.text_field :born_on, class: 'form-control' %>
                     <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -172,11 +165,6 @@
                 </div>
               </div>
 
-              <script type="text/javascript">
-                $(function() {
-                    $("#born_on").datepicker({format: 'yyyy/mm/dd'});
-                  });
-            </script>
 
               <div class="form-group">
                 <label for="chip_number" class="col-sm-6 control-label">Chip no.</label>
@@ -184,15 +172,13 @@
                   <%= f.text_field :chip_number, class: "form-control" %>
                 </div>
               </div>
-            </div>
 
-            <div class="col-md-6">
               <div class="form-group">
                 <label for="age" class="col-sm-6 control-label">Age</label>
-                  <div class="col-sm-6">
-                    <input class="form-control" id="age" type="text" disabled value="<%= friendly_age(@dog.born_on) %>">
-                  </div>
-            </div>
+                <div class="col-sm-6">
+                  <input class="form-control" id="age" type="text" disabled value="<%= friendly_age(@dog.born_on) %>">
+                </div>
+              </div>
 
               <div class="form-group">
                 <label for="license_number" class="col-sm-6 control-label">License no.</label>
@@ -200,234 +186,222 @@
                   <%= f.text_field :license_number, class: "form-control" %>
                 </div>
               </div>
-            </div>
-          </div>
-        </div> <!-- End of Basic Information section -->
+            </div> <!-- End of Basic Information section -->
 
-        <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+            <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-  <div class="container">
-    <h2><span><strong>Temperament</strong></span>
-      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
-    </h2>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
-                <%= f.radio_button :is_good_with_other_dogs, 'true' %>
-                <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_good_with_other_dogs, 'false' %>
-                <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
-            </div>
-          
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Energy Level</label>
-                <%= f.radio_button :energy_level, 'low' %>
-                <%= f.label :energy_level, 'Low', :value => 'low' %>
-                <%= f.radio_button :energy_level, 'normal' %>
-                <%= f.label :energy_level, 'Normal', :value => 'normal' %>
-                <%= f.radio_button :energy_level, 'high' %>
-                <%= f.label :energy_level, 'High', :value => 'high' %>
-            </div>
-          </div>
+            <div class="container">
+              <h2><span><strong>Temperament</strong></span>
+                <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+              </h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="is_good_with_other_dogs" class="col-sm-6 control-label">Good with other dogs?</label>
+                    <%= f.radio_button :is_good_with_other_dogs, 'true' %>
+                    <%= f.label :is_good_with_other_dogs, 'Yes', :value => 'true' %>
+                    <%= f.radio_button :is_good_with_other_dogs, 'false' %>
+                    <%= f.label :is_good_with_other_dogs, 'No', :value => 'false' %>
+                  </div>
 
-          <div class="col-md-6">
-              <div class="form-group">
-                <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
-                  <%= f.radio_button :is_good_with_kids, 'true' %>
-                  <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
-                  <%= f.radio_button :is_good_with_kids, 'false' %>
-                  <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
-              </div>
+                  <div class="form-group">
+                    <label class="col-sm-6 control-label">Energy Level</label>
+                    <%= f.radio_button :energy_level, 'low' %>
+                    <%= f.label :energy_level, 'Low', :value => 'low' %>
+                    <%= f.radio_button :energy_level, 'normal' %>
+                    <%= f.label :energy_level, 'Normal', :value => 'normal' %>
+                    <%= f.radio_button :energy_level, 'high' %>
+                    <%= f.label :energy_level, 'High', :value => 'high' %>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
-                <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
-                <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
-                <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
-            </div>
-          </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
-                <div class="col-sm-12">
-                  <%= f.text_area :notes_temperament, cols:175, rows:5 %> 
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="is_good_with_kids"class="col-sm-6 control-label">Good with kids?</label>
+                    <%= f.radio_button :is_good_with_kids, 'true' %>
+                    <%= f.label :is_good_with_kids, 'Yes', :value => 'true' %>
+                    <%= f.radio_button :is_good_with_kids, 'false' %>
+                    <%= f.label :is_good_with_kids, 'No', :value => 'false' %>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="is_good_with_kids"class="col-sm-6 control-label">Good with elderly owners?</label>
+                    <%= f.radio_button :is_good_for_elderly_owners, 'true' %>
+                    <%= f.label :is_good_for_elderly_owners, 'Yes', :value => 'true' %>
+                    <%= f.radio_button :is_good_for_elderly_owners, 'false' %>
+                    <%= f.label :is_good_for_elderly_owners, 'No', :value => 'false' %>
+                  </div>
                 </div>
               </div>
 
-            </div>
-          </div>
-        </div>
-      </div> <!-- End of Temperament section -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="notes_temperament" class="col-sm-3">Notes on temperament</label>
+                    <div class="col-sm-12">
+                      <%= f.text_area :notes_temperament, cols:175, rows:5 %> 
+                    </div>
+                  </div>
 
-      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
-
-  <div class="container">
-    <h2><span><strong>Health</strong></span>
-      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
-    </h2>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Vaccinated?</label>
-                <%= f.radio_button :is_vaccinated, 'true' %>
-                <%= f.label :is_vaccinated, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_vaccinated, 'false' %>
-                <%= f.label :is_vaccinated, 'No', :value => 'false' %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="col-sm-6 control-label">Sterilized?</label>
-                <%= f.radio_button :is_sterilized, 'true' %>
-                <%= f.label :is_sterilized, 'Yes', :value => 'true' %>
-                <%= f.radio_button :is_sterilized, 'false' %>
-                <%= f.label :is_sterilized, 'No', :value => 'false' %>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
-              <div class="col-sm-12">
-                <%= f.text_area :notes_health, cols:175, rows:5 %> 
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div> <!-- End of Health section -->
+          </div> <!-- End of Temperament section -->
 
-      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+          <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-  <div class="container">
-    <h2><span><strong>Background Story</strong></span>
-      <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
-    </h2>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
-              <div class="col-sm-12">
-                <%= f.text_area :background_story, cols:175, rows:5 %> 
+          <div class="container">
+            <h2><span><strong>Health</strong></span>
+              <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+            </h2>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Vaccinated?</label>
+                  <%= f.radio_button :is_vaccinated, 'true' %>
+                  <%= f.label :is_vaccinated, 'Yes', :value => 'true' %>
+                  <%= f.radio_button :is_vaccinated, 'false' %>
+                  <%= f.label :is_vaccinated, 'No', :value => 'false' %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-sm-6 control-label">Sterilized?</label>
+                  <%= f.radio_button :is_sterilized, 'true' %>
+                  <%= f.label :is_sterilized, 'Yes', :value => 'true' %>
+                  <%= f.radio_button :is_sterilized, 'false' %>
+                  <%= f.label :is_sterilized, 'No', :value => 'false' %>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div> <!-- End of Background story section -->
 
-      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="notes_health" class="col-sm-12">Notes on health (e.g. health history, current health condition)</label>
+                  <div class="col-sm-12">
+                    <%= f.text_area :notes_health, cols:175, rows:5 %> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End of Health section -->
 
-      <div class="container">
-        <h2><span><strong>Donation & Sponsorship</strong></span>
-          <div class="btn-toolbar pull-right" role="toolbar">
-            <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
-            <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
-          </div>
-        </h2>
+          <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-        <div class="row">
-          <div class="panel panel-default">
-            <table class="table table-fixed">
-              <thead>
-                <tr>
-                  <th class="col-lg-1">Type</th>
-                  <th class="col-lg-2">Date contributed</th>
-                  <th class="col-lg-1">Amount (S$)</th>
-                  <th class="col-lg-3">Name</th>
-                  <th class="col-lg-2">Phone no.</th>
-                  <th class="col-lg-1">Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% #@people.each do |people| %>
+          <div class="container">
+            <h2><span><strong>Background Story</strong></span>
+              <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+            </h2>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
+                  <div class="col-sm-12">
+                    <%= f.text_area :background_story, cols:175, rows:5 %> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End of Background story section -->
 
-                <tr>
-                  <td class="col-lg-1">Donation</td>
-                  <td class="col-lg-2">[Latest] 01/01/2016</td>
-                  <td class="col-lg-1">100</td>
-                  <td class="col-lg-3">Mohammed Bin Sulaiman</td>
-                  <td class="col-lg-2">90909090</td>
-                  <td class="col-lg-1">youremail@gmail.com</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> <!-- End of Donation and Sponsorship section-->
+          <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
 
-      <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+          <div class="container">
+            <h2><span><strong>Donation & Sponsorship</strong></span>
+              <div class="btn-toolbar pull-right" role="toolbar">
+                <button class="btn btn-success pull-right" type="submit">   Add donor/sponsor  </button>
+                <button class="btn btn-success pull-right" type="submit">   Edit details   </button>
+              </div>
+            </h2>
 
-      <div class="container">
-        <h2><span><strong>Updates</strong></span>
-          <div class="btn-toolbar pull-right" role="toolbar">
-          <% if @dog.id %>
-            <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
+            <div class="row">
+              <div class="panel panel-default">
+                <table class="table table-fixed">
+                  <thead>
+                    <tr>
+                      <th class="col-lg-1">Type</th>
+                      <th class="col-lg-2">Date contributed</th>
+                      <th class="col-lg-1">Amount (S$)</th>
+                      <th class="col-lg-3">Name</th>
+                      <th class="col-lg-2">Phone no.</th>
+                      <th class="col-lg-1">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% #@people.each do |people| %>
+
+                      <tr>
+                        <td class="col-lg-1">Donation</td>
+                        <td class="col-lg-2">[Latest] 01/01/2016</td>
+                        <td class="col-lg-1">100</td>
+                        <td class="col-lg-3">Mohammed Bin Sulaiman</td>
+                        <td class="col-lg-2">90909090</td>
+                        <td class="col-lg-1">youremail@gmail.com</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End of Donation and Sponsorship section-->
+
+          <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+          <div class="container">
+            <h2><span><strong>Updates</strong></span>
+              <div class="btn-toolbar pull-right" role="toolbar">
+                <% if @dog.id %>
+                  <button class="btn btn-success pull-right" type="submit"> <%= link_to 'Add an update', new_admin_dog_update_path(@dog) %>  </button>
+                <% end %>
+              </h2>
+
+              <div class="row">
+              </div> <!-- End of Updates section -->
+
+              <div class="container-fluid text-left">
+                <%= render partial: "update", collection: @dog.updates %>
+              </div>
+            </div>
+
+            <!-- Sponsorship content  -->
+            <div class="container">
+              <div class="row paddingTopBot15px">
+                <h2>Sponsorship</h2>
+              </div>
+
+              <div class="row paddingTopBot15px">
+                <div class="col-lg-4 col-md-0 col-sm-0 col-xs-0"></div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div>
+                <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0">
+                  <%= link_to 'New Sponsorship', new_admin_sponsorship_path(), :class => 'btn btnGreen btn-block fontSizeMedium' %>
+                </div>
+              </div>
+
+              <div class="row paddingTopBot15px">
+                <table class="table droidFont fontSizeMedium">
+                  <thead>
+                    <tr class="bgDarkGrey fontWhite">
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <%= render partial: "sponsorship", collection: @dog.sponsorships %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           <% end %>
-            
-          </h2>
-          <div class="row">
-            
-          </div> <!-- End of Updates section -->
 
-          <div class="container-fluid text-left">
-            <%= render partial: "update", collection: @dog.updates %>
-          </div>
-<!-- Sponsorship content  -->
+            <script type="text/javascript">
+              $(function() { $("#born_on").datepicker({format: 'yyyy/mm/dd'}); });
+              </script>
+        </body>
 
-<div class="container">
-
-  <div class="row paddingTopBot15px">
-
-    <h2>Sponsorship</h2>
-
-  </div>
-
-  <div class="row paddingTopBot15px">
-
-    <div class="col-lg-4 col-md-0 col-sm-0 col-xs-0"></div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"></div>
-
-    <div class="col-lg-4 col-md-6 col-sm-0 col-xs-0">
-
-      <%= link_to 'New Sponsorship', new_admin_sponsorship_path(), :class => 'btn btnGreen btn-block fontSizeMedium' %>
-
-    </div>
-
-  </div>
-
-  <div class="row paddingTopBot15px">
-
-      <table class="table droidFont fontSizeMedium">
-        <thead>
-          <tr class="bgDarkGrey fontWhite">
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <%= render partial: "sponsorship", collection: @dog.sponsorships %>
-
-        </tbody>
-      </table>
-
-  </div>
-
-</div>
-
-
-</body>
-
-</html>
+      </html>
