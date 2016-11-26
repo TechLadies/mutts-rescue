@@ -25,7 +25,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :Person %>
-          <%= f.select :person_id, Person.all.collect { |person| [ person.name, person.id ] }, prompt: true %>
+          <%= f.select :person_id, Person.all.order('name').collect { |person| [ person.name, person.id ] }, prompt: true %>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
@@ -40,7 +40,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
           <%= f.label :dog %>
-          <%= f.select :dog_id, Dog.all.collect { |dog| [ dog.name, dog.id ] }, prompt: true %>
+          <%= f.select :dog_id, Dog.for_adoption.order('name').collect { |dog| [ dog.name, dog.id ] }, prompt: true %>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 field paddingBot10px ">
