@@ -1,12 +1,11 @@
 class Admin::SponsorshipsController < AdminController
-	before_action :set_sponsorship, only: [:index, :show, :edit, :update, :destroy]
+	before_action :set_sponsorship, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sponsorship = Sponsorship.all
+    @sponsorships = Sponsorship.all
   end
 
   def show
-    @sponsorship = Sponsorship.find(params[:id])
     @dog_id = @sponsorship.dog_id
   end
 
@@ -29,11 +28,9 @@ class Admin::SponsorshipsController < AdminController
   end
 
   def edit
-	  @sponsorship = Sponsorship.find(params[:id])
   end
 
   def update
-
     respond_to do |format|
       if @sponsorship.update(sponsorship_params)
         format.html { redirect_to [:admin, @sponsorship], notice: 'Sponsorship was successfully updated.' }

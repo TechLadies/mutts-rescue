@@ -5,12 +5,12 @@
 
   <!-- title -->
   <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
-    <h1 class="droidFont">People</h1>
+    <h1 class="droidFont">Sponsorships</h1>
   </div>
 
   <!-- create person button -->
   <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 paddingTopBot15px">
-    <%= link_to 'Create New Sponsorships', new_admin_person_path, :class =>'btn btn-block btnGreen droidFont fontSizeLarge strong' %>
+    <%= link_to 'Create New Sponsorship', new_admin_sponsorship_path, :class =>'btn btn-block btnGreen droidFont fontSizeLarge strong' %>
   </div>
 
 </div>
@@ -29,17 +29,17 @@
   </thead>
 
   <tbody>
-    <% @person.each do |person| %>
+    <% @sponsorships.each do |s| %>
       <tr>
-        <td class="droidFont fontSizeMedium"><%= sponsorship.name %></td>
-        <td class="droidFont fontSizeMedium"><%= sponsorship.dog_id %></td>
-        <td class="droidFont fontSizeMedium"></td>
-        <td class="droidFont fontSizeMedium"><%= person.bank_acct %></td>
-        <td class="droidFont fontSizeMedium"><%= person.address %></td>
+        <td class="droidFont fontSizeMedium"><%= s.person.name %></td>
+        <td class="droidFont fontSizeMedium"><%= s.dog.name %></td>
+        <td class="droidFont fontSizeMedium"><%= s.person.phone %> </td>
+        <td class="droidFont fontSizeMedium"><%= s.person.bank_acct %></td>
+        <td class="droidFont fontSizeMedium"><%= s.person.address %></td>
 
-        <td class="droidFont fontSizeMedium"><%= link_to 'Edit', edit_admin_person_path(person), :class =>'underline' %></td>
+        <td class="droidFont fontSizeMedium"><%= link_to 'Edit', edit_admin_sponsorship_path(s.id), :class =>'underline' %></td>
 
-        <td class="droidFont fontSizeMedium"><%= link_to 'Delete', [:admin, person], method: :delete, data: { confirm: 'Are you sure?' }, :class =>'underline' %></td>
+        <td class="droidFont fontSizeMedium"><%= link_to 'Delete', [:admin, s], method: :delete, data: { confirm: 'Are you sure?' }, :class =>'underline' %></td>
 
       </tr>
     <% end %>
