@@ -17,9 +17,7 @@
 
 /* Global START ////////////////////////////////////*/
 
- *= require bootstrap-datepicker
- # Or if using bootstrap v3:
- *= require bootstrap-datepicker3
+/*= require bootstrap-datepicker3*/
 
 a:hover {color:black;background-color:transparent!important;} 
 a:visited {color:black;background-color:transparent!important;} 
