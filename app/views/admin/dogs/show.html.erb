@@ -95,11 +95,8 @@
         <div class="container-fluid text-left">
           <h2><span><strong>Photos</strong></span> </h2>
           <% if @dog.id %>
-            <button class="btn btn-success pull-right" type="submit"> 
-              <%= link_to 'Manage Photos', admin_dog_photos_path(@dog)%>
-            </button>
-
-            <button class="btn btn-success pull-right" type="submit"> <%= link_to 'New photo', new_admin_dog_photo_path(@dog) %>  </button>
+            <%= link_to 'Manage Photos', admin_dog_photos_path(@dog), class: 'btn btn-success pull-right'%>
+            <%= link_to 'New Photo', new_admin_dog_photo_path(@dog), class: "btn btn-success pull-right"%>
           <% end %>
 
           <div class="row">
