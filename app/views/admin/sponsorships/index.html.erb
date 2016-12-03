@@ -21,6 +21,7 @@
     <tr class="bgDarkGrey fontWhite">
       <th>Donor / Sponsor Name</th>
       <th>Dog Contributed To</th>
+      <th>Amount Contributed</th>
       <th>Phone</th>
       <th>Bank Acct</th>
       <th>Address</th>
@@ -33,6 +34,7 @@
       <tr>
         <td class="droidFont fontSizeMedium"><%= s.person.name %></td>
         <td class="droidFont fontSizeMedium"><%= s.dog.name %></td>
+        <td class="droidFont fontSizeMedium"><%= number_to_currency(s.amount, unit:"S$") %></td>
         <td class="droidFont fontSizeMedium"><%= s.person.phone %> </td>
         <td class="droidFont fontSizeMedium"><%= s.person.bank_acct %></td>
         <td class="droidFont fontSizeMedium"><%= s.person.address %></td>
