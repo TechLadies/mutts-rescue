@@ -1,3 +1,4 @@
+
 <%= render 'home'  %>
 
 <div class="container-fluid text-center">
@@ -100,7 +101,7 @@
           <div class="col-md-12">
             <h5> <b>HDB approved: </b> <%= yesno(@dog.is_hdb_approved)%> </h5>
             <% unless @dog.color_markings.blank? %>
-            <h5> <b>Color markings: </b> <%= @dog.color_markings %> "Pure White breed with brown spot on the underbelly, and a black spot on the nose" </h5>
+            <h5> <b>Color markings: </b> <%= @dog.color_markings %> </h5>
             <% end %>
           </div>
         </div>
@@ -113,7 +114,7 @@
     <div class="row">
       <div class="col-md-12">
         <h3> <b>Background story </b> </h3>
-        <h5> <%=@dog.background_story %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis. </h5>
+        <h5> <%=@dog.background_story %> </h5>
       </div>
     </div>
   </div>
@@ -145,7 +146,7 @@
 
             <% unless @dog.notes_temperament.blank? %>
             <h5> <b> Notes on temperament </b></h5>
-            <h5> <%= @dog.notes_temperament %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+            <h5> <%= @dog.notes_temperament %> </h5>
             <% end %>      
           </div>
         </div>
@@ -174,7 +175,7 @@
             <% unless @dog.notes_health.blank? %>      
             <div class="col-md-12">
               <h5> <b> Notes on health </b> (e.g. health history, current health condition)</h5>
-              <h5> <%= @dog.notes_health %> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales efficitur tortor, eget bibendum magna cursus vitae. Aenean et accumsan est, in accumsan nulla. Maecenas convallis mi sit amet ex vulputate condimentum. Integer porta leo a convallis semper. Nunc a interdum tellus. Aliquam turpis metus, facilisis venenatis molestie et, mollis.  </h5>
+              <h5> <%= @dog.notes_health %> </h5>
             </div>
             <% end %>
 
