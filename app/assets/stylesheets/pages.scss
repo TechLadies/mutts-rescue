@@ -1,19 +1,11 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-a:link, a:visited {
-
-    
-    padding: 14px 25px;
-    text-align: center;
-    display: inline-block;
-}
-
-
 .dynamic-page-content {
-	margin-top: 110px;
-	a {
-    	text-decoration: underline;
-	}	
+  margin-top: 70px;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  a {
+    text-decoration: underline;
+  }	
 }

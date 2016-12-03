@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show]
-  layout 'home', only: [:show]
   # GET /pages
   # GET /pages.json
   def index
