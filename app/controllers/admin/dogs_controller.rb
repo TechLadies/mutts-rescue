@@ -52,6 +52,10 @@ class Admin::DogsController < AdminController
   # PATCH/PUT /dogs/1.json
   def update
     respond_to do |format|
+      if dog_params[:is_featured]
+        Dog.featured.update_all(is_featured: false)
+      end
+
       if @dog.update(dog_params)
         format.html { redirect_to [:admin, @dog], notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
@@ -80,6 +84,6 @@ class Admin::DogsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url, :location_id, :is_good_for_elderly_owners)
+      params.require(:dog).permit(:name, :gender, :born_on, :chip_number, :license_number, :is_hdb_approved, :color_markings, :adoption_status, :background_story, :is_good_with_other_dogs, :is_good_with_kids, :energy_level, :notes_temperament, :is_vaccinated, :is_sterilized, :notes_health, :quote, :image_url, :location_id, :is_good_for_elderly_owners, :is_featured)
     end
 end
