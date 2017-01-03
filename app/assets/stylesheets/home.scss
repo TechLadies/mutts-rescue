@@ -10,14 +10,36 @@ border-radius: 0;
 
 /* Add a gray background color and some padding to the footer */
 footer {
-background-color: #f2f2f2;
-padding: 25px;
+margin-top: 25px;
+background-image: linear-gradient(to right, black,  transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+background-position: 10%;
+height: 200px;
+color: white;
+text-align: left;
+line-height: 70%;
+
+p{
+	margin: 15px;
 }
+}
+ 
 
 .carousel-inner img {
 width: 100%; /* Set width to 100% */
 margin: auto;
-min-height:200px;
+max-height:600px;
+object-fit:cover; 
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
 }
 
 /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -66,19 +88,21 @@ padding-bottom: 60px;
 
 .dogcard {
 margin-top: 20px;
-height: 500px;
+height: 600px;
+
 
 
 .dogcard-content {
 border: 1px solid #eee;
-padding: 10px;
+background-color: #E1EFE8;
+
 }
 
 
 
 .dogcard-image {
-height: 200px;
-width: 200px;
+height: 400px;
+width: 100%;
 object-fit: cover;
 }
 .img_dog {
@@ -88,21 +112,35 @@ z-index: 1;
 }
 
 .hdblogo {
-height: 35px;
+height: 50px;
 vertical-align: top;
 z-index: 2;
 position:absolute;
-top: 15px;
-left: 215px;
+top: 5px;
+left: 5px;
+background-color: white;
+border-radius: 8px;
 
 }
 
 
 
 .quote-row-content {
-height: 50px;
-margin:10px;
+height: 30px;
+margin:5px;
 }
+
+
+.dogcard-btn{
+
+border: 1px solid #74A571;
+background: #74A571;
+font-size: 15px;
+font-style:  semibold;
+color: #FFFFFF;
+}
+
+
 }
 
 .logo {
@@ -129,13 +167,43 @@ object-fit:cover;
 }
 
 
+.techladies{
+color:	#7A378B;
+}
 
 // testing:
 .retina .crop img {
 transform: scale(.5, .5);
 }
 
+.navbar-bottom-color
+{background-color: #BCD4B4;
+}
+
+.footerlogo{
+	height:25px;
+}
 
 
+.mainlogo{
+text-align:center;
+	height:300px;
+	display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 150px;
+margin-bottom: 50px;
+	
+	
 
+}
+
+.mainbackground{
+	margin-top: 25px;
+background-image: radial-gradient(white, transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=fb6232e7d7d8d0864345ea41c5205c88&oe=5918529A");
+background-size: cover;
+color: white;
+line-height: 70%;
+
+}
 
