@@ -30,7 +30,7 @@
         </div>
       </div>
 
-
+<div class="container-fluid section-green">
 <div class="container-fluid text-center">
 
   <%= render "dropdown_filter", :header => ["HDB Approval?","is_hdb_approved"] , :items => ["hdb_approved","not_hdb_approved","maybe_hdb_approved"] %>
@@ -42,7 +42,7 @@
 <div class="row">
   <%= render partial: "dogcard", collection: @dogs.shuffle, as: 'dog' %>
 </div>
-
+</div>
 </div>
 
 
