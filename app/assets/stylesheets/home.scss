@@ -18,11 +18,12 @@ height: 200px;
 color: white;
 text-align: left;
 line-height: 70%;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
 
 
 p{
 	margin: 15px;
-	font-family: 'Coming Soon', cursive;
+	font-family: 'Lato', sans-serif;
 
 }
 }
@@ -90,17 +91,106 @@ padding-bottom: 60px;
 }
 
 .dogcard {
-margin-top: 20px;
+margin: 0px;
 height: 600px;
 
 
 
 .dogcard-content {
+margin: 10px;
 border: 1px solid #eee;
-background-color: #E1EFE8;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
 
 }
 
+.dogcard-content:nth-child(even) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+
+.dogcard-content:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 5;
+}
+
+
+.dogcard-image {
+height: 300px;
+width: 100%;
+object-fit: cover;
+}
+.img_dog {
+height: 200px;
+z-index: 1;
+
+}
+
+.hdblogo {
+height: 50px;
+vertical-align: top;
+z-index: 2;
+position:absolute;
+top: 5px;
+left: 5px;
+background-color: white;
+border-radius: 8px;
+
+}
+
+
+
+.quote-row-content {
+height: 30px;
+margin:5px;
+}
+
+
+.dogcard-btn{
+
+border: 1px solid #74A571;
+background: #74A571;
+font-size: 15px;
+font-style:  semibold;
+color: #FFFFFF;
+}
+
+
+}
+
+.dogcard-featured {
+margin: 0px;
+height: 700px;
+
+
+
+.dogcard-content {
+margin: 10px;
+border: 1px solid #eee;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+
+}
+
+.dogcard-content:nth-child(even) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+
+.dogcard-content:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 5;
+}
 
 
 .dogcard-image {
@@ -194,7 +284,7 @@ text-align:center;
 	display: block;
 margin-left: auto;
 margin-right: auto;
-margin-top: 150px;
+margin-top: 50px;
 margin-bottom: 50px;
 	
 	
@@ -203,12 +293,14 @@ margin-bottom: 50px;
 
 .mainbackground{
 	margin-top: 25px;
-background-image: radial-gradient(white, transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=fb6232e7d7d8d0864345ea41c5205c88&oe=5918529A");
+background-image: radial-gradient(black, transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=fb6232e7d7d8d0864345ea41c5205c88&oe=5918529A");
 background-size: cover;
 color: white;
 line-height: 70%;
 margin-left: 0%;
 margin-right: 0%;
+padding:50px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
 
 }
 
@@ -234,3 +326,51 @@ font-family: 'Lato', sans-serif;
 
 
 
+.section-creamwhite{
+  margin: 0 auto;
+  width: 100%;
+  background-color: #FFFEEF;
+  padding: 15px;
+  box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+
+}
+
+.section-greem{ 
+  margin: 0 auto;
+  width: 100%;
+  background-color: #E1EFE8;
+}
+
+
+div.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #eee;
+    color: #000;
+    padding: 20px;    
+}
+ 
+div.dogcard:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+ 
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    background-color: white;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}

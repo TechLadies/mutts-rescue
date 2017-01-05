@@ -2,7 +2,11 @@
 <body>
 
 <div class="container-fluid text-center mainbackground">
+<div class="headline"> M u t t s   R e s c u e 
+</div>
 <img class="mainlogo" src = "/MR_Logoround.png" alt=" Mutts-Rescue Logo" /> 
+<div class="headline"> Saving one life at a time
+</div>
 <p class="name"> We are a non-profit organisation that cares for unwanted dogs. We save dogs which are neglected, abandoned or stray and help them find loving homes. </p>
 </div>
 
@@ -12,51 +16,14 @@
 
   <div class="container-fluid homepage">
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="container-fluid text-center">
-<h2 class="headline"> #DOTD (Dog Of The Day) </h2>
-<h3 class="headline"> Meet <%= @featured_dog.name %> </h3>
-       
-
-        </div>
-      </div>
-
-      <% if @featured_dog %>
-      <div class="col-md-3">
-      </div>
-        <div class="col-md-6">
-          <% if @featured_dog.photos.profile_photo.try(:imglink).present? %>
-
-          <%= image_tag(@featured_dog.try(:photos).profile_photo.try(:imglink), class: "img_featureddog")  %>
 
 
-          <% elsif @featured_dog.try(:photos).first.try(:imglink).present? %>
 
-          <%= image_tag(@featured_dog.try(:photos).first.try(:imglink), class: "img_featureddog") %>
-
-          <% end %>
-        </div>
-        <div class="col-md-3">
-      </div>
-      <div class="col-md-12">
-      <div class="col-md-3">
-      </div>
-        <div class="col-md-6">
-         <div class="container-fluid text-center">
-          <%= render partial: "featured", locals: {dog: @featured_dog} %>
-        </div>
-      </div>
-      <div class="col-md-3">
-      </div>
-      </div>
-    <% end %>
-
-  </div>
+<div class="row">
+  <%= render partial: "featureddog", locals: {dog: @featured_dog}  %>
 </div>
 
-
-  <div class="container-fluid text-center">
+  <div class="container-fluid text-center section-creamwhite">
   <h2 class="headline" > Dogs for Adoption </h2>
           <h2 class="name"> <%=Dog.for_adoption.count%> lovely dogs are looking for a home. </h2>
           <h2 class="name">Can you help them? </h2>
