@@ -10,7 +10,7 @@ border-radius: 0;
 
 /* Add a gray background color and some padding to the footer */
 footer {
-margin-top: 25px;
+
 background-image: linear-gradient(to right, black,  transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
 background-size: cover;
 background-position: 10%;
@@ -94,6 +94,28 @@ padding-bottom: 60px;
 .dogcard {
 margin: 0px;
 height: 600px;
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+
+
+
+
+.dogcard a {
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+}
+
+.dogcard a:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+
 
 
 
@@ -118,6 +140,7 @@ padding: 15px;
   -moz-transform: scale(1.1);
   position: relative;
   z-index: 5;
+  -webkit-transition: -webkit-transform .15s linear;
 }
 
 
@@ -294,14 +317,20 @@ margin-bottom: 50px;
 
 .mainbackground{
 	margin-top: 25px;
-background-image: radial-gradient(black, transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=fb6232e7d7d8d0864345ea41c5205c88&oe=5918529A");
+background-image: radial-gradient(black, transparent), url("http://www.insidedogsworld.com/wp-content/uploads/2016/09/dog-pack-2-1000x600.jpg");
 background-size: cover;
+background-attachment: fixed;
 color: white;
 line-height: 70%;
 margin-left: 0%;
 margin-right: 0%;
-padding:50px;
+padding:100px;
 box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
 
 }
 
@@ -340,6 +369,21 @@ font-family: 'Lato', sans-serif;
   margin: 0 auto;
   width: 100%;
   background-color: #E1EFE8;
+background-image: linear-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);
+background-size: cover;
+background-attachment: fixed;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:50px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+
 }
 
 
@@ -376,4 +420,81 @@ a.divLink {
     /*workaround to make clickable in IE */
     filter: alpha(opacity=0);
     /*workaround to make clickable in IE */
+}
+
+/* Rotate all even images 2 degrees */
+.dogcard:nth-child(even) {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+ 
+/* Don't rotate every third image, but offset its position */
+.dogcard:nth-child(3n) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  position: relative;
+  top: -5px;
+}
+ 
+/* Rotate every fifth image by 5 degrees and offset it */
+.dogcard:nth-child(5n) {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  position: relative;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eighth, but offset it */
+.dogcard:nth-child(8n) {
+  position: relative;
+  top: 8px;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eleventh, but offset it */
+.dogcard:nth-child(11n) {
+  position: relative;
+  top: 3px;
+  left: -5px;
+}
+
+.dogcard a {
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+}
+
+.dogcard:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .mainbackground {
+        background-attachment: scroll;
+    }
+}
+
+
+
+.trans{
+background-image: radial-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);
+background-size: cover;
+background-attachment: fixed;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:50px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px; 
+
 }

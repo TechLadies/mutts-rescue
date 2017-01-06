@@ -14,16 +14,18 @@
 
 
 
-  <div class="container-fluid homepage">
 
 
 
 
-<div class="row">
+
+<div class="row container-fluid trans">
   <%= render partial: "featureddog", locals: {dog: @featured_dog}  %>
 </div>
+</div>
 
-  <div class="container-fluid text-center section-creamwhite">
+</div>
+  <div class="row container-fluid text-center section-creamwhite">
   <h2 class="headline" > Dogs for Adoption </h2>
           <h2 class="name"> <%=Dog.for_adoption.count%> lovely dogs are looking for a home. </h2>
           <h2 class="name">Can you help them? </h2>
