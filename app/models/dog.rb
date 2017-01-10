@@ -11,6 +11,9 @@ class Dog < ApplicationRecord
   #validate date of birth
   validates :born_on, presence: true
 
+  #validate quote
+  validates :quote, length: { maximum: 144 }
+
   #validate adoption status
   validates :adoption_status, presence: true, inclusion: { in: %w(adopted looking\ for\ adoption),
                                                            message: "'%{value}' is not a valid status. Please enter 'adopted' or 'looking for adoption' " }

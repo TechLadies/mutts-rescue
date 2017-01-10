@@ -41,9 +41,14 @@
 
 
 
-	<p class="quote-row-content name">"
-		<%= dog.quote %>"
+
+	<p class="quote-row-content quote">
+
+	<strong>"</strong>
+		<%= dog.quote %>
+		<strong>"</strong>
 	</p>
+	
 	<p>
 		<%= link_to 'Get to Know Me', about_dog_path(dog.id), :class => "divLink" %>  
 	</p>

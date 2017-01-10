@@ -14,6 +14,8 @@
   </head>
 
   <body>
+
+  <div class="container padding-navbar">
     <br><br>
 
     <%= form_for [:admin, @dog] do |f| %>
@@ -299,6 +301,24 @@
                 <div class="form-group">
                   <label for="background_story" class="col-sm-12">(e.g. how and where it was found, the state when it was found)</label>
                   <div class="col-sm-12">
+                    <%= f.text_area :background_story, cols:175, rows:5 %> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End of Background story section -->
+
+          <hr style="width: 100%; color: #006633; height: 1px; background-color: #006633">
+
+          <div class="container">
+            <h2><span><strong>Quote</strong></span>
+              <button class="btn btn-success pull-right" type="submit" data-confirm="Are you sure you want to make this change?">   Save   </button>
+            </h2>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="Quote" class="col-sm-12">(e.g. Tagline for adoption page)</label>
+                  <div class="col-sm-12">
                     <%= f.text_area :quote, cols:175, rows:5 %> 
                   </div>
                 </div>
@@ -360,6 +380,8 @@
             <script type="text/javascript">
               $(function() { $("#born_on").datepicker({format: 'yyyy/mm/dd'}); });
               </script>
+
+        </div>      
         </body>
 
       </html>

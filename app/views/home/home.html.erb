@@ -2,22 +2,36 @@
 <body>
 
 <div class="container-fluid text-center mainbackground">
-<div class="headline"> M u t t s   R e s c u e 
+<img class="mainlogo" src = "/MR_Logoround.png" alt=" Mutts-Rescue Logo" />
+<h3 class="name"> SAVING ONE LIFE AT A TIME
+
+</h3>
+<p class="landingfont">  MUTTS </p>
+<p class="landingfont">  RESCUE </p>
+
+<div class="row">
+    <div class="col-md-12"> 
+    <div class="col-md-3"></div>
+
+<div class="col-md-6">
+<p class="name blocktext">We are a group of animal lovers who came together as a team to support local animal welfare in Singapore.
+We rescue strays and animals that are abused, neglected or abandoned. We strongly feel that all animals should be treated with love and respect.</p>
 </div>
-<img class="mainlogo" src = "/MR_Logoround.png" alt=" Mutts-Rescue Logo" /> 
-<div class="headline"> Saving one life at a time
 </div>
-<p class="name"> We are a non-profit organisation that cares for unwanted dogs. We save dogs which are neglected, abandoned or stray and help them find loving homes. </p>
+</div>
 </div>
 
 
 
 
 
+<div class="row container-fluid text-center section-creamwhite">
 
+<h2 class="headline" style="font-size: 54px"> #DOTD (Dog Of The Day) </h2>
 
+       
 
-
+        </div>
 
 <div class="row container-fluid trans">
   <%= render partial: "featureddog", locals: {dog: @featured_dog}  %>
@@ -26,9 +40,8 @@
 
 </div>
   <div class="row container-fluid text-center section-creamwhite">
-  <h2 class="headline" > Dogs for Adoption </h2>
-          <h2 class="name"> <%=Dog.for_adoption.count%> lovely dogs are looking for a home. </h2>
-          <h2 class="name">Can you help them? </h2>
+  <h2 class="headline" style="font-size: 54px"> Dogs for Adoption </h2>
+          <p class="name blocktext" > These <%=Dog.for_adoption.count%> lovely dogs are looking for a forever home. Can you help them? </p>
         </div>
       </div>
 

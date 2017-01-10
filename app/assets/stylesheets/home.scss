@@ -11,20 +11,20 @@ border-radius: 0;
 /* Add a gray background color and some padding to the footer */
 footer {
 
-background-image: linear-gradient(to right, black,  transparent), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-image: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)  ), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
 background-size: cover;
-background-position: 10%;
+background-position: 0%;
 height: 250px;
 color: white;
 text-align: left;
 line-height: 70%;
 box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
-padding: 15px;
+padding: 10px;
 
 
 p{
 	margin: 15px;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 
 }
 }
@@ -33,7 +33,7 @@ p{
 .carousel-inner img {
 width: 100%; /* Set width to 100% */
 margin: auto;
-max-height:600px;
+height:500px;
 object-fit:cover; 
 }
 
@@ -304,23 +304,25 @@ transform: scale(.5, .5);
 
 .mainlogo{
 text-align:center;
-	height:300px;
+	height:150px;
 	display: block;
 margin-left: auto;
 margin-right: auto;
-margin-top: 50px;
-margin-bottom: 50px;
+margin-top: 0px;
+margin-bottom: 0px;
 	
 	
 
 }
 
+/*"http://www.insidedogsworld.com/wp-content/uploads/2016/09/dog-pack-2-1000x600.jpg" */
+
 .mainbackground{
 	margin-top: 25px;
-background-image: radial-gradient(black, transparent), url("http://www.insidedogsworld.com/wp-content/uploads/2016/09/dog-pack-2-1000x600.jpg");
+background-image: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
 background-size: cover;
 background-attachment: fixed;
-color: white;
+color: black;
 line-height: 70%;
 margin-left: 0%;
 margin-right: 0%;
@@ -341,7 +343,7 @@ background-attachment: fixed;
 
 
 .name{
-	font-family: 'Lato', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 }
 
 .headline{
@@ -351,15 +353,22 @@ background-attachment: fixed;
 }
 
 .plaintext{
-font-family: 'Lato', sans-serif;
+font-family: 'Oxygen', sans-serif;
 }
+
+.quote{
+font-family: 'Oxygen', sans-serif;
+font-style: italic;
+}
+
+
 
 
 
 .section-creamwhite{
   margin: 0 auto;
   width: 100%;
-  background-color: #BCD4B4;
+  background-color: white;
   padding: 15px;
   box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
 
@@ -368,8 +377,8 @@ font-family: 'Lato', sans-serif;
 .section-green{ 
   margin: 0 auto;
   width: 100%;
-  background-color: #E1EFE8;
-background-image: linear-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+  background-color: white;
+background-image: linear-gradient(180deg,rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
 );
 background-size: cover;
 background-attachment: fixed;
@@ -479,10 +488,12 @@ a.divLink {
     }
 }
 
-
+/* background-image: radial-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);  */
 
 .trans{
-background-image: radial-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+
+background-image: linear-gradient(180deg, rgba(255,255,255, .5), rgba(255,255,255, .5)),url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
 );
 background-size: cover;
 background-attachment: fixed;
@@ -498,3 +509,59 @@ background-attachment: fixed;
     height: 800px; 
 
 }
+
+.landingfont{
+	font-size: 84px;
+	font-family: 'Oxygen', sans-serif;
+	display: block;
+	line-height: 0.70em;
+	font-weight: bold;
+}
+
+.polaroid {
+margin: 0px;
+height: 700px;
+}
+
+.polaroid-content {
+	margin: 10px;
+border: 1px solid #eee;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+
+}
+
+
+.polaroid-image {
+height: 500px;
+width: 100%;
+object-fit: cover;
+
+}
+
+.aboutdog{
+	margin-top: 25px;
+background-image: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+background-attachment: fixed;
+color: white;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:100px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+
+}
+
+.blocktext{
+	line-height: 1.8em;
+}
+
