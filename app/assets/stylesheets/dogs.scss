@@ -4,11 +4,7 @@
 h1 {
   text-align: left;
   font-weight: bold;
-  padding: 5px 5px 5px 15px;
   font-size: 24px;
-  margin: -7px;
-  margin-bottom: 0;
-  background-color: #fff;
   color: #006633;
 }
 
@@ -44,4 +40,17 @@ min-height: 60px;
 
 .imageheight400{
   height:400px;
+}
+
+
+.trix-content{
+  h1 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 24px;
+
+  margin-bottom: 0;
+  color: #006633;
+}
+
 }

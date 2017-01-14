@@ -14,17 +14,14 @@ footer {
 background-image: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)  ), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
 background-size: cover;
 background-position: 0%;
-height: 250px;
 color: white;
 text-align: left;
-line-height: 70%;
 box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
-padding: 10px;
-
+padding-bottom: 50px;
 
 p{
-	margin: 15px;
-	font-family: 'Oxygen', sans-serif;
+
+	font-family: 'Source Sans Pro', sans-serif;
 
 }
 }
@@ -136,11 +133,12 @@ padding: 15px;
 }
 
 .dogcard-content:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
   position: relative;
   z-index: 5;
   -webkit-transition: -webkit-transform .15s linear;
+
 }
 
 
@@ -315,6 +313,20 @@ margin-bottom: 0px;
 
 }
 
+
+.staticlogo{
+text-align:left;
+  height:150px;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+margin-bottom: 0px;
+  
+  
+
+}
+
 /*"http://www.insidedogsworld.com/wp-content/uploads/2016/09/dog-pack-2-1000x600.jpg" */
 
 .mainbackground{
@@ -326,7 +338,7 @@ color: black;
 line-height: 70%;
 margin-left: 0%;
 margin-right: 0%;
-padding:100px;
+padding:75px;
 box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
 background-attachment: fixed;
     background-position: center;
@@ -336,6 +348,22 @@ background-attachment: fixed;
 
 }
 
+.staticbackground{
+background-image: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+
+color: black;
+margin-left: 0%;
+margin-right: 0%;
+padding:25px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+
+
+}
 .container-full {
   margin: 0 auto;
   width: 100%;
@@ -353,11 +381,11 @@ background-attachment: fixed;
 }
 
 .plaintext{
-font-family: 'Oxygen', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
 }
 
 .quote{
-font-family: 'Oxygen', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
 font-style: italic;
 line-height: 0.8em;
 font-size: 14px;
@@ -365,15 +393,29 @@ font-size: 14px;
 }
 
 
+.header-static{
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+  line-height: 70%;
+  font-family: 'Permanent Marker', cursive;
+  padding-bottom: 15px;
 
+
+}
 
 
 .section-creamwhite{
   margin: 0 auto;
   width: 100%;
   background-color: white;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+  line-height: 70%;
+  padding-top:25px;
+  padding-top:25px;
 
 }
 
@@ -389,6 +431,7 @@ line-height: 70%;
 margin-left: 0%;
 margin-right: 0%;
 padding:50px;
+padding-top: 25px;
 box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
 background-attachment: fixed;
     background-position: center;
@@ -414,9 +457,28 @@ div.dogcard:hover {
     cursor: hand;
     cursor: pointer;
     opacity: .9;
+
 }
  
 a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    background-color: white;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+
+a.divLink p:hover{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -566,10 +628,46 @@ background-attachment: fixed;
 
 .blocktext{
 	line-height: 1.8em;
+  font-size: 1.2em;
 }
 
 
 .margin{
   margin-bottom: 50px;
 
+}
+
+.trix-content{
+  padding:50px;
+  padding-left: 10vh;
+  padding-right:10vh;
+  
+  font-size: 18px;
+  min-height: 100vh;
+
+  h1 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 24px;
+
+  margin-bottom: 0;
+  color: none;
+  padding: 0
+}
+li{
+    list-style-image: url('paws.gif');
+}
+
+
+div{
+line-height: 2.25em;
+}
+ul {
+    list-style-image: url('paws.gif');
+}
+
+}
+
+.margin{
+margin: 25px;
 }
