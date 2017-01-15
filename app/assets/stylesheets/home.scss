@@ -1,0 +1,575 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+margin-bottom: 0;
+border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+
+background-image: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)  ), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+background-position: 0%;
+height: 250px;
+color: white;
+text-align: left;
+line-height: 70%;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+padding: 10px;
+
+
+p{
+	margin: 15px;
+	font-family: 'Oxygen', sans-serif;
+
+}
+}
+ 
+
+.carousel-inner img {
+width: 100%; /* Set width to 100% */
+margin: auto;
+height:500px;
+object-fit:cover; 
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+.carousel-caption {
+display: none;
+}
+}
+
+
+.image-container {
+background-image: url('http://i.stack.imgur.com/GA6bB.png');
+background-size:cover;
+background-repeat:no-repeat;
+width:200px;
+height:200px;
+} 
+
+/* Add a dark gray background color to the modal header and center text */
+.modal-header, h4, .close {
+background-color: #333;
+color: #fff !important;
+text-align: center;
+font-size: 30px;
+}
+
+.modal-header, .modal-body {
+padding: 20px 20px;
+}
+
+.homebtn {
+border: black;
+
+}
+
+.padding {
+padding:20px;
+
+
+}
+
+
+.homepage > .row  {
+padding-bottom: 60px; 
+}
+
+.dogcard {
+margin: 0px;
+height: 600px;
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+
+
+
+
+.dogcard a {
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+}
+
+.dogcard a:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  position: relative;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+
+
+
+
+.dogcard-content {
+margin: 10px;
+border: 1px solid #eee;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+
+}
+
+.dogcard-content:nth-child(even) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+
+.dogcard-content:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 5;
+  -webkit-transition: -webkit-transform .15s linear;
+}
+
+
+.dogcard-image {
+height: 300px;
+width: 100%;
+object-fit: cover;
+}
+.img_dog {
+height: 200px;
+z-index: 1;
+
+}
+
+.hdblogo {
+height: 50px;
+vertical-align: top;
+z-index: 2;
+position:absolute;
+top: 5px;
+left: 5px;
+background-color: white;
+border-radius: 8px;
+
+}
+
+
+
+.quote-row-content {
+height: 30px;
+margin:5px;
+}
+
+
+.dogcard-btn{
+
+border: 1px solid #74A571;
+background: #74A571;
+font-size: 15px;
+font-style:  semibold;
+color: #FFFFFF;
+}
+
+
+}
+
+.dogcard-featured {
+margin: 0px;
+height: 700px;
+
+
+
+.dogcard-content {
+margin: 10px;
+border: 1px solid #eee;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+
+}
+
+.dogcard-content:nth-child(even) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+}
+
+.dogcard-content:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 5;
+}
+
+
+.dogcard-image {
+height: 400px;
+width: 100%;
+object-fit: cover;
+}
+.img_dog {
+height: 200px;
+z-index: 1;
+
+}
+
+.hdblogo {
+height: 50px;
+vertical-align: top;
+z-index: 2;
+position:absolute;
+top: 5px;
+left: 5px;
+background-color: white;
+border-radius: 8px;
+
+}
+
+
+
+.quote-row-content {
+height: 30px;
+margin:5px;
+}
+
+
+.dogcard-btn{
+
+border: 1px solid #74A571;
+background: #74A571;
+font-size: 15px;
+font-style:  semibold;
+color: #FFFFFF;
+}
+
+
+}
+
+.logo {
+height: 51px;
+}
+
+
+.hdblogo {
+height: 50px;
+}
+
+
+
+.img_featureddog {
+height: 500px;
+width: 100%;
+object-fit:cover; 
+}
+
+.img_aboutdog{
+height: 400px;
+width: 400px;
+object-fit:cover; 
+}
+
+
+.techladies{
+color:	#7A378B;
+}
+
+// testing:
+.retina .crop img {
+transform: scale(.5, .5);
+}
+
+.navbar-bottom-color
+{background-color: #BCD4B4;
+}
+
+.footerlogo{
+	height:25px;
+}
+
+
+.mainlogo{
+text-align:center;
+	height:150px;
+	display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+margin-bottom: 0px;
+	
+	
+
+}
+
+/*"http://www.insidedogsworld.com/wp-content/uploads/2016/09/dog-pack-2-1000x600.jpg" */
+
+.mainbackground{
+	margin-top: 25px;
+background-image: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+background-attachment: fixed;
+color: black;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:100px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; 
+
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.name{
+	font-family: 'Dosis', sans-serif;
+}
+
+.headline{
+	font-family: 'Permanent Marker', cursive;
+	font-size: 36px;
+
+}
+
+.plaintext{
+font-family: 'Oxygen', sans-serif;
+}
+
+.quote{
+font-family: 'Oxygen', sans-serif;
+font-style: italic;
+line-height: 0.8em;
+font-size: 14px;
+
+}
+
+
+
+
+
+.section-creamwhite{
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+
+}
+
+.section-green{ 
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+background-image: linear-gradient(180deg,rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);
+background-size: cover;
+background-attachment: fixed;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:50px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+
+}
+
+
+
+
+div.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #eee;
+    color: #000;
+    padding: 20px;    
+}
+ 
+div.dogcard:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+ 
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    background-color: white;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+
+/* Rotate all even images 2 degrees */
+.dogcard:nth-child(even) {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+ 
+/* Don't rotate every third image, but offset its position */
+.dogcard:nth-child(3n) {
+  -webkit-transform: none;
+  -moz-transform: none;
+  position: relative;
+  top: -5px;
+}
+ 
+/* Rotate every fifth image by 5 degrees and offset it */
+.dogcard:nth-child(5n) {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  position: relative;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eighth, but offset it */
+.dogcard:nth-child(8n) {
+  position: relative;
+  top: 8px;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eleventh, but offset it */
+.dogcard:nth-child(11n) {
+  position: relative;
+  top: 3px;
+  left: -5px;
+}
+
+.dogcard a {
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+}
+
+.dogcard:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  position: relative;
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .mainbackground {
+        background-attachment: scroll;
+    }
+}
+
+/* background-image: radial-gradient(black, transparent), url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);  */
+
+.trans{
+
+background-image: linear-gradient(180deg, rgba(255,255,255, .5), rgba(255,255,255, .5)),url("https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/14468473_564894940377573_1105452897919041921_o.jpg?oh=24537cf24c0ae0b2818719128541f737&oe=591D872A"
+);
+background-size: cover;
+background-attachment: fixed;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:50px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px; 
+
+}
+
+.landingfont{
+	font-size: 84px;
+	font-family: 'Dosis', sans-serif;
+	display: block;
+	line-height: 0.70em;
+	font-weight: bold;
+}
+
+.polaroid {
+margin: 0px;
+height: 700px;
+}
+
+.polaroid-content {
+	margin: 10px;
+border: 1px solid #eee;
+background-color: white;
+padding: 15px;
+-webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+
+}
+
+
+.polaroid-image {
+height: 500px;
+width: 100%;
+object-fit: cover;
+
+}
+
+.aboutdog{
+	margin-top: 25px;
+background-image: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15420857_598093753724358_8759740921449251239_n.jpg?oh=0735bf7a8f10e8f8fdaabf69707eeb5d&oe=58F0C59A");
+background-size: cover;
+background-attachment: fixed;
+color: white;
+line-height: 70%;
+margin-left: 0%;
+margin-right: 0%;
+padding:100px;
+box-shadow: 0 0 52px -7px rgba(0, 0, 0, .3);
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+
+}
+
+.blocktext{
+	line-height: 1.8em;
+}
+
+
+.margin{
+  margin-bottom: 50px;
+
+}
