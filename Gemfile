@@ -21,6 +21,8 @@ gem 'filepicker-rails'
 
 #use gem 'trix'
 gem 'trix'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'paperclip'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
