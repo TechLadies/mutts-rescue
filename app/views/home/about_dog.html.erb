@@ -105,18 +105,6 @@
       </div>
     </div>
 
-  <% unless @dog.background_story.blank? %>
-    <div class="container-fluid text-left">
-      <div class="row">
-        <div class="col-md-12">
-          <h3> <b>Background story </b> </h3>
-          <h5> <%=@dog.background_story %> </h5>
-        </div>
-      </div>
-    </div>
-    <% end %>
-
-
     <div class="container-fluid text-left">
       <div class="row">
         <div class="col-md-12">
@@ -178,14 +166,12 @@
 
 
 
-        
-
 
     <% unless @dog.background_story.blank? %>
     <div class="container-fluid text-left">
       <div class="row">
         <div class="col-md-12">
-          <h3> <b>Background story </b> </h3>
+          <h3> <b>BACKGROUND STORY </b> </h3>
           <h5> <%=@dog.background_story %> </h5>
         </div>
       </div>
@@ -195,7 +181,7 @@
 
 
 
-        
+        <% unless @dog.updates.blank? %>
 
         <div class="container-fluid text-left">
           <h3> <b> LATEST UPDATES </b> </h3>
@@ -204,6 +190,7 @@
       </div>
 
     </div>
+     <% end %>
 
 
 <div class="container-fluid text-center">
@@ -227,7 +214,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-center">
-          <a class="navbar-brand" href="#">Contact Jamie at 9123 4567 to adopt <b> <%=@dog.name %> </b> </a>
+          <a class="navbar-brand" href="#">Contact Jamie at 9457 5703 to adopt <b> <%=@dog.name %> </b> </a>
 
         </ul>
 
