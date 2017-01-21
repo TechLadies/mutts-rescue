@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 config.serve_static_assets = true
-config.assets.initialize_on_precompile = false
+
 
 module Muttsrescue
   class Application < Rails::Application
