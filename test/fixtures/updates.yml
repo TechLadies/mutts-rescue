@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dog_id: 1
+  date: 2016-10-12
+  image_url: MyString
+  text: MyText
+
+two:
+  dog_id: 1
+  date: 2016-10-12
+  image_url: MyString
+  text: MyText

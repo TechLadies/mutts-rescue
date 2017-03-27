@@ -1,0 +1,67 @@
+
+    <div class="transparent">
+      <div class="col-md-12">
+        <div class="container-fluid text-center">
+
+      </div>
+
+
+
+<% if @featured_dog %>
+      <div class="col-md-3 col-xs-3">
+      </div>
+
+<div class="col-xs-12 col-sm-6 col-md-6 text-center dogcard-featured">
+	<div class="dogcard-content">
+	
+	<div id="container" style="position:relative;">
+
+        <% if dog.photos.profile_photo.try(:imglink).present? %>
+        <%= image_tag(dog.try(:photos).profile_photo.try(:imglink), class: "dogcard-image" )  %>
+
+        <% elsif dog.photos.first.try(:imglink).present?%>
+
+		<%= image_tag(dog.try(:photos).first.try(:imglink), class: "dogcard-image" ) if dog.photos.first.present? %>
+
+		<% else %>
+
+
+
+
+		<div class="dogcard-image">
+		<p> Photo Coming Soon! <p>
+		</div>
+		<% end %>
+		
+		<% if dog.is_hdb_approved == "true" %>
+		<img class="hdblogo" src="https://upload.wikimedia.org/wikipedia/en/7/72/Housing_and_Development_Board_(logo).png"/>
+		<% else %>
+		<% end %>
+		
+		
+	</div>
+
+
+	<div>
+
+		<h3 class="headline"> 
+		<%= dog.name %>
+		
+		</h3> 	
+
+		<p class="name" style="margin:5px; text-transform: uppercase;"><%= dog.gender %> , <%= friendly_age(dog.born_on) %></p>
+	</div>
+
+
+
+	<p class="quote-row-content name">"
+		<%= dog.quote %>"
+	</p>
+	<p>
+		<%= link_to 'Get to Know Me', about_dog_path(dog.id), :class => "divLink" %>  
+	</p>
+
+</div>
+
+<% end %>
+</div>

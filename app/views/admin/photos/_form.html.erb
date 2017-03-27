@@ -1,0 +1,24 @@
+<%= form_for([:admin, photo.dog, photo]) do |f| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imglink, 'Upload Image:' %>
+         <%= f.filepicker_field :imglink, dragdrop: true, multiple: true %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

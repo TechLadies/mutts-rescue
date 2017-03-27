@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  born_on: 2016-09-24
+  chip_number: MyString
+  license_number: MyString
+  is_hdb_approved: false
+  color_markings: MyString
+  adoption_status: MyString
+  background_story: MyText
+  is_good_with_other_dogs: false
+  is_good_with_kids: false
+  energy_level: MyString
+  notes_temperament: MyText
+  is_vaccinated: false
+  is_sterilized: false
+  notes_health: MyText
+  quote: MyText
+
+two:
+  name: MyString
+  gender: MyString
+  born_on: 2016-09-24
+  chip_number: MyString
+  license_number: MyString
+  is_hdb_approved: false
+  color_markings: MyString
+  adoption_status: MyString
+  background_story: MyText
+  is_good_with_other_dogs: false
+  is_good_with_kids: false
+  energy_level: MyString
+  notes_temperament: MyText
+  is_vaccinated: false
+  is_sterilized: false
+  notes_health: MyText
+  quote: MyText
