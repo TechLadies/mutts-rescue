@@ -19,8 +19,9 @@ gem 'devise'
 #use gem 'filepicker-rails'
 gem 'filepicker-rails'
 
-#use gem 'trix'
-gem 'trix'
+#use gem 'ckeditor' and 'paperclip'
+gem 'ckeditor'
+gem 'paperclip'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
