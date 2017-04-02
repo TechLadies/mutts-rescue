@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116125634) do
+ActiveRecord::Schema.define(version: 20170108204614) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string   "name"
@@ -32,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161116125634) do
     t.text     "quote"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.boolean  "is_featured",                default: false
+    t.boolean  "is_featured"
     t.string   "image_url"
     t.integer  "location_id"
     t.boolean  "is_good_for_elderly_owners"
@@ -44,6 +57,15 @@ ActiveRecord::Schema.define(version: 20161116125634) do
     t.string   "location_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "mercury_images", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: :cascade do |t|
