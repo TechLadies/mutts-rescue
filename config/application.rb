@@ -13,9 +13,6 @@ module Muttsrescue
     # -- all .rb files in that directory are automatically loaded.
 
 	config.filepicker_rails.api_key = 'A1GcHBuJ1ShiWz50qmhpJz'
-	config.assets.precompile += Ckeditor.assets
-	config.assets.precompile += %w( ckeditor/* )
-	config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
   end
 end
