@@ -12,8 +12,8 @@
 //
 //= require jquery2
 //= require jquery_ujs
-//= require ckeditor/init
 //= require_tree .
+//= require ckeditor/init
 //= require bootstrap-datepicker
 $(function() {
 	// Let me click the whole row to go to a dog on the admin dogs index table
