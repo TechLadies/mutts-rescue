@@ -20,7 +20,7 @@ gem 'devise'
 gem 'filepicker-rails'
 
 #use gem 'ckeditor' and 'paperclip'
-gem 'ckeditor', '~> 4.1'
+gem 'ckeditor'
 gem 'paperclip'
 
 # Use jquery as the JavaScript library
