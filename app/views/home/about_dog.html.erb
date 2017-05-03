@@ -49,6 +49,7 @@
                     </div>
                   </div>
                 <% end %>
+                
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -134,7 +135,7 @@
               <% end %>      
             </div>
     
-     
+     </div>
     
 
   <div class="container-fluid text-left">
@@ -166,7 +167,6 @@
 
 
 
-
     <% unless @dog.background_story.blank? %>
     <div class="container-fluid text-left">
       <div class="row">
@@ -192,14 +192,18 @@
     </div>
      <% end %>
 
+</div>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center backbutton">
     <p class="headline"> Would you take me home? </p>
+
+    <%= link_to 'BACK', '/', class: 'btn btn-success backbutton' %>
   </div>
 
-  <div class="container-fluid text-center">
-    <%= link_to 'BACK', '/', class: 'btn btn-default' %>
-  </div>
+</div>
+</div>
+
+
   </div>
   </div>
 

@@ -28,6 +28,7 @@ class Dog < ApplicationRecord
   scope :hdb_approved, -> {where(is_hdb_approved: "true")}
   scope :not_hdb_approved, -> {where(is_hdb_approved: "false")}
   scope :maybe_hdb_approved, -> {where(is_hdb_approved: "maybe")}
+  scope :not_featured, -> {where(is_featured: false) }
 
  
 
